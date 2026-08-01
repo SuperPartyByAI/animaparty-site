@@ -1,0 +1,58 @@
+---
+import { pricingGroups } from '../data/pricing';
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+}
+
+const { 
+  title = "Prețuri pachete animatori petreceri copii", 
+  subtitle = "Pachetele sunt afișate clar, ca să poți compara durata, numărul de animatori și activitățile incluse. Pentru grupuri restrânse poate fi suficient un singur personaj animator. Pentru grupuri mai mari, spații deschise sau petreceri cu mai multe momente, recomandăm două personaje animatoare." 
+} = Astro.props;
+---
+<section class="py-16 bg-white" id="pachete" style="padding: 80px 0;">
+  <div class="container mx-auto" style="max-width: 1200px;">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-primary mb-4" style="font-family: 'Playfair Display', serif; font-size: 2.25rem;">{title}</h2>
+      <p class="text-lg text-secondary max-w-3xl mx-auto" style="line-height: 1.6;">{subtitle}</p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
+      {pricingGroups.map((group) => (
+        <div class={`pricing-card relative flex flex-col p-8 rounded-2xl border ${group.highlighted ? 'border-accent shadow-xl ring-2 ring-accent ring-opacity-50' : 'border-gray-200 shadow-md'}`} style={`background: #fff; border-radius: 16px; padding: 32px; ${group.highlighted ? 'border: 2px solid var(--accent); transform: scale(1.02);' : 'border: 1px solid var(--border-subtle);'}`}>
+          {group.highlighted && (
+            <div class="absolute top-0 right-6 transform -translate-y-1/2">
+              <span class="bg-accent text-white px-4 py-1 rounded-full text-sm font-bold shadow-sm" style="background: var(--accent); color: #fff; padding: 4px 16px; border-radius: 20px; font-size: 0.875rem;">Recomandat</span>
+            </div>
+          )}
+          
+          <div class="mb-6">
+            <h3 class="text-2xl font-bold text-primary mb-2" style="font-size: 1.5rem;">{group.title}</h3>
+            <div class="flex items-baseline gap-2 mb-2">
+              <span class="text-4xl font-extrabold text-primary" style="font-size: 2.5rem; color: var(--accent);">{group.tiers[0].price}</span>
+              <span class="text-lg text-secondary font-medium">RON / oră</span>
+            </div>
+            <p class="text-secondary text-sm" style="line-height: 1.5;">{group.ideal}</p>
+          </div>
+
+          <div class="space-y-4 mb-8 flex-grow" style="margin-top: 24px; margin-bottom: 32px;">
+            {group.features.map((feature) => (
+              <div class="flex items-start" style="display: flex; gap: 12px; margin-bottom: 12px;">
+                <svg class="w-5 h-5 text-accent mt-0.5 shrink-0" style="width: 20px; height: 20px; color: var(--accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <span class="text-secondary text-sm" style="line-height: 1.4;">{feature}</span>
+              </div>
+            ))}
+          </div>
+
+          <a href={`https://wa.me/40792864811?text=Buna%20ziua!%20As%20dori%20mai%20multe%20detalii%20despre%20pachetul%20${group.title.replace(/\s+/g, '%20')}`} 
+             class={`btn w-full text-center py-3 rounded-xl font-bold transition-all ${group.ctaVariant === 'primary' ? 'btn-primary' : 'btn-outline'}`}
+             target="_blank" rel="noopener noreferrer"
+             style={`display: block; text-align: center; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: 600; ${group.ctaVariant === 'primary' ? 'background: var(--accent); color: #fff;' : 'border: 2px solid var(--accent); color: var(--accent);'}`}>
+            Alege pachetul
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

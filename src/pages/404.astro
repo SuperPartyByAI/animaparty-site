@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Pagina nu a fost găsită - Anima Party"
+  description="Ne pare rău, pagina pe care o cauți nu există."
+  noindex={true}
+>
+  <main class="error-page">
+    <div class="container error-container">
+      <h1>404</h1>
+      <h2>Pagina nu a fost găsită</h2>
+      <p>Ne pare rău, dar URL-ul pe care îl cauți nu există pe acest site.</p>
+      <a href="/" class="btn btn-primary">Înapoi la Homepage</a>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .error-page {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 20px;
+    background-color: var(--bg-primary);
+  }
+  .error-container h1 {
+    font-size: 6rem;
+    color: var(--accent-gold);
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+  }
+  .error-container h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  .error-container p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+  }
+</style>

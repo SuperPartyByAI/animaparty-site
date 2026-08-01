@@ -1,0 +1,112 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import EeatStats from '../components/EeatStats.astro';
+import Includes from '../components/Includes.astro';
+import Occasions from '../components/Occasions.astro';
+import Characters from '../components/Characters.astro';
+import Packages from '../components/Packages.astro';
+import HowToChoose from '../components/HowToChoose.astro';
+import Extras from '../components/Extras.astro';
+import Coverage from '../components/Coverage.astro';
+import WhyUs from '../components/WhyUs.astro';
+import Gallery from '../components/Gallery.astro';
+import FAQ from '../components/FAQ.astro';
+import Contact from '../components/Contact.astro';
+import SeoFooter from '../components/SeoFooter.astro';
+import StickyBottomCta from '../components/StickyBottomCta.astro';
+
+import { faqHome } from '../data/faqHome';
+import { pricingTiers } from '../data/pricing';
+
+const faqSchema = faqHome.map(faq => ({
+  "@type": "Question",
+  "name": faq.question,
+  "acceptedAnswer": {
+    "@type": "Answer",
+    "text": faq.answer
+  }
+}));
+
+const offersSchema = pricingTiers.map((pkg) => ({
+  "@type": "Offer",
+  "itemOffered": {
+    "@type": "Service",
+    "name": pkg.offerName
+  },
+  "price": pkg.price,
+  "priceCurrency": "RON",
+  "description": pkg.description
+}));
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://animaparty.ro/#webpage",
+      "url": "https://animaparty.ro/",
+      "name": "Animatori Petreceri Copii în București și Ilfov | AnimaParty",
+      "description": "Organizezi o petrecere pentru copii și vrei un program ușor de rezervat? AnimaParty trimite animatori la evenimente în București și Ilfov cu personaje tematice.",
+      "inLanguage": "ro-RO",
+      "isPartOf": { "@id": "https://animaparty.ro/#website" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://animaparty.ro/"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "name": "Animatori petreceri copii în București și Ilfov",
+      "provider": {
+        "@type": "EntertainmentBusiness",
+        "name": "AnimaParty",
+        "url": "https://animaparty.ro/"
+      },
+      "areaServed": ["București", "Ilfov"],
+      "description": "AnimaParty trimite animatori la evenimente în București, Ilfov și împrejurimi, cu personaje tematice, jocuri interactive, baloane modelabile, momentul tortului și pachete afișate clar.",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Pachete animatori petreceri copii",
+        "itemListElement": offersSchema
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqSchema
+    }
+  ]
+});
+---
+
+<Layout 
+  title="Animatori Petreceri Copii București și Ilfov - AnimaParty"
+  description="Animatori profesioniști pentru petreceri de copii în București și Ilfov. Pachete cu personaje tematice, jocuri, baloane. Vezi prețuri și rezervă!"
+  canonical="https://animaparty.ro/"
+  schema={schema}
+>
+  <main>
+    <Hero />
+    <EeatStats />
+    <Includes />
+    <Occasions />
+    <Characters />
+    <Packages />
+    <HowToChoose />
+    <Extras />
+    <Coverage />
+    <WhyUs />
+    <Gallery />
+    <FAQ />
+    <Contact />
+    <SeoFooter />
+    <StickyBottomCta />
+  </main>
+</Layout>

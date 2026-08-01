@@ -1,0 +1,164 @@
+---
+---
+<section class="comparison-section section-padding">
+  <div class="container">
+    <div class="comparison-header">
+      <h2 class="section-title">1 Animator vs 2 Animatori?</h2>
+      <p class="section-subtitle">Alege varianta optimă pentru numărul de invitați.</p>
+    </div>
+    
+    <div class="comparison-grid">
+      <div class="premium-card comparison-card">
+        <div class="card-icon">
+          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </div>
+        <h3 class="comparison-title">1 Animator</h3>
+        <div class="guest-count">Până la 12-15 copii</div>
+        <ul class="comparison-list">
+          <li>
+            <svg class="icon-svg check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Jocuri și competiții interactive
+          </li>
+          <li>
+            <svg class="icon-svg check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Timp suficient pentru pictură pe față
+          </li>
+          <li>
+            <svg class="icon-svg check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Fiecare copil primește baloane
+          </li>
+        </ul>
+      </div>
+
+      <div class="premium-card comparison-card card-highlight">
+        <div class="card-icon">
+          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        </div>
+        <h3 class="comparison-title">2 Animatori</h3>
+        <div class="guest-count highlight-text">Peste 15 copii</div>
+        <ul class="comparison-list">
+          <li>
+            <svg class="icon-svg check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Jocuri pe echipe (competiții mari)
+          </li>
+          <li>
+            <svg class="icon-svg check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Pictură pe față rapidă în paralel
+          </li>
+          <li>
+            <svg class="icon-svg check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Copiii nu se plictisesc așteptând
+          </li>
+          <li>
+            <svg class="icon-svg check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Atmosferă dublă de distracție
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .comparison-section {
+    background-color: var(--bg-white);
+  }
+
+  .comparison-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .comparison-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-highlight {
+    border-color: var(--primary-cta);
+    box-shadow: 0 10px 30px rgba(240, 90, 95, 0.05);
+  }
+
+  .card-icon {
+    width: 64px;
+    height: 64px;
+    background-color: var(--bg-alt);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+  
+  .card-highlight .card-icon {
+    background-color: rgba(240, 90, 95, 0.1);
+    color: var(--primary-cta);
+  }
+
+  .card-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .comparison-title {
+    font-size: 1.75rem;
+    margin-bottom: 8px;
+    color: var(--text-main);
+  }
+
+  .guest-count {
+    display: inline-block;
+    padding: 6px 16px;
+    background-color: var(--bg-alt);
+    color: var(--text-muted);
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 32px;
+  }
+
+  .highlight-text {
+    background-color: var(--primary-cta);
+    color: var(--bg-white);
+  }
+
+  .comparison-list {
+    list-style: none;
+    text-align: left;
+    width: 100%;
+  }
+
+  .comparison-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+    color: var(--text-main);
+    font-size: 1rem;
+  }
+
+  .check {
+    width: 20px;
+    height: 20px;
+    color: var(--accent-secondary);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  @media (max-width: 768px) {
+    .comparison-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,85 @@
+---
+const services = [
+  {
+    title: "Animatori Supereroi & Prințese",
+    desc: "Personajele preferate ale copiilor prind viață! Jocuri interactive, dans și voie bună.",
+    image: "/service-princess.png"
+  },
+  {
+    title: "Face Painting Magic",
+    desc: "Transformăm copiii în personaje de poveste cu sesiuni creative de pictură pe față, adaptate preferințelor.",
+    image: "/service-face-painting.png"
+  },
+  {
+    title: "Modelaj Baloane",
+    desc: "Săbii, căței, flori și inimioare din baloane colorate, realizate rapid și cu talent.",
+    image: "/service-balloon.png"
+  },
+  {
+    title: "Jocuri & Concursuri",
+    desc: "Activități dinamice adaptate vârstei copiilor, potrivite pentru a consuma energia într-un mod distractiv.",
+    image: "/service-games.png"
+  }
+];
+---
+
+<section id="servicii" class="services">
+  <div class="container">
+    <div class="section-header text-center">
+      <h2>Serviciile Noastre</h2>
+      <p>Tot ce ai nevoie pentru o petrecere completă și fără griji!</p>
+    </div>
+    
+    <div class="services-grid">
+      {services.map(service => (
+        <div class="service-card glass-card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+          <img src={service.image} alt={service.title} loading="lazy" style="width: 100%; height: 200px; object-fit: cover; border-bottom: 2px solid var(--accent);" />
+          <div style="padding: 20px;">
+            <h3>{service.title}</h3>
+            <p>{service.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services {
+    padding: 100px 0;
+    background-color: var(--background);
+  }
+  
+  .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  
+  .section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+    gap: 30px;
+  }
+  
+  .service-card {
+    text-align: center;
+    background: #fff; /* fallback */
+    border: 1px solid rgba(8, 126, 139, 0.1);
+  }
+  
+  .icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  .service-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    color: var(--primary);
+  }
+</style>
