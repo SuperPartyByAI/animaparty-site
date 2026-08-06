@@ -31,8 +31,8 @@ export const pricingGroups: PricingGroup[] = [
       "Ateliere de creație cu baloane",
       "Sistem audio profesional",
       "Asistență la tort",
-      "Moment special Balloon Exploder (la pachetele de 2h/3h)",
-      "Pariul distracției cu Piñata (la pachetul de 3h)"
+      "Moment special Balloon Exploder (opțional, la cerere)",
+      "Pariul distracției cu Piñata (opțional, la cerere)"
     ],
     tiers: [
       {
@@ -72,7 +72,7 @@ export const pricingGroups: PricingGroup[] = [
       "Dinamism ridicat în spații mari",
       "Jocuri interactive și ateliere de baloane",
       "Sistem audio profesional și asistență tort",
-      "Balloon Exploder și Piñata (la pachetele extinse)"
+      "Balloon Exploder și Piñata (opționale, la cerere)"
     ],
     tiers: [
       {

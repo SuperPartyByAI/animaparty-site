@@ -17,7 +17,7 @@ export const faqBucuresti = [
   },
   {
     question: "Când sunt recomandați 2 animatori?",
-    answer: "Dacă aveți peste 15 copii invitați, prezența a 2 animatori este ideală pentru a capta atenția întregului grup și a asigura buna desfășurare a programului."
+    answer: "Dacă aveți peste 12 copii invitați, prezența a 2 animatori este ideală pentru a capta atenția întregului grup și a asigura buna desfășurare a programului."
   },
   {
     question: "Se poate organiza petrecerea acasă sau în apartament?",
