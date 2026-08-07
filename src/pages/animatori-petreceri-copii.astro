@@ -1,3 +1,46 @@
 ---
-return Astro.redirect('/', 301);
+import Layout from '../layouts/Layout.astro';
+import SeoFooter from '../components/SeoFooter.astro';
 ---
+
+<Layout 
+  title="Cum alegi animatorii pentru o petrecere de copii - Ghid Complet"
+  description="Ghid complet despre alegerea animatorilor pentru petreceri de copii. Află câte personaje sunt necesare, durata ideală și activitățile potrivite pe vârste."
+  canonical="https://animaparty.ro/animatori-petreceri-copii/"
+>
+  <main class="page-container overflow-hidden pt-32 pb-16 bg-gray-50" style="padding-top: 120px; padding-bottom: 60px;">
+    <div class="container mx-auto px-4 max-w-4xl" style="max-width: 800px; margin: 0 auto; padding: 0 20px;">
+      <article class="bg-white p-10 rounded-2xl shadow-sm border border-gray-100" style="background: white; padding: 40px; border-radius: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+        <h1 class="text-4xl font-bold text-primary mb-6" style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #1a1a1a; margin-bottom: 24px;">Cum alegi animatorii pentru o petrecere de copii?</h1>
+        <p class="text-xl text-secondary mb-8" style="color: #4a5568; font-size: 1.25rem; line-height: 1.6; margin-bottom: 32px;">Alegerea corectă a divertismentului garantează o petrecere de neuitat. Iată un ghid util pentru părinții care organizează o aniversare, serbare sau eveniment privat.</p>
+        
+        <h2 class="text-2xl font-bold text-accent mb-4 mt-8" style="font-size: 1.5rem; color: var(--accent); margin-top: 32px; margin-bottom: 16px;">1. De câți animatori ai nevoie?</h2>
+        <p class="text-secondary mb-4" style="color: #4a5568; line-height: 1.6; margin-bottom: 16px;">Numărul ideal de personaje depinde de grupul de copii. Recomandarea standard în domeniu este de <strong>un animator la cel mult 12 copii</strong>. Astfel, fiecare copil primește atenția necesară în timpul jocurilor și la pictura pe față. Pentru grupurile mai mari, se recomandă cel puțin doi animatori.</p>
+
+        <h2 class="text-2xl font-bold text-accent mb-4 mt-8" style="font-size: 1.5rem; color: var(--accent); margin-top: 32px; margin-bottom: 16px;">2. Care este durata optimă a programului?</h2>
+        <p class="text-secondary mb-4" style="color: #4a5568; line-height: 1.6; margin-bottom: 16px;">Pentru copiii foarte mici (1-3 ani), programele scurte de o oră sunt adesea suficiente. Pentru copiii de grădiniță și școlari, un pachet de 2 ore este echilibrat: permite timp pentru jocuri, concursuri, modelarea baloanelor și implicarea la momentul tortului.</p>
+        
+        <h2 class="text-2xl font-bold text-accent mb-4 mt-8" style="font-size: 1.5rem; color: var(--accent); margin-top: 32px; margin-bottom: 16px;">3. Adaptarea pe grupe de vârstă</h2>
+        <p class="text-secondary mb-4" style="color: #4a5568; line-height: 1.6; margin-bottom: 16px;">Băiețeii și fetițele au preferințe diferite în funcție de etapă:</p>
+        <ul style="list-style-type: disc; padding-left: 24px; color: #4a5568; line-height: 1.6; margin-bottom: 16px;">
+          <li><strong>2-4 ani:</strong> Preferă mascote mari din pluș și personaje prietenoase, muzică ușoară, dansuri simple.</li>
+          <li><strong>5-7 ani:</strong> Sunt atrași de supereroi, prințese și magie. Jocurile de echipă devin foarte captivante.</li>
+          <li><strong>Peste 8 ani:</strong> Necesită activități complexe, concursuri cu provocări și o atmosferă de tip petrecere cu DJ.</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-accent mb-4 mt-8" style="font-size: 1.5rem; color: var(--accent); margin-top: 32px; margin-bottom: 16px;">4. Indoor sau Outdoor?</h2>
+        <p class="text-secondary mb-4" style="color: #4a5568; line-height: 1.6; margin-bottom: 16px;">Spațiul dictează tipul activităților. În curte sau parcuri, se pot face ștafete, alergare, iar o boxă puternică este esențială. Într-un apartament mic, se va pune accent mai mare pe ateliere statice, povești, pictură pe față și baloane modelabile.</p>
+        
+        <div class="mt-10 p-6 bg-gray-50 rounded-xl" style="margin-top: 40px; padding: 24px; background: #f7fafc; border-radius: 12px; border: 1px solid #e2e8f0;">
+          <h3 class="text-lg font-bold mb-3" style="font-size: 1.125rem; font-weight: bold; margin-bottom: 12px;">Ești gata să organizezi o petrecere de vis?</h3>
+          <p class="text-sm text-gray-600 mb-4" style="font-size: 0.875rem; color: #718096; margin-bottom: 16px;">Descoperă pachetele noastre transparente pentru București și Ilfov și alege personajul perfect pentru copilul tău.</p>
+          <div style="display: flex; gap: 16px;">
+            <a href="/animatori-petreceri-copii-bucuresti/" class="btn btn-primary" style="background: var(--accent); color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold;">Către București</a>
+            <a href="/animatori-petreceri-copii-ilfov/" class="btn btn-outline" style="border: 2px solid var(--accent); color: var(--accent); padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold;">Către Ilfov</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </main>
+  <SeoFooter />
+</Layout>

@@ -31,7 +31,7 @@ const {
             <h3 class="text-2xl font-bold text-primary mb-2" style="font-size: 1.5rem;">{group.title}</h3>
             <div class="flex items-baseline gap-2 mb-2">
               <span class="text-4xl font-extrabold text-primary" style="font-size: 2.5rem; color: var(--accent);">{group.tiers.find(t => t.recommended)?.price || group.tiers[0].price} RON</span>
-              <span class="text-lg text-secondary font-medium">/ {group.tiers.find(t => t.recommended)?.duration || group.tiers[0].duration}</span>
+              <span class="text-lg text-secondary font-medium">/ pachet de {group.tiers.find(t => t.recommended)?.duration?.toLowerCase() || group.tiers[0].duration.toLowerCase()}</span>
             </div>
             <p class="text-secondary text-sm" style="line-height: 1.5;">{group.ideal}</p>
           </div>
