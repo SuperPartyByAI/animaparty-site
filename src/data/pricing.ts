@@ -63,7 +63,7 @@ export const pricingGroups: PricingGroup[] = [
   {
     id: "two-animators",
     title: "2 Personaje Animatoare",
-    ideal: "Potrivit pentru grupuri mai mari, peste 15 copii, spații deschise sau curți.",
+    ideal: "Potrivit pentru grupuri mai mari, peste 12 copii, spații deschise sau curți.",
     highlighted: true,
     ctaVariant: "primary",
     features: [
@@ -80,7 +80,7 @@ export const pricingGroups: PricingGroup[] = [
         duration: "1 Oră",
         price: 490,
         offerName: "Pachet 2 Animatori / 1 Oră",
-        description: "Potrivit pentru grupuri mai mari, spații deschise sau curți mari, peste 15 copii."
+        description: "Potrivit pentru grupuri mai mari, spații deschise sau curți mari, peste 12 copii."
       },
       {
         id: "two-animators-2h",
