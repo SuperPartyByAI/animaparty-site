@@ -1,7 +1,7 @@
 export const faqBucuresti = [
   {
     question: "Veniți în toate sectoarele din București?",
-    answer: "Da, echipa noastră se deplasează în orice locație din București, acoperind integral Sectoarele 1, 2, 3, 4, 5 și 6, pentru orice tip de petrecere de copii."
+    answer: "Da, echipa noastră se deplasează în orice locație din București, acoperind integral Sectoarele 1, 2, 3, 4, 5 și 6, pentru petreceri de copii."
   },
   {
     question: "Există taxă de transport în București?",

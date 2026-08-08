@@ -1,7 +1,7 @@
 export const faqIlfov = [
   {
     question: "Veniți în toate localitățile din Ilfov?",
-    answer: "Da, echipa noastră se deplasează în orice localitate din județul Ilfov (Otopeni, Voluntari, Popești-Leordeni, Bragadiru, etc.) pentru orice tip de petrecere de copii."
+    answer: "Da, echipa noastră se deplasează în majoritatea localităților din județul Ilfov (precum Otopeni, Voluntari, Popești-Leordeni, Bragadiru, Chiajna, etc.) pentru petreceri de copii."
   },
   {
     question: "Există taxă de transport în Ilfov?",
@@ -25,7 +25,7 @@ export const faqIlfov = [
   },
   {
     question: "Se poate organiza la restaurant sau terasă?",
-    answer: "Da, venim frecvent la restaurante și terase din Ilfov. Găsim mereu soluții pentru a organiza copiii fără a deranja ceilalți oaspeți."
+    answer: "Da, venim la restaurante și terase. Găsim mereu soluții pentru a organiza copiii fără a deranja ceilalți oaspeți."
   },
   {
     question: "Veniți la grădinițe și școli din Ilfov?",
