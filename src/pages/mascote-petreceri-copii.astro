@@ -1,0 +1,204 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SeoFooter from '../components/SeoFooter.astro';
+import { businessFacts } from '../data/business-facts';
+import { pricingTiers } from '../data/pricing';
+
+const mascotePricing = pricingTiers.find((t: any) => t.id === "mascota-1h");
+
+const mascoteFaq = [
+  {
+    question: "Cât durează prezența mascotei la petrecere?",
+    answer: "Durata prezenței mascotei este flexibilă, ideală pentru întâmpinarea invitaților sau momentul aducerii tortului."
+  },
+  {
+    question: "Mascota poate face jocuri și pictură pe față?",
+    answer: "Nu. Deoarece costumele de mascotă sunt voluminoase și au capul acoperit, interacțiunea este non-verbală. Mascota participă la dans, îmbrățișări și fotografii. Pentru activități, vă recomandăm să închiriați și un animator."
+  },
+  {
+    question: "Unde vă deplasați?",
+    answer: "Ne deplasăm la orice tip de locație (domiciliu, restaurant, loc de joacă) în toate cele 6 sectoare din București și în județul Ilfov."
+  }
+,
+  {
+    question: "Mascota vine singură sau însoțită?",
+    answer: "De obicei, mascota are nevoie de un coordonator (sau animator) care să o îndrume, având în vedere vizibilitatea redusă."
+  },
+  {
+    question: "Pot face poze cu mascota?",
+    answer: "Da, mascota participă cu bucurie la toate sesiunile foto alături de copii și părinți."
+  },
+  {
+    question: "Mascota poate sta afară, în aer liber?",
+    answer: "Da, dacă vremea permite (fără ploaie sau caniculă extremă), mascota poate participa la evenimente în aer liber."
+  },
+  {
+    question: "Copiii foarte mici se pot speria de mascotă?",
+    answer: "Uneori copiii foarte mici pot fi intimidați. Mascota are o abordare blândă și așteaptă ca cel mic să inițieze interacțiunea."
+  },
+  {
+    question: "Mascota vorbește?",
+    answer: "Nu, mascotele comunică strict non-verbal prin gesturi, dans și îmbrățișări."
+  },
+  {
+    question: "Când este momentul ideal să apară mascota?",
+    answer: "Recomandăm apariția mascotei la întâmpinarea invitaților sau exact la aducerea tortului."
+  },
+  {
+    question: "Mascota aduce ea însăși tortul?",
+    answer: "Da, cu sprijinul personalului locației sau al părinților, mascota poate acompania sau aduce tortul."
+  },
+  {
+    question: "Costumul este curat și igienizat?",
+    answer: "Absolut, toate costumele noastre sunt igienizate profesional după fiecare eveniment."
+  },
+  {
+    question: "Mascota participă la dans?",
+    answer: "Da, mascota iubește muzica și va dansa alături de copii pe melodiile preferate."
+  },
+  {
+    "question": "Se poate prelungi prezența mascotei?",
+    "answer": "Durata se stabilește în funcție de formatul petrecerii. Pentru programe mai lungi, configurația se stabilește înainte de rezervare."
+  },
+  {
+    question: "Pot alege orice personaj ca mascotă?",
+    answer: "Avem o selecție specifică de mascote (ex: Mickey, Minnie etc.). Vă rugăm să ne contactați pentru disponibilitate."
+  },
+  {
+    question: "Mascota are nevoie de un spațiu pentru schimb?",
+    answer: "Da, persoana care îmbracă mascota are nevoie de un spațiu privat și curat pentru a se pregăti."
+  }
+];
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "FAQPage",
+      "mainEntity": mascoteFaq.map((f) => ({
+        "@type": "Question",
+        "name": f.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.answer
+        }
+      }))
+    }
+  ]
+});
+---
+
+<Layout 
+  title="Închiriere Mascote Petreceri Copii București & Ilfov | AnimaParty"
+  description="Mascote tematice pentru petreceri de copii, evenimente și botezuri în București și Ilfov. Întâmpinarea invitaților și asistență la momentul tortului."
+ schema={schema}>
+  <main class="mascote-page">
+    
+    <!-- Breadcrumb -->
+    <nav class="container mx-auto px-4 py-4 text-sm text-secondary" style="margin-top: 16px;">
+      <ol class="flex space-x-2" style="display: flex; gap: 8px; list-style: none; padding: 0;">
+        <li><a href="/" class="hover:text-accent text-secondary" style="text-decoration: none; color: #4a5568;">Acasă</a></li>
+        <li>/</li>
+        <li class="font-bold text-primary" style="color: var(--primary);">Mascote</li>
+      </ol>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative bg-primary overflow-hidden" style="padding: 60px 0; background: var(--bg-primary);">
+      <div class="container mx-auto px-4 relative z-10 text-center">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6" style="font-family: 'Playfair Display', serif; font-size: 3rem; color: white;">
+          Închiriere Mascote pentru Petreceri Copii
+        </h1>
+        <p class="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-8" style="font-size: 1.25rem; color: rgba(255, 255, 255, 0.9);">
+          Prezență tematică la aducerea tortului și întâmpinarea invitaților în București și Ilfov.
+        </p>
+        <a href="https://wa.me/40792864811" class="btn btn-whatsapp" style="display: inline-block; padding: 16px 32px; background-color: #25D366; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 1.1rem;">
+          Verifică Disponibilitatea
+        </a>
+      </div>
+    </section>
+
+    <!-- Ce face o mascota? -->
+    <section class="py-16 bg-white" style="padding: 60px 0; background: white;">
+      <div class="container mx-auto px-4" style="max-width: 1000px;">
+        <h2 class="text-3xl font-bold text-primary mb-6 text-center" style="font-family: 'Playfair Display', serif; font-size: 2.25rem; margin-bottom: 24px;">
+          Rolul Mascotei la Petrecere
+        </h2>
+        
+        <div style="background: var(--bg-secondary); padding: 32px; border-radius: 12px; margin-bottom: 32px;">
+          <h3 class="font-bold text-xl mb-4" style="color: var(--accent); font-size: 1.25rem;">Opțiuni de interacțiune:</h3>
+          <ul class="space-y-4" style="color: var(--text-secondary); line-height: 1.6;">
+            <li style="display: flex; gap: 12px;"><span style="color: var(--accent-gold);">✓</span> <strong>Întâmpinarea invitaților (Welcome Guests):</strong> O primire tematică pentru cei mici.</li>
+            <li style="display: flex; gap: 12px;"><span style="color: var(--accent-gold);">✓</span> <strong>Momentul tortului:</strong> Mascota poate aduce tortul și poate participa la fotografiile de grup.</li>
+            <li style="display: flex; gap: 12px;"><span style="color: var(--accent-gold);">✓</span> <strong>Sesiuni Foto:</strong> Interacțiune prietenoasă, non-verbală.</li>
+          </ul>
+        </div>
+        
+        <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 16px; border-radius: 0 8px 8px 0;">
+          <strong style="color: #856404;">Notă importantă privind activitățile:</strong>
+          <p style="color: #856404; margin-top: 8px;">Deoarece costumele de mascotă sunt voluminoase și au capul acoperit, mascotele interacționează non-verbal (nu vorbesc, nu pictează pe față și nu modelează baloane). Pentru jocuri interactive și activități, vă recomandăm <a href="/animatori-petreceri-copii/" style="text-decoration: underline; font-weight: bold; color: #856404;">să alegeți un animator</a> în plus față de mascotă.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pret si logistica -->
+    <section class="py-16" style="padding: 60px 0; background: var(--bg-tertiary);">
+      <div class="container mx-auto px-4" style="max-width: 1000px;">
+        <h2 class="text-3xl font-bold text-primary mb-6 text-center" style="font-family: 'Playfair Display', serif; font-size: 2.25rem; margin-bottom: 32px;">
+          Tarif și Deplasare
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
+          <div style="background: white; padding: 32px; border-radius: 12px; border: 1px solid var(--border-subtle); text-align: center;">
+            <h3 class="font-bold text-2xl mb-2" style="color: var(--text-primary);">Preț la Cerere</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 24px;">Costul variază în funcție de personajul ales, durata prezenței și disponibilitate. Vă rugăm să ne contactați pentru o ofertă exactă.</p>
+            <a href="https://wa.me/40792864811" class="btn btn-outline" style="display: inline-block; padding: 12px 24px; border: 2px solid var(--accent); color: var(--accent); text-decoration: none; border-radius: 8px; font-weight: bold;">Rezervă Acum</a>
+          </div>
+          
+          <div style="display: flex; flex-direction: column; justify-content: center; gap: 24px;">
+            <div class="trust-card" style="padding: 24px; background: white; border-radius: 12px; border: 1px solid var(--border-subtle);">
+              <h4 class="font-bold mb-2" style="color: var(--text-primary);">📍 <a href="/animatori-petreceri-copii-bucuresti/" style="text-decoration: none; color: inherit;">București</a></h4>
+              <p style="color: var(--text-secondary);">{businessFacts.transportBucuresti} Participăm la evenimente la domiciliu, restaurante sau locuri de joacă.</p>
+            </div>
+            <div class="trust-card" style="padding: 24px; background: white; border-radius: 12px; border: 1px solid var(--border-subtle);">
+              <h4 class="font-bold mb-2" style="color: var(--text-primary);">📍 <a href="/animatori-petreceri-copii-ilfov/" style="text-decoration: none; color: inherit;">Ilfov</a></h4>
+              <p style="color: var(--text-secondary);">{businessFacts.transportIlfov}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16 bg-white" style="padding: 60px 0;">
+      <div class="container mx-auto px-4" style="max-width: 800px;">
+        <h2 class="text-3xl font-bold text-primary mb-8 text-center" style="font-family: 'Playfair Display', serif; font-size: 2.25rem;">Întrebări Frecvente</h2>
+        <div class="space-y-4" style="display: flex; flex-direction: column; gap: 16px;">
+          {mascoteFaq.map((item) => (
+            <div style="background: var(--bg-tertiary); padding: 24px; border-radius: 8px; border-left: 4px solid var(--accent);">
+              <h3 class="font-bold text-lg mb-2" style="color: var(--primary);">{item.question}</h3>
+              <p style="color: var(--text-secondary); line-height: 1.6;">{item.answer}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Galerie Mascote -->
+    <section class="py-16 bg-white" style="padding: 60px 0; background: white; border-top: 1px solid var(--border-subtle);">
+      <div class="container mx-auto px-4" style="max-width: 1000px; text-align: center;">
+        <h2 class="text-3xl font-bold text-primary mb-6" style="font-family: 'Playfair Display', serif; font-size: 2.25rem;">
+          Exemplu de Mascotă
+        </h2>
+        <div style="max-width: 400px; margin: 0 auto; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+          <img src="/kassia_mascot_fairy_1785557677258.jpg" alt="Mascota Zana pentru Petreceri Copii Bucuresti" style="width: 100%; height: auto; display: block;" />
+          <div style="background: var(--bg-secondary); padding: 12px; font-size: 0.9rem; color: var(--text-secondary);">
+            Fotografie cu titlu ilustrativ
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <SeoFooter />
+  </main>
+</Layout>

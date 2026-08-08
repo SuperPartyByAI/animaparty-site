@@ -1,0 +1,193 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SeoFooter from '../components/SeoFooter.astro';
+import { businessFacts } from '../data/business-facts';
+
+
+const decorFaq = [
+  {
+    "q": "Cât durează montajul?",
+    "a": "Timpul de montaj se stabilește în funcție de dimensiunea și complexitatea decorului. Detaliile privind accesul la spațiu se vor stabili înainte de eveniment."
+  },
+  {
+    "q": "Cât rezistă baloanele cu heliu?",
+    "a": "Durata de plutire poate varia în funcție de tipul balonului, tratament și condițiile de temperatură."
+  },
+  {
+    "q": "Cu cât timp înainte trebuie comandat decorul?",
+    "a": "Recomandăm plasarea comenzii cu timp pentru a ne asigura de disponibilitatea nuanțelor, pentru a asigura nuanțele dorite."
+  },
+  {
+    "q": "Veniti la locație să montați?",
+    "a": "Da, asigurăm montajul profesional direct la locația evenimentului."
+  },
+  {
+    "q": "Cât durează montajul unei arcade?",
+    "a": "Timpul de montaj se stabilește în funcție de dimensiunea și complexitatea decorului."
+  },
+  {
+    "q": "Baloanele cu heliu plutesc toată petrecerea?",
+    "a": "Da, baloanele pot fi tratate pentru prelungirea timpului de plutire."
+  },
+  {
+    "q": "Ce se întâmplă cu decorul la finalul petrecerii?",
+    "a": "Structurile închiriate (panouri, inele) se recuperează. Baloanele vă aparțin."
+  },
+  {
+    "q": "Folosiți baloane calitative?",
+    "a": "Folosim baloane calitative, adecvate pentru decoruri de evenimente."
+  },
+  {
+    "q": "Se pot personaliza culorile arcadei?",
+    "a": "Sigur, paleta cromatică se stabilește exact pe tematica petrecerii dumneavoastră."
+  },
+  {
+    "q": "Puteți adăuga nume sau mesaje pe decor?",
+    "a": "Da, panourile sau baloanele mari pot fi personalizate cu mesaje text."
+  },
+  {
+    "q": "Decorul poate sta afară în soare?",
+    "a": "Culorile pot oxida (deveni mate) în soare direct, iar heliul este sensibil la temperaturi extreme. Preferăm spații umbrite."
+  },
+  {
+    "q": "Dacă se sparge un balon în timpul montajului?",
+    "a": "Avem mereu baloane de rezervă, nu va afecta aspectul final al decorului."
+  },
+  {
+    "q": "Ce formă poate avea arcada?",
+    "a": "Realizăm arcade organice semirotunde, pe inel metalic sau ghirlande asimetrice."
+  },
+  {
+    "q": "Taxa de montaj este inclusă?",
+    "a": "Manopera și montajul se confirmă în oferta transmisă pentru configurația solicitată."
+  },
+  {
+    "q": "Oferiți și baloane personalizate?",
+    "a": "Da, putem personaliza baloane cu text sau imagini."
+  }
+];
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "FAQPage",
+      "mainEntity": decorFaq.map((f) => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+});
+---
+
+<Layout schema={schema} 
+  title="Decorațiuni Baloane București & Ilfov | Arcade și Heliu | AnimaParty"
+  description="Decorațiuni profesionale din baloane pentru petreceri de copii, botezuri și evenimente în București și Ilfov. Arcade organice, baloane cu heliu și panouri foto."
+ >
+  <main class="decoratiuni-page">
+    
+    <!-- Breadcrumb -->
+    <nav class="container mx-auto px-4 py-4 text-sm text-secondary" style="margin-top: 16px;">
+      <ol class="flex space-x-2" style="display: flex; gap: 8px; list-style: none; padding: 0;">
+        <li><a href="/" class="hover:text-accent text-secondary" style="text-decoration: none; color: #4a5568;">Acasă</a></li>
+        <li>/</li>
+        <li class="font-bold text-primary" style="color: var(--primary);">Decorațiuni Baloane</li>
+      </ol>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative bg-primary overflow-hidden" style="padding: 60px 0; background: var(--bg-primary);">
+      <div class="container mx-auto px-4 relative z-10 text-center">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6" style="font-family: 'Playfair Display', serif; font-size: 3rem; color: white;">
+          Decorațiuni din Baloane
+        </h1>
+        <p class="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-8" style="font-size: 1.25rem; color: rgba(255, 255, 255, 0.9);">
+          Arcade organice, aranjamente cu heliu și panouri foto pentru botezuri, aniversări și evenimente corporate în București și Ilfov.
+        </p>
+        <a href="https://wa.me/40792864811" class="btn btn-whatsapp" style="display: inline-block; padding: 16px 32px; background-color: #25D366; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 1.1rem;">
+          Cereți o Ofertă Personalizată
+        </a>
+      </div>
+    </section>
+
+    <!-- Tipuri de Decor -->
+    <section class="py-16 bg-white" style="padding: 60px 0; background: white;">
+      <div class="container mx-auto px-4" style="max-width: 1000px;">
+        <h2 class="text-3xl font-bold text-primary mb-6 text-center" style="font-family: 'Playfair Display', serif; font-size: 2.25rem; margin-bottom: 32px;">
+          Opțiuni de Decor Baloane
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+          <div style="background: var(--bg-secondary); padding: 24px; border-radius: 12px; border: 1px solid var(--border-subtle);">
+            <h3 class="font-bold text-xl mb-3" style="color: var(--accent); font-size: 1.25rem;">Arcade Organice</h3>
+            <p style="color: var(--text-secondary); line-height: 1.6; font-size: 0.95rem;">
+              Construite din baloane de dimensiuni variate pentru un aspect modern, asimetric. Ideale pentru intrări, prezidii sau delimitarea ringului de dans la botezuri și majorate.
+            </p>
+          </div>
+          
+          <div style="background: var(--bg-secondary); padding: 24px; border-radius: 12px; border: 1px solid var(--border-subtle);">
+            <h3 class="font-bold text-xl mb-3" style="color: var(--accent); font-size: 1.25rem;">Baloane cu Heliu</h3>
+            <p style="color: var(--text-secondary); line-height: 1.6; font-size: 0.95rem;">
+              Buchete de baloane cu heliu (latex sau folie) personalizate cromatic. Baloanele cu cifre sau litere mari potrivite pentru aniversări.
+            </p>
+          </div>
+
+          <div style="background: var(--bg-secondary); padding: 24px; border-radius: 12px; border: 1px solid var(--border-subtle);">
+            <h3 class="font-bold text-xl mb-3" style="color: var(--accent); font-size: 1.25rem;">Photo Corners (Panouri)</h3>
+            <p style="color: var(--text-secondary); line-height: 1.6; font-size: 0.95rem;">
+              Structuri circulare sau dreptunghiulare (display stands / mese cilindru) decorate pe jumătate sau integral cu baloane, ideale ca fundal pentru fotografii.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pret si logistica -->
+    <section class="py-16" style="padding: 60px 0; background: var(--bg-tertiary);">
+      <div class="container mx-auto px-4" style="max-width: 1000px;">
+        <h2 class="text-3xl font-bold text-primary mb-6 text-center" style="font-family: 'Playfair Display', serif; font-size: 2.25rem; margin-bottom: 32px;">
+          Tarife și Logistică
+        </h2>
+        
+        <div style="background: white; padding: 32px; border-radius: 12px; border: 1px solid var(--border-subtle); text-align: center; max-width: 600px; margin: 0 auto 48px auto;">
+          <h3 class="font-bold text-2xl mb-2" style="color: var(--text-primary);">Prețuri la Cerere</h3>
+          <p style="color: var(--text-secondary); margin-bottom: 24px;">Costul decorațiunilor variază în funcție de dimensiune, tipul baloanelor (latex, cromate, folie) și complexitatea montajului. Oferta exactă se comunică transparent după stabilirea conceptului vizual.</p>
+          <a href="https://wa.me/40792864811" class="btn btn-primary" style="display: inline-block; padding: 12px 24px; background-color: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: bold;">Trimiteți o Fotografie de Referință</a>
+        </div>
+
+        <div style="display: flex; flex-direction: column; md:flex-row; justify-content: center; gap: 24px;">
+            <div class="trust-card" style="padding: 24px; background: white; border-radius: 12px; border: 1px solid var(--border-subtle); flex: 1;">
+              <h4 class="font-bold mb-2" style="color: var(--text-primary);">📍 <a href="/animatori-petreceri-copii-bucuresti/" style="text-decoration: none; color: inherit;">București</a></h4>
+              <p style="color: var(--text-secondary);">{businessFacts.transportBucuresti} Asigurăm livrarea și montajul la locația evenimentului.</p>
+            </div>
+            <div class="trust-card" style="padding: 24px; background: white; border-radius: 12px; border: 1px solid var(--border-subtle); flex: 1;">
+              <h4 class="font-bold mb-2" style="color: var(--text-primary);">📍 <a href="/animatori-petreceri-copii-ilfov/" style="text-decoration: none; color: inherit;">Ilfov</a></h4>
+              <p style="color: var(--text-secondary);">{businessFacts.transportIlfov} Costurile logistice pentru decor se confirmă odată cu oferta.</p>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16 bg-white" style="padding: 60px 0;">
+      <div class="container mx-auto px-4" style="max-width: 800px;">
+        <h2 class="text-3xl font-bold text-primary mb-8 text-center" style="font-family: 'Playfair Display', serif; font-size: 2.25rem;">Bine de Știut</h2>
+        <div class="space-y-4" style="display: flex; flex-direction: column; gap: 16px;">
+          {decorFaq.map((item) => (
+            <div style="background: var(--bg-tertiary); padding: 24px; border-radius: 8px; border-left: 4px solid var(--accent);">
+              <h3 class="font-bold text-lg mb-2" style="color: var(--primary);">{item.q}</h3>
+              <p style="color: var(--text-secondary); line-height: 1.6;">{item.a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <SeoFooter />
+  </main>
+</Layout>

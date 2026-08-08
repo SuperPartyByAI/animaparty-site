@@ -24,14 +24,14 @@ export const pricingGroups: PricingGroup[] = [
   {
     id: "one-animator",
     title: "1 Personaj Animator",
-    ideal: "Potrivit pentru grupuri restrânse de până la 12 copii și spații bine delimitate.",
+    ideal: "Potrivit pentru grupuri restrânse și spații bine delimitate.",
     ctaVariant: "outline",
     features: [
       "Jocuri interactive adaptate vârstei",
       "Ateliere de creație cu baloane",
       "Sistem audio profesional",
       "Asistență la tort",
-      "Moment special Balloon Exploder (opțional, la cerere)",
+      "",
       "Pariul distracției cu Piñata (opțional, la cerere)"
     ],
     tiers: [
@@ -40,7 +40,7 @@ export const pricingGroups: PricingGroup[] = [
         duration: "1 Oră",
         price: 280,
         offerName: "Pachet 1 Animator / 1 Oră",
-        description: "Potrivit pentru grupuri restrânse de până la 12 copii și spații bine delimitate."
+        description: "Potrivit pentru grupuri restrânse și spații bine delimitate."
       },
       {
         id: "one-animator-2h",
@@ -50,20 +50,13 @@ export const pricingGroups: PricingGroup[] = [
         label: "Standard Recomandat",
         offerName: "Pachet 1 Animator / 2 Ore",
         description: "Varianta standard recomandată pentru petreceri complete."
-      },
-      {
-        id: "one-animator-3h",
-        duration: "3 Ore",
-        price: 640,
-        offerName: "Pachet 1 Animator / 3 Ore",
-        description: "Pentru evenimente lungi, susține un program extins de activități."
       }
     ],
   },
   {
     id: "two-animators",
     title: "2 Personaje Animatoare",
-    ideal: "Potrivit pentru grupuri mai mari, peste 12 copii, spații deschise sau curți.",
+    ideal: "Pentru grupuri mai mari, spații deschise sau programe cu mai multe activități, pot fi recomandați doi animatori.",
     highlighted: true,
     ctaVariant: "primary",
     features: [
@@ -72,7 +65,7 @@ export const pricingGroups: PricingGroup[] = [
       "Dinamism ridicat în spații mari",
       "Jocuri interactive și ateliere de baloane",
       "Sistem audio profesional și asistență tort",
-      "Balloon Exploder și Piñata (opționale, la cerere)"
+      ""
     ],
     tiers: [
       {
@@ -80,7 +73,7 @@ export const pricingGroups: PricingGroup[] = [
         duration: "1 Oră",
         price: 490,
         offerName: "Pachet 2 Animatori / 1 Oră",
-        description: "Potrivit pentru grupuri mai mari, spații deschise sau curți mari, peste 12 copii."
+        description: "Pentru grupuri mai mari, spații deschise sau programe cu mai multe activități."
       },
       {
         id: "two-animators-2h",
@@ -90,13 +83,6 @@ export const pricingGroups: PricingGroup[] = [
         label: "Optim Grupuri Mari",
         offerName: "Pachet 2 Animatori / 2 Ore",
         description: "Recomandat pentru grupuri mari și diversitate în animație."
-      },
-      {
-        id: "two-animators-3h",
-        duration: "3 Ore",
-        price: 1120,
-        offerName: "Pachet 2 Animatori / 3 Ore",
-        description: "Program extins cu interacțiune susținută, potrivit pentru grupuri mari și activități variate."
       }
     ],
   },

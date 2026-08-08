@@ -1,11 +1,11 @@
 export const faqIlfov = [
   {
-    question: "Veniți în toate sectoarele Ilfovului?",
-    answer: "Da, echipa noastră se deplasează în orice locație din Ilfov, acoperind integral Sectoarele 1, 2, 3, 4, 5 și 6, pentru orice tip de petrecere de copii."
+    question: "Veniți în toate localitățile din Ilfov?",
+    answer: "Da, echipa noastră se deplasează în orice localitate din județul Ilfov (Otopeni, Voluntari, Popești-Leordeni, Bragadiru, etc.) pentru orice tip de petrecere de copii."
   },
   {
     question: "Există taxă de transport în Ilfov?",
-    answer: "Nu percepem taxă suplimentară de transport pentru deplasările aflate pe raza municipiului Ilfov, indiferent de sector."
+    answer: "Pentru județul Ilfov, costul deplasării se comunică înainte de confirmarea rezervării, în funcție de adresă și program."
   },
   {
     question: "Cât costă un animator pentru petrecere copii în Ilfov?",
@@ -13,11 +13,11 @@ export const faqIlfov = [
   },
   {
     question: "Când este suficient 1 personaj animator?",
-    answer: "Recomandăm 1 personaj animator dacă la eveniment participă până la 12 copii. Astfel, fiecare copil primește atenție, iar activitățile se desfășoară optim."
+    answer: "Numărul recomandat de animatori se stabilește în funcție de numărul și vârsta copiilor, spațiul disponibil, durata programului și activitățile alese."
   },
   {
     question: "Când sunt recomandați 2 animatori?",
-    answer: "Dacă aveți peste 12 copii invitați, prezența a 2 animatori este ideală pentru a capta atenția întregului grup și a asigura buna desfășurare a programului."
+    answer: "Pentru grupuri mai mari sau spații extinse, doi animatori pot ajuta la coordonarea activităților pentru a menține ritmul și distracția întregului grup."
   },
   {
     question: "Se poate organiza petrecerea acasă sau în apartament?",
@@ -29,7 +29,7 @@ export const faqIlfov = [
   },
   {
     question: "Veniți la grădinițe și școli din Ilfov?",
-    answer: "Da, participăm la aniversări și serbări organizate în cadrul unităților de învățământ preșcolar și școlar din capitală, cu aprobarea instituției."
+    answer: "Da, participăm la aniversări și serbări organizate în cadrul unităților de învățământ preșcolar și școlar din județul Ilfov, cu aprobarea instituției."
   },
   {
     question: "Veniți la locuri de joacă din Ilfov?",
@@ -40,16 +40,14 @@ export const faqIlfov = [
     answer: "Programele includ jocuri interactive adaptate vârstei, personaje tematice la alegere, asistență la momentul tortului și fond muzical adecvat."
   },
   {
-    question: "Este inclus Balloon Exploder?",
-    answer: "Balonul Jumbo (Balloon Exploder) este inclus gratuit în pachetele de 2 ore (opțional) și în toate pachetele de 3 ore, pentru un moment special."
   },
   {
     question: "Este inclusă Piñata?",
-    answer: "Activitatea cu Piñata (spargerea acesteia) este coordonată de animatori, iar accesoriul propriu-zis este inclus în pachetele complete de 3 ore."
+    answer: "Piñata este un serviciu opțional. Oferim asistență și coordonare pentru momentul spargerii, iar costul accesoriului se confirmă la cerere."
   },
   {
     question: "Face painting-ul este inclus?",
-    answer: "Da, pictura pe față este inclusă, folosind produse sigure, respectând dorințele părinților referitor la acest tip de activitate."
+    answer: "Face painting-ul se confirmă în funcție de pachet, numărul de copii și timpul disponibil, respectând dorințele părinților."
   },
   {
     question: "Baloanele modelabile sunt incluse?",
@@ -61,7 +59,7 @@ export const faqIlfov = [
   },
   {
     question: "Cu cât timp înainte trebuie să rezerv?",
-    answer: "Recomandăm rezervarea cu cel puțin 1-2 săptămâni în avans, în special pentru evenimentele de weekend din Ilfov, care sunt foarte solicitate."
+    answer: "Recomandăm rezervarea cu cel puțin 1-2 săptămâni în avans, Pentru evenimentele de weekend recomandăm verificarea disponibilității din timp."
   },
   {
     question: "Ce trebuie să pregătească părinții înainte de eveniment?",
@@ -69,11 +67,11 @@ export const faqIlfov = [
   },
   {
     question: "Cum se confirmă ora și adresa?",
-    answer: "Toate detaliile logistice, inclusiv sectorul, adresa exactă și ora începerii, sunt discutate și confirmate oficial prin mesaje pe WhatsApp."
+    answer: "Toate detaliile logistice, inclusiv localitatea, adresa exactă și ora începerii, sunt discutate și confirmate oficial prin mesaje pe WhatsApp."
   },
   {
     question: "Pot rezerva pentru weekend?",
-    answer: "Da, majoritatea evenimentelor noastre au loc sâmbăta și duminica. Recomandăm rezervarea din timp pentru a asigura disponibilitatea personajului dorit."
+    answer: "Da. Pentru evenimentele de weekend recomandăm verificarea disponibilității din timp."
   },
   {
     question: "Pot combina animatorii cu servicii extra?",

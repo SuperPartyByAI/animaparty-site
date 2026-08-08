@@ -1,9 +1,9 @@
 {
   "project": "animaparty",
-  "release_id": "animaparty-seo-v3-20260807T072600Z",
-  "deployed_at": "2026-08-07T07:26:00Z",
+  "release_id": "animaparty-seo-v8-wave7-p1-20260808T053342Z",
+  "deployed_at": "2026-08-08T05:33:42.775Z",
   "public_domain": "https://animaparty.ro/",
   "sitemap_url": "https://animaparty.ro/sitemap-index.xml",
-  "indexable_route_count": 4,
+  "indexable_route_count": 11,
   "release_status": "deployed"
 }

@@ -1,0 +1,176 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SeoFooter from '../components/SeoFooter.astro';
+import { businessFacts } from '../data/business-facts';
+
+
+const vataFaq = [
+  {
+    "q": "Este nevoie de alimentare electrică specială?",
+    "a": "Pentru funcționarea optimă a echipamentelor este necesar accesul la o sursă standard de energie electrică (220V)."
+  },
+  {
+    "q": "Ingredientele sunt sigure pentru copii?",
+    "a": "Folosim doar ingrediente și consumabile certificate, potrivite pentru consumul alimentar."
+  },
+  {
+    "q": "Aparatul de vată de zahăr vine cu operator?",
+    "a": "Da, toate mașinile noastre vin cu un operator uman care prepară și împarte vata."
+  },
+  {
+    "q": "Este limitat numărul de porții?",
+    "a": "De obicei, serviciul este nelimitat pe durata orei/orelor contractate."
+  },
+  {
+    "q": "Aparatul de popcorn necesită priză?",
+    "a": "Da, avem nevoie de acces la o priză standard de 220V."
+  },
+  {
+    "q": "Cât de repede se prepară vata de zahăr?",
+    "a": "Operatorul este rapid, o porție durează doar câteva secunde."
+  },
+  {
+    "q": "Popcornul este sărat sau dulce?",
+    "a": "Servim popcorn sărat clasic, pufos și proaspăt preparat la fața locului."
+  },
+  {
+    "q": "Aparatele pot fi aduse în interior?",
+    "a": "Da, dacă spațiul este bine ventilat și locația permite acest lucru."
+  },
+  {
+    "q": "Vata de zahăr poate fi colorată?",
+    "a": "Da, folosim coloranți alimentari siguri pentru a obține vată roz, albastră sau alte culori."
+  },
+  {
+    "q": "Ce consumabile sunt incluse?",
+    "a": "Bețele pentru vată și pungile/cornetele pentru popcorn sunt incluse."
+  },
+  {
+    "q": "Operatorul vine costumat?",
+    "a": "Operatorul are o ținută decentă și curată, sau poate fi tematic la cerere."
+  },
+  {
+    "q": "Aparatele fac mult zgomot?",
+    "a": "Aparatul de vată este silențios. Cel de popcorn face un zgomot specific când floricelele sar, dar nu este deranjant."
+  },
+  {
+    "q": "Există un număr minim de ore?",
+    "a": "Da, închirierea minimă este de obicei de 1 sau 2 ore, în funcție de pachet."
+  },
+  {
+    "q": "Este sigur pentru copii?",
+    "a": "Aparatele sunt operate exclusiv de personalul nostru, copiii neavând acces direct la zonele fierbinți."
+  },
+  {
+    "q": "Puteți oferi ambele servicii la același eveniment?",
+    "a": "Da, oferim pachete combinate cu vată de zahăr și popcorn la prețuri avantajoase."
+  }
+];
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "FAQPage",
+      "mainEntity": vataFaq.map((f) => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+});
+---
+
+<Layout schema={schema} 
+  title="Închiriere Mașină Vată de Zahăr și Popcorn | Evenimente București"
+  description="Mașini profesionale de vată de zahăr și popcorn pentru petreceri de copii, evenimente și festivaluri în București și Ilfov. Oferim operator și consumabile."
+ >
+  <main class="food-stations-page">
+    
+    <!-- Breadcrumb -->
+    <nav class="container mx-auto px-4 py-4 text-sm text-secondary" style="margin-top: 16px;">
+      <ol class="flex space-x-2" style="display: flex; gap: 8px; list-style: none; padding: 0;">
+        <li><a href="/" class="hover:text-accent text-secondary" style="text-decoration: none; color: #4a5568;">Acasă</a></li>
+        <li>/</li>
+        <li class="font-bold text-primary" style="color: var(--primary);">Vată de Zahăr & Popcorn</li>
+      </ol>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative bg-primary overflow-hidden" style="padding: 60px 0; background: var(--bg-primary);">
+      <div class="container mx-auto px-4 relative z-10 text-center">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6" style="font-family: 'Playfair Display', serif; font-size: 3rem; color: white;">
+          Vată de Zahăr și Popcorn
+        </h1>
+        <p class="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-8" style="font-size: 1.25rem; color: rgba(255, 255, 255, 0.9);">
+          Food stations pentru petreceri de copii, evenimente corporate și serbări școlare în București și Ilfov.
+        </p>
+        <a href="https://wa.me/40792864811" class="btn btn-whatsapp" style="display: inline-block; padding: 16px 32px; background-color: #25D366; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 1.1rem;">
+          Cereți o Ofertă
+        </a>
+      </div>
+    </section>
+
+    <!-- Detalii Serviciu -->
+    <section class="py-16 bg-white" style="padding: 60px 0; background: white;">
+      <div class="container mx-auto px-4" style="max-width: 1000px;">
+        <h2 class="text-3xl font-bold text-primary mb-6 text-center" style="font-family: 'Playfair Display', serif; font-size: 2.25rem; margin-bottom: 32px;">
+          Cum Funcționează Închirierea
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
+          <div style="background: var(--bg-secondary); padding: 32px; border-radius: 12px; border: 1px solid var(--border-subtle);">
+            <h3 class="font-bold text-xl mb-4" style="color: var(--accent); font-size: 1.25rem;">Mașină Vată de Zahăr</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 16px;">O atracție clasică. Vata de zahăr proaspăt filată aduce magie și culoare oricărui eveniment.</p>
+            <ul class="space-y-2" style="color: var(--text-secondary); line-height: 1.5; font-size: 0.95rem;">
+              <li>• Opțiuni pentru consumabile incluse</li>
+              <li>• Posibilitate de operator dedicat</li>
+              <li>• Personalizare în funcție de eveniment</li>
+            </ul>
+          </div>
+          
+          <div style="background: var(--bg-secondary); padding: 32px; border-radius: 12px; border: 1px solid var(--border-subtle);">
+            <h3 class="font-bold text-xl mb-4" style="color: var(--accent); font-size: 1.25rem;">Mașină Popcorn (Floricele)</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 16px;">Popcorn proaspăt, cald și aromat, ideal ca gustare pentru invitați la petreceri open-air sau evenimente tematice.</p>
+            <ul class="space-y-2" style="color: var(--text-secondary); line-height: 1.5; font-size: 0.95rem;">
+              <li>• Pachete flexibile cu sau fără consumabile</li>
+              <li>• Servicii complete cu operator la cerere</li>
+              <li>• Aromă autentică și preparare rapidă</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pret si logistica -->
+    <section class="py-16" style="padding: 60px 0; background: var(--bg-tertiary);">
+      <div class="container mx-auto px-4" style="max-width: 1000px;">
+        <h2 class="text-3xl font-bold text-primary mb-6 text-center" style="font-family: 'Playfair Display', serif; font-size: 2.25rem; margin-bottom: 32px;">
+          Tarife și Logistică
+        </h2>
+        
+        <div style="background: white; padding: 32px; border-radius: 12px; border: 1px solid var(--border-subtle); text-align: center; max-width: 600px; margin: 0 auto 48px auto;">
+          <h3 class="font-bold text-2xl mb-2" style="color: var(--text-primary);">Prețuri la Cerere</h3>
+          <p style="color: var(--text-secondary); margin-bottom: 24px;">Tariful variază în funcție de prezența operatorului, necesarul de consumabile și durata evenimentului. Detaliile se confirmă personalizat la cerere.</p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; md:flex-row; justify-content: center; gap: 24px;">
+            <div class="trust-card" style="padding: 24px; background: white; border-radius: 12px; border: 1px solid var(--border-subtle); flex: 1;">
+              <h4 class="font-bold mb-2" style="color: var(--text-primary);">⚡ Necesar Tehnic</h4>
+              <p style="color: var(--text-secondary);">De regulă, aparatele necesită o sursă de curent standard (220V). Prelungitoarele trebuie asigurate dacă distanța e mare.</p>
+            </div>
+            <div class="trust-card" style="padding: 24px; background: white; border-radius: 12px; border: 1px solid var(--border-subtle); flex: 1;">
+              <h4 class="font-bold mb-2" style="color: var(--text-primary);">📍 <a href="/animatori-petreceri-copii-bucuresti/" style="text-decoration: none; color: inherit;">Acoperire</a></h4>
+              <p style="color: var(--text-secondary);">{businessFacts.transportBucuresti} Oferim aceste servicii în sectoarele 1-6 și în Județul Ilfov.</p>
+            </div>
+        </div>
+      </div>
+    </section>
+    
+    <SeoFooter />
+  </main>
+</Layout>
