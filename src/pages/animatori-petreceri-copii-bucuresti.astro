@@ -6,9 +6,9 @@ import StickyBottomCta from '../components/StickyBottomCta.astro';
 import Contact from '../components/Contact.astro';
 import LogisticsBucuresti from '../components/LogisticsBucuresti.astro';
 import { faqBucuresti } from '../data/faqBucuresti';
-import { pricingTiers } from '../data/pricing';
+import { pricedTiers } from '../data/pricing';
 
-const offersSchema = pricingTiers.map((pkg) => ({
+const offersSchema = pricedTiers.map((pkg) => ({
   "@type": "Offer",
   "itemOffered": {
     "@type": "Service",
@@ -17,7 +17,7 @@ const offersSchema = pricingTiers.map((pkg) => ({
   "price": pkg.price,
   "priceCurrency": "RON",
   "description": pkg.description,
-  "url": "https://animaparty.ro/Personaje-petreceri-copii-bucuresti/"
+  "url": "https://animaparty.ro/animatori-petreceri-copii-bucuresti/"
 }));
 
 const faqSchema = faqBucuresti.map(item => ({
@@ -34,8 +34,8 @@ const schema = JSON.stringify({
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://animaparty.ro/Personaje-petreceri-copii-bucuresti/#webpage",
-      "url": "https://animaparty.ro/Personaje-petreceri-copii-bucuresti/",
+      "@id": "https://animaparty.ro/animatori-petreceri-copii-bucuresti/#webpage",
+      "url": "https://animaparty.ro/animatori-petreceri-copii-bucuresti/",
       "name": "Animatori Petreceri Copii București | Sectoarele 1-6",
       "description": "Animatori pentru petreceri de copii în București, cu deplasare în sectoarele 1-6. Pachete cu personaje tematice, jocuri, baloane, Verifică disponibilitatea pe WhatsApp.",
       "inLanguage": "ro-RO",
@@ -54,7 +54,7 @@ const schema = JSON.stringify({
           "@type": "ListItem",
           "position": 2,
           "name": "Animatori Petreceri Copii București",
-          "item": "https://animaparty.ro/Personaje-petreceri-copii-bucuresti/"
+          "item": "https://animaparty.ro/animatori-petreceri-copii-bucuresti/"
         }
       ]
     },
@@ -240,10 +240,10 @@ const schema = JSON.stringify({
         <h2 class="text-3xl font-bold mb-6 text-primary" style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 24px;">Exemple vizuale pentru atmosfera unei petreceri de copii</h2>
         <p class="mb-10 text-secondary" style="margin-bottom: 40px; color: var(--text-secondary);">Descoperiți dinamica și zâmbetele de la evenimentele coordonate de Personaje.</p>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;">
-          <img src="/hero-kids-party.webp" alt="Atmosferă petrecere cu Personaje" style="width: 100%; height: auto; border-radius: 8px; object-fit: cover; aspect-ratio: 1/1;">
-          <img src="/hero-party-real.webp" alt="Grup de copii jucându-se cu animatorul" style="width: 100%; height: auto; border-radius: 8px; object-fit: cover; aspect-ratio: 1/1;">
-          <img src="/hero-animator.webp" alt="Animator interacționând la petrecere" style="width: 100%; height: auto; border-radius: 8px; object-fit: cover; aspect-ratio: 1/1;">
-          <img src="/hero-luxury-v2.webp" alt="Exemplu vizual decor petrecere de copii" style="width: 100%; height: auto; border-radius: 8px; object-fit: cover; aspect-ratio: 1/1;">
+          <img src="/hero-real.png" alt="Atmosferă petrecere cu Personaje" style="width: 100%; height: auto; border-radius: 8px; object-fit: cover; aspect-ratio: 1/1;">
+          <img src="/animaparty-jocuri-interactive.webp" alt="Grup de copii jucându-se cu animatorul" style="width: 100%; height: auto; border-radius: 8px; object-fit: cover; aspect-ratio: 1/1;">
+          <img src="/service-games.png" alt="Animator interacționând la petrecere" style="width: 100%; height: auto; border-radius: 8px; object-fit: cover; aspect-ratio: 1/1;">
+          <img src="/hero-luxury.png" alt="Exemplu vizual decor petrecere de copii" style="width: 100%; height: auto; border-radius: 8px; object-fit: cover; aspect-ratio: 1/1;">
         </div>
       </div>
     </section>

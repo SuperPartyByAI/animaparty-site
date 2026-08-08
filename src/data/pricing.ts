@@ -3,7 +3,7 @@ import { siteConfig } from "../config/site";
 export type PricingTier = {
   id: string;
   duration: string;
-  price: number;
+  price: number | null;
   label?: string;
   recommended?: boolean;
   offerName: string;
@@ -99,11 +99,11 @@ export const pricingGroups: PricingGroup[] = [
     ],
     tiers: [
       {
-        id: "mascota-1h",
-        duration: "1 Oră",
-        price: 350,
-        offerName: "Închiriere Mascotă / 1 Oră",
-        description: "Prezența mascotei pentru primirea invitaților sau momentul tortului."
+        id: "mascota-flex",
+        duration: "La cerere",
+        price: null,
+        offerName: "Închiriere Mascotă",
+        description: "Configurația și durata se confirmă înainte de rezervare."
       }
     ],
   },
@@ -120,18 +120,11 @@ export const pricingGroups: PricingGroup[] = [
     ],
     tiers: [
       {
-        id: "stilt-walker-1h",
-        duration: "1 Oră (1 Animator)",
-        price: 1450,
-        offerName: "Animator Picioroange / 1 Oră",
-        description: "Pentru evenimente stradale, lansări de produse, petreceri de mari dimensiuni sau momente de întâmpinare a invitaților."
-      },
-      {
-        id: "two-stilt-walkers-1h",
-        duration: "1 Oră (2 Animatori)",
-        price: 2750,
-        offerName: "2 Animatori Picioroange / 1 Oră",
-        description: "Impact vizual dublu pentru evenimente de scară largă."
+        id: "stilt-flex",
+        duration: "La cerere",
+        price: null,
+        offerName: "Animatori pe Picioroange",
+        description: "Numărul de performeri, durata și logistica se confirmă înainte de rezervare."
       }
     ],
   }
@@ -145,10 +138,13 @@ export const pricingTiers = pricingGroups.flatMap((group) =>
   }))
 );
 
-export const formatPrice = (price: number) =>
-  `${price} RON`;
+export const pricedTiers = pricingTiers.filter(
+  (tier): tier is typeof tier & { price: number } => typeof tier.price === "number"
+);
 
-export const minPackagePrice = Math.min(...pricingTiers.map((tier) => tier.price));
-export const maxPackagePrice = Math.max(...pricingTiers.map((tier) => tier.price));
+export const formatPrice = (price: number) => `${price} RON`;
+
+export const minPackagePrice = Math.min(...pricedTiers.map((tier) => tier.price));
+export const maxPackagePrice = Math.max(...pricedTiers.map((tier) => tier.price));
 
 export const priceRange = `${formatPrice(minPackagePrice)} - ${formatPrice(maxPackagePrice)}`;

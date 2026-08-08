@@ -30,8 +30,17 @@ const {
           <div class="mb-6">
             <h3 class="text-2xl font-bold text-primary mb-2" style="font-size: 1.5rem;">{group.title}</h3>
             <div class="flex items-baseline gap-2 mb-2">
-              <span class="text-4xl font-extrabold text-primary" style="font-size: 2.5rem; color: var(--accent);">{group.tiers.find(t => t.recommended)?.price || group.tiers[0].price} RON</span>
-              <span class="text-lg text-secondary font-medium">/ pachet de {group.tiers.find(t => t.recommended)?.duration?.toLowerCase() || group.tiers[0].duration.toLowerCase()}</span>
+              {(() => {
+                const tier = group.tiers.find(t => t.recommended) ?? group.tiers[0];
+                return typeof tier.price === 'number' ? (
+                  <>
+                    <span class="text-4xl font-extrabold text-primary" style="font-size: 2.5rem; color: var(--accent);">{tier.price} RON</span>
+                    <span class="text-lg text-secondary font-medium">/ pachet de {tier.duration.toLowerCase()}</span>
+                  </>
+                ) : (
+                  <span class="text-3xl font-extrabold text-primary" style="font-size: 2rem; color: var(--accent);">Preț la cerere</span>
+                );
+              })()}
             </div>
             <p class="text-secondary text-sm" style="line-height: 1.5;">{group.ideal}</p>
           </div>

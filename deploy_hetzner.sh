@@ -1,26 +1,33 @@
 #!/bin/bash
-set -e
+# deploy_hetzner.sh
 
-# Configuration
-SERVER="89.167.115.150"
 USER="root"
+SERVER="89.167.115.150"
 APP_DIR="/var/www/anima-party"
-LOCAL_DIR="/Users/universparty/anima-party-site/"
+LOCAL_DIR="./"
+DATE=$(date -u +"%Y%m%dT%H%M%SZ")
+RELEASE_ID="animaparty-seo-v8-wave-5r4-${DATE}"
 
 echo "=== Deploying Anima Party to Hetzner ==="
 
-# 1. Create server directory
-echo "[1/3] Preparing server directory..."
-ssh $USER@$SERVER "mkdir -p $APP_DIR"
+# 1. Update build identity with current release
+node scratch/update_identity_wave5r3.cjs "$RELEASE_ID"
 
-# 2. Sync files (excluding node_modules and .git)
-echo "[2/3] Syncing files to server..."
+# 2. Sync files
+echo "[2/4] Syncing files to server..."
 rsync -avz --delete --exclude 'node_modules/' --exclude '.git/' --exclude 'dist/' $LOCAL_DIR $USER@$SERVER:$APP_DIR/
 
-# 3. Build project on server
-echo "[3/3] Building Astro project on server..."
-ssh $USER@$SERVER "cd $APP_DIR && npm install && npm run build"
+# 3. Build Astro and Generate Proof
+echo "[3/4] Building Astro project on server..."
+ssh $USER@$SERVER "cd $APP_DIR && npm install && RELEASE_ID=$RELEASE_ID npm run build && RELEASE_ID=$RELEASE_ID node scratch/generate_proof.cjs"
+
+# 4. Update NGINX
+echo "[4/4] Updating NGINX headers and reloading..."
+ssh $USER@$SERVER "
+  # Actually just replace it safely everywhere:
+  sed -i 's/add_header X-Anima-Deploy .*/add_header X-Anima-Deploy \"$RELEASE_ID\" always;/g' /etc/nginx/sites-available/animaparty.ro
+  
+  systemctl reload nginx
+"
 
 echo "=== Deploy Complete! ==="
-echo "Site has been deployed to $APP_DIR."
-echo "Make sure NGINX is configured on the server to serve $APP_DIR/dist for animaparty.ro"

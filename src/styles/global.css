@@ -9,6 +9,17 @@
   --text-primary: #111827; /* Strong dark */
   --text-secondary: #5C6470; /* Muted gray for reading */
   --text-inverse: #FFFFFF;
+
+  /* Compatibility aliases for legacy components. Keep one visual token system. */
+  --accent: var(--accent-gold);
+  --primary: var(--text-primary);
+  --text-main: var(--text-primary);
+  --text-muted: var(--text-secondary);
+  --primary-cta: var(--cta-primary);
+  --background: var(--bg-primary);
+  --bg-white: var(--bg-tertiary);
+  --bg-alt: var(--bg-secondary);
+  --accent-secondary: var(--accent-gold-light);
   
   --accent-gold: #C5A059; /* Copper / Gold accent */
   --accent-gold-light: #DFCA9B;

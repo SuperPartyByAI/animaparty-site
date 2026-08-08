@@ -16,7 +16,7 @@ function hashContent(content) {
 
 async function main() {
     const timestamp = new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
-    const releaseId = `animaparty-seo-v8-wave6r4-${timestamp}`;
+    const releaseId = `animaparty-seo-v8-chatgpt-basefix-v1-${timestamp}`;
     const deployedAt = new Date().toISOString();
     
     // Read raw HTMLs

@@ -1,5 +1,5 @@
 import { siteConfig } from "../config/site";
-import { pricingTiers, priceRange } from "../data/pricing";
+import { pricedTiers, priceRange } from "../data/pricing";
 import { faqHome } from "../data/faqHome";
 
 export const buildHomeSchema = () => {
@@ -29,7 +29,7 @@ export const buildHomeSchema = () => {
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Pachete Animatori Petreceri Copii",
-      itemListElement: pricingTiers.map((tier, index) => ({
+      itemListElement: pricedTiers.map((tier, index) => ({
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",

@@ -18,7 +18,7 @@ import SeoFooter from '../components/SeoFooter.astro';
 import StickyBottomCta from '../components/StickyBottomCta.astro';
 
 import { faqHome } from '../data/faqHome';
-import { pricingTiers } from '../data/pricing';
+import { pricedTiers } from '../data/pricing';
 
 const faqSchema = faqHome.map(faq => ({
   "@type": "Question",
@@ -29,7 +29,7 @@ const faqSchema = faqHome.map(faq => ({
   }
 }));
 
-const offersSchema = pricingTiers.map((pkg) => ({
+const offersSchema = pricedTiers.map((pkg) => ({
   "@type": "Offer",
   "itemOffered": {
     "@type": "Service",
