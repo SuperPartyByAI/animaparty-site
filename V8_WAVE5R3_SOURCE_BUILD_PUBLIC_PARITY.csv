@@ -1,0 +1,7 @@
+component,source_value,build_value,active_deployed_value,public_normal,public_cachebust,public_no_cache,public_googlebot,forced_origin,status
+release_id,animaparty-seo-v8-wave-5r3-20260807T153739Z,animaparty-seo-v8-wave-5r3-20260807T153739Z,animaparty-seo-v8-wave-5r3-20260807T153739Z,animaparty-seo-v8-wave-5r3-20260807T153739Z,animaparty-seo-v8-wave-5r3-20260807T153739Z,animaparty-seo-v8-wave-5r3-20260807T153739Z,animaparty-seo-v8-wave-5r3-20260807T153739Z,animaparty-seo-v8-wave-5r3-20260807T153739Z,PASS
+homepage_services_link,YES,YES,YES,YES,YES,YES,YES,YES,PASS
+homepage_money_page_links,YES,YES,YES,YES,YES,YES,YES,YES,PASS
+two_hour_price,490 RON,490 RON,490 RON,490 RON,490 RON,490 RON,490 RON,490 RON,PASS
+three_hour_product,NO,NO,NO,NO,NO,NO,NO,NO,PASS
+transport,UNIFIED,UNIFIED,UNIFIED,UNIFIED,UNIFIED,UNIFIED,UNIFIED,UNIFIED,PASS

@@ -9,7 +9,13 @@
     "dev": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "batch:gate": "python3 scripts/seo_batch_gate.py && python3 scripts/static_asset_gate.py && python3 scripts/internal_link_source_gate.py && python3 scripts/batch_seal_gate.py",
+    "release:stamp": "node scripts/stamp_release.mjs",
+    "qa:googlebot": "node scripts/googlebot_parity.mjs",
+    "qa:crawl": "node scripts/raw_crawl_graph.mjs",
+    "proof:live": "node scripts/generate_proof.mjs",
+    "proof:verify": "node scripts/independent_verifier.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",

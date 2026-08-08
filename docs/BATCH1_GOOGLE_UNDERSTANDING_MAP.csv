@@ -1,0 +1,11 @@
+URL,PRIMARY_INTENT,SECONDARY_SCOPE,DO_NOT_TARGET,INTENT_OWNER,STATUS
+/,animatori pentru petreceri copii București și Ilfov,"brand;umbrella;packages;service discovery","exact București landing intent;exact Ilfov landing intent;individual service queries",HOME,PASS
+/animatori-petreceri-copii-bucuresti/,animatori petreceri copii București,"Sectoarele 1-6;location types;packages;booking","generic guide;Ilfov;mascote;magician;decor",BUCURESTI,PASS
+/animatori-petreceri-copii-ilfov/,animatori petreceri copii Ilfov,"transport;locality examples;packages;booking","București exact;generic guide;individual service queries",ILFOV,PASS
+/animatori-petreceri-copii/,cum alegi animator pentru petrecere copii,"selection checklist;compare offers;questions","commercial București/Ilfov transaction intent",GUIDE,PASS
+/servicii/,servicii petreceri copii București Ilfov,"service discovery;intent routing","rank as every child service simultaneously",SERVICES_HUB,PASS
+/mascote-petreceri-copii/,închiriere mascote petreceri copii București,"role;availability;booking","animator program query",MASCOTE,PASS
+/animatori-pe-picioroange/,animatori pe picioroange București,"event use cases;space/access;booking","standard animator query;magician",PICIOROANGE,PASS
+/decoratiuni-baloane-bucuresti/,decorațiuni baloane București,"arcade;helium;photo corner;quote","animator/magician query",DECOR,PASS
+/magician-petreceri-copii/,magician petreceri copii București,"interactive show;booking inputs","standard animator/picioroange query",MAGICIAN,PASS
+/vata-de-zahar-popcorn-evenimente/,vată de zahăr popcorn evenimente București,"operator;consumables;combined service;quote","animator/decor query",FOOD,PASS

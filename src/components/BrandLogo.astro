@@ -1,0 +1,8 @@
+---
+interface Props { compact?: boolean; }
+const { compact = false } = Astro.props;
+---
+<a href="/" class:list={["brand-lockup", { compact }]} aria-label="AnimaParty — Acasă">
+  <img src="/animaparty-logo-mark.svg" alt="" width="42" height="42" loading="eager" decoding="async" />
+  <span class="brand-wordmark">AnimaParty</span>
+</a>

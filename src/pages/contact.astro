@@ -6,7 +6,7 @@ import { businessFacts } from '../data/business-facts';
 
 <Layout 
   title="Contact AnimaParty | Rezervări Animatori Copii"
-  description="Contactează echipa AnimaParty pentru a verifica disponibilitatea. Oferim animatori profesioniști pentru petreceri de copii în București și Ilfov. Răspundem rapid pe WhatsApp."
+  description="Contactează AnimaParty pentru a verifica disponibilitatea animatorilor și serviciilor pentru petreceri de copii în București și Ilfov. Trimite data, locația și detaliile evenimentului pe WhatsApp."
 >
   <!-- Hero Section -->
   <section class="relative bg-primary overflow-hidden" style="padding: 100px 0 60px; background: var(--bg-primary);">
@@ -23,7 +23,7 @@ import { businessFacts } from '../data/business-facts';
         
         <div>
           <h2 class="text-3xl font-bold text-primary mb-6" style="font-family: 'Playfair Display', serif; font-size: 2rem;">Cum poți lua legătura cu noi?</h2>
-          <p class="text-secondary mb-6" style="color: var(--text-secondary); line-height: 1.6;">Cea mai rapidă metodă de comunicare este prin WhatsApp. În mesaj, te rugăm să incluzi următoarele detalii pentru a putea verifica rapid disponibilitatea:</p>
+          <p class="text-secondary mb-6" style="color: var(--text-secondary); line-height: 1.6;">Pentru verificarea disponibilității, ne poți scrie pe WhatsApp. În mesaj, te rugăm să incluzi următoarele detalii:</p>
           <ul class="space-y-4 text-secondary mb-8" style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 32px;">
             <li style="display: flex; gap: 12px;"><span style="color: var(--accent-gold);">✓</span> Data și ora dorită pentru petrecere</li>
             <li style="display: flex; gap: 12px;"><span style="color: var(--accent-gold);">✓</span> Localitatea și adresa (București sau Ilfov)</li>
@@ -35,7 +35,7 @@ import { businessFacts } from '../data/business-facts';
             <h3 class="font-bold text-lg mb-4" style="font-size: 1.25rem;">Informații de Contact</h3>
             <p style="margin-bottom: 8px;"><strong>Telefon / WhatsApp:</strong> <a href={`tel:${businessFacts.phone.replace(/\s+/g, '')}`} style="color: var(--accent); font-weight: bold; text-decoration: none;">{businessFacts.phone}</a></p>
             <p style="margin-bottom: 8px;"><strong>Email:</strong> <a href={`mailto:${businessFacts.email}`} style="color: var(--accent); font-weight: bold; text-decoration: none;">{businessFacts.email}</a></p>
-            <p><strong>Program:</strong> Răspundem la mesaje în cel mai scurt timp, inclusiv în weekend.</p>
+            <p><strong>Răspuns:</strong> Confirmăm disponibilitatea și detaliile rezervării după verificarea solicitării.</p>
           </div>
         </div>
 
@@ -47,7 +47,7 @@ import { businessFacts } from '../data/business-facts';
           </div>
           <div class="trust-card" style="padding: 24px; border-radius: 12px; background: white; border: 1px solid var(--border-subtle);">
             <h3 class="font-bold text-xl mb-3 text-primary" style="font-size: 1.25rem; margin-bottom: 12px;">Județul Ilfov</h3>
-            <p class="text-secondary" style="color: var(--text-secondary); line-height: 1.5;">{businessFacts.transportIlfov} Organizăm frecvent petreceri în curte sau spații rezidențiale.</p>
+            <p class="text-secondary" style="color: var(--text-secondary); line-height: 1.5;">{businessFacts.transportIlfov} Putem discuta organizarea la domiciliu, în curte sau în alte locații potrivite evenimentului.</p>
           </div>
         </div>
 

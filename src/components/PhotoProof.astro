@@ -1,0 +1,13 @@
+---
+interface Item { src:string; alt:string; caption?:string }
+interface Props { title:string; lead?:string; items:Item[] }
+const {title,lead,items}=Astro.props;
+---
+<section class="batch-section">
+  <div class="container">
+    <div class="batch-heading"><h2>{title}</h2>{lead && <p>{lead}</p>}</div>
+    <div class="photo-proof">
+      {items.map(item => <figure><img src={item.src} alt={item.alt} loading="lazy" decoding="async" width="800" height="600" />{item.caption && <figcaption>{item.caption}</figcaption>}</figure>)}
+    </div>
+  </div>
+</section>

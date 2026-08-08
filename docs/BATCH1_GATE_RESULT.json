@@ -1,0 +1,7 @@
+{
+  "batch_size": 10,
+  "page_pass": 10,
+  "high_cannibalization": 0,
+  "failures": [],
+  "gate": "PASS"
+}

@@ -28,11 +28,10 @@ export const pricingGroups: PricingGroup[] = [
     ctaVariant: "outline",
     features: [
       "Jocuri interactive adaptate vârstei",
-      "Ateliere de creație cu baloane",
-      "Sistem audio profesional",
+      "Modelaj de baloane, în funcție de ritmul programului",
+      "Sistem audio portabil, dacă este necesar",
       "Asistență la tort",
-      "",
-      "Pariul distracției cu Piñata (opțional, la cerere)"
+      "Piñata opțională; disponibilitatea și costul se confirmă la cerere"
     ],
     tiers: [
       {
@@ -60,12 +59,11 @@ export const pricingGroups: PricingGroup[] = [
     highlighted: true,
     ctaVariant: "primary",
     features: [
-      "Doi entertaineri coordonatori simultan",
-      "Gestionare grupuri mixte, vârste diferite",
-      "Dinamism ridicat în spații mari",
-      "Jocuri interactive și ateliere de baloane",
-      "Sistem audio profesional și asistență tort",
-      ""
+      "Doi animatori care coordonează activitățile în paralel",
+      "Coordonare mai ușoară pentru grupuri și ritmuri diferite",
+      "Mai multă flexibilitate în spații mai mari sau cu mai multe activități",
+      "Jocuri interactive și modelaj de baloane, în funcție de program",
+      "Sistem audio portabil, dacă este necesar, și coordonarea momentului tortului"
     ],
     tiers: [
       {
@@ -92,8 +90,8 @@ export const pricingGroups: PricingGroup[] = [
     ideal: "Pentru momente speciale, surprize la tort și primirea invitaților.",
     ctaVariant: "outline",
     features: [
-      "Welcome guests cu mascota preferată",
-      "Sesiune foto profesională la minut",
+      "Întâmpinarea invitaților cu mascota confirmată",
+      "Fotografii cu mascota, în timpul prezenței confirmate",
       "Asistență la tort cu cântec de La mulți ani",
       "Interacțiune non-verbală prietenoasă"
     ],
@@ -113,10 +111,10 @@ export const pricingGroups: PricingGroup[] = [
     ideal: "Pentru evenimente stradale, lansări sau petreceri de mari dimensiuni open-air.",
     ctaVariant: "outline",
     features: [
-      "Welcome guests la locație",
-      "Costume tematice spectaculoase",
-      "Interacțiune și photo-corner mobil",
-      "Impact vizual ridicat pentru spații mari"
+      "Întâmpinarea invitaților la locație",
+      "Costume tematice, în funcție de disponibilitate",
+      "Interacțiune vizuală și fotografii cu invitații",
+      "Prezență vizuală potrivită pentru spații deschise"
     ],
     tiers: [
       {

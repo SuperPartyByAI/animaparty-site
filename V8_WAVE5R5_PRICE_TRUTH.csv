@@ -1,0 +1,5 @@
+package,total,hourly_or_package,status
+1 Animator 1h,280,PACKAGE_TOTAL,PASS
+1 Animator 2h,490,PACKAGE_TOTAL,PASS
+2 Animatori 1h,490,PACKAGE_TOTAL,PASS
+2 Animatori 2h,830,PACKAGE_TOTAL,PASS

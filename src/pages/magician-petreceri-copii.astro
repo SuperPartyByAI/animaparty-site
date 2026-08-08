@@ -1,175 +1,52 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import BatchHero from '../components/BatchHero.astro';
+import PhotoProof from '../components/PhotoProof.astro';
+import RelatedServices from '../components/RelatedServices.astro';
 import SeoFooter from '../components/SeoFooter.astro';
 import { businessFacts } from '../data/business-facts';
-
-
-const magicianFaq = [
-  {
-    "q": "Este potrivit spectacolul pentru copii mici?",
-    "a": "Spectacolul este recomandat în general copiilor peste 4 ani, deoarece presupune un anumit nivel de atenție pentru a înțelege și a se bucura de trucurile prezentate."
-  },
-  {
-    "q": "Ce nevoi tehnice există?",
-    "a": "Magicianul vine pregătit cu toată recuzita necesară. Este nevoie doar de un spațiu adecvat în fața publicului și, în funcție de locație, de acces la o priză."
-  },
-  {
-    "q": "Magicianul vine costumat clasic?",
-    "a": "Da, magicianul nostru are o ținută specifică (sacou, joben sau elemente de magie)."
-  },
-  {
-    "q": "Unde poate avea loc spectacolul?",
-    "a": "Oriunde: la restaurant, acasă, în grădiniță sau la un loc de joacă."
-  },
-  {
-    "q": "Este nevoie de un spațiu special?",
-    "a": "Magicianul are nevoie de un mic spațiu în față unde copiii să poată sta pe jos sau pe scaune pentru a privi."
-  },
-  {
-    "q": "Aduce magicianul iepuraș sau porumbei?",
-    "a": "Folosim recuzită sigură. Din motive de etică și siguranță pentru animale și copii, numerele cu animale vii sunt discutate punctual, dacă sunt disponibile."
-  },
-  {
-    "q": "Copiii sunt implicați în trucuri?",
-    "a": "Da, spectacolul este foarte interactiv. Sărbătoritul este adesea invitat ca asistent principal."
-  },
-  {
-    "q": "Părinții se pot uita?",
-    "a": "Absolut! Magia este de tip family-entertainment, amuzantă și pentru adulți."
-  },
-  {
-    "q": "Aduce recuzită proprie?",
-    "a": "Da, magicianul vine cu absolut toată recuzita necesară spectacolului."
-  },
-  {
-    "q": "Are nevoie de muzică?",
-    "a": "Unele numere necesită muzică de fundal. Magicianul poate aduce un mic sistem audio sau se poate conecta la boxa locației."
-  },
-  {
-    "q": "Poate veni la serbări școlare?",
-    "a": "Da, spectacolul se poate adapta pentru grupuri mari de copii la grădinițe sau școli."
-  },
-  {
-    "q": "Ce fel de magie se prezintă?",
-    "a": "Iluzionism de salon adaptat copiilor: dispariții, apariții de obiecte, trucuri cu cărți sau sfori."
-  },
-  {
-    "q": "Cât durează spectacolul?",
-    "a": "În general, spectacolul durează 45-60 de minute, durata ideală pentru atenția copiilor."
-  },
-  {
-    "q": "Când este bine să intre magicianul?",
-    "a": "De obicei după ce copiii au mâncat, când sunt așezați și pregătiți să urmărească un show."
-  },
-  {
-    "q": "Puteți face magie cu foc?",
-    "a": "Pentru siguranța copiilor, evităm magia cu foc deschis, optând pentru iluzii 100% sigure."
-  }
+const url='https://animaparty.ro/magician-petreceri-copii/';
+const faq=[
+ {q:'Pentru ce vârste este potrivit spectacolul?',a:'Formatul se adaptează în funcție de vârsta participanților; configurația exactă se confirmă înainte de rezervare.'},
+ {q:'Cât durează spectacolul?',a:'Durata se confirmă în funcție de programul solicitat. Nu publicăm o durată fixă universală.'},
+ {q:'Magicianul este același lucru cu animatorul?',a:'Nu. Magicianul susține un spectacol dedicat; animatorul coordonează jocuri și activități de grup pe parcursul programului de animație.'},
+ {q:'Cât costă?',a:'Prețul se confirmă la cerere după format, durată, locație și disponibilitate.'},
+ {q:'Veniți în București și Ilfov?',a:`${businessFacts.transportBucuresti} ${businessFacts.transportIlfov}`}
 ];
-
-const schema = JSON.stringify({
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "FAQPage",
-      "mainEntity": magicianFaq.map((f) => ({
-        "@type": "Question",
-        "name": f.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": f.a
-        }
-      }))
-    }
-  ]
-});
+const schema=JSON.stringify({"@context":"https://schema.org","@graph":[
+ {"@type":"WebPage","url":url,"name":"Magician Petreceri Copii București și Ilfov","inLanguage":"ro-RO"},
+ {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"AnimaParty","item":"https://animaparty.ro/"},{"@type":"ListItem","position":2,"name":"Magician","item":url}]},
+ {"@type":"Service","name":"Magician pentru petreceri de copii","provider":{"@id":"https://animaparty.ro/#organization"},"areaServed":["București","Ilfov"]},
+ {"@type":"FAQPage","mainEntity":faq.map(f=>({"@type":"Question","name":f.q,"acceptedAnswer":{"@type":"Answer","text":f.a}}))}
+]});
 ---
-
-<Layout schema={schema} 
-  title="Magician Petreceri Copii București & Ilfov | Spectacole Magie"
-  description="Spectacole interactive de magie pentru petreceri de copii, aniversări și serbări în București și Ilfov. Alege un magician profesionist pentru un eveniment memorabil."
- >
-  <main class="magician-page">
-    
-    <!-- Breadcrumb -->
-    <nav class="container mx-auto px-4 py-4 text-sm text-secondary" style="margin-top: 16px;">
-      <ol class="flex space-x-2" style="display: flex; gap: 8px; list-style: none; padding: 0;">
-        <li><a href="/" class="hover:text-accent text-secondary" style="text-decoration: none; color: #4a5568;">Acasă</a></li>
-        <li>/</li>
-        <li class="font-bold text-primary" style="color: var(--primary);">Magician</li>
-      </ol>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="relative bg-primary overflow-hidden" style="padding: 60px 0; background: var(--bg-primary);">
-      <div class="container mx-auto px-4 relative z-10 text-center">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6" style="font-family: 'Playfair Display', serif; font-size: 3rem; color: white;">
-          Spectacole de Magie pentru Copii
-        </h1>
-        <p class="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-8" style="font-size: 1.25rem; color: rgba(255, 255, 255, 0.9);">
-          O prezență captivantă și momente interactive pentru petreceri, aniversări și serbări școlare în București și Ilfov.
-        </p>
-        <a href="https://wa.me/40792864811" class="btn btn-whatsapp" style="display: inline-block; padding: 16px 32px; background-color: #25D366; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 1.1rem;">
-          Cereți o Ofertă pentru Magician
-        </a>
-      </div>
-    </section>
-
-    <!-- Detalii Serviciu -->
-    <section class="py-16 bg-white" style="padding: 60px 0; background: white;">
-      <div class="container mx-auto px-4" style="max-width: 1000px;">
-        <h2 class="text-3xl font-bold text-primary mb-6 text-center" style="font-family: 'Playfair Display', serif; font-size: 2.25rem; margin-bottom: 32px;">
-          Cum se desfășoară spectacolul?
-        </h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
-          <div style="background: var(--bg-secondary); padding: 32px; border-radius: 12px; border: 1px solid var(--border-subtle);">
-            <h3 class="font-bold text-xl mb-4" style="color: var(--accent); font-size: 1.25rem;">Formatul Spectacolului</h3>
-            <p style="color: var(--text-secondary); margin-bottom: 16px;">Spre deosebire de un animator clasic, magicianul oferă un spectacol dedicat, structurat pe trucuri vizuale, apariții, dispariții și iluzii comice adaptate vârstei copiilor.</p>
-            <ul class="space-y-2" style="color: var(--text-secondary); line-height: 1.5; font-size: 0.95rem;">
-              <li>• Spectacol interactiv: Copiii participă activ.</li>
-              <li>• Vârsta optimă: Programul se adaptează în funcție de vârsta participanților.</li>
-              <li>• Spațiu necesar: Se poate desfășura atât în interior, cât și în exterior (în condiții meteo favorabile).</li>
-            </ul>
-          </div>
-          
-          <div style="background: var(--bg-secondary); padding: 32px; border-radius: 12px; border: 1px solid var(--border-subtle);">
-            <h3 class="font-bold text-xl mb-4" style="color: var(--accent); font-size: 1.25rem;">Durată și Logistică</h3>
-            <p style="color: var(--text-secondary); margin-bottom: 16px;">Durata spectacolului se confirmă în funcție de programul solicitat.</p>
-            <ul class="space-y-2" style="color: var(--text-secondary); line-height: 1.5; font-size: 0.95rem;">
-              <li>• Detaliile privind recuzita și formatul exact se confirmă la rezervare.</li>
-              <li>• Eventualele cerințe logistice se stabilesc în funcție de locație.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Pret si logistica -->
-    <section class="py-16" style="padding: 60px 0; background: var(--bg-tertiary);">
-      <div class="container mx-auto px-4" style="max-width: 1000px;">
-        <h2 class="text-3xl font-bold text-primary mb-6 text-center" style="font-family: 'Playfair Display', serif; font-size: 2.25rem; margin-bottom: 32px;">
-          Tarife și Acoperire
-        </h2>
-        
-        <div style="background: white; padding: 32px; border-radius: 12px; border: 1px solid var(--border-subtle); text-align: center; max-width: 600px; margin: 0 auto 48px auto;">
-          <h3 class="font-bold text-2xl mb-2" style="color: var(--text-primary);">Preț la Cerere</h3>
-          <p style="color: var(--text-secondary); margin-bottom: 24px;">Prețul pentru spectacolele de magie variază în funcție de numărul de copii și de durata programului solicitat. Vă rugăm să ne contactați pentru a confirma disponibilitatea pe data dorită și costul exact.</p>
-        </div>
-
-        <div style="display: flex; flex-direction: column; md:flex-row; justify-content: center; gap: 24px;">
-            <div class="trust-card" style="padding: 24px; background: white; border-radius: 12px; border: 1px solid var(--border-subtle); flex: 1;">
-              <h4 class="font-bold mb-2" style="color: var(--text-primary);">📍 <a href="/animatori-petreceri-copii-bucuresti/" style="text-decoration: none; color: inherit;">București</a></h4>
-              <p style="color: var(--text-secondary);">{businessFacts.transportBucuresti} Magicianul se deplasează la restaurante, locuri de joacă sau grădinițe.</p>
-            </div>
-            <div class="trust-card" style="padding: 24px; background: white; border-radius: 12px; border: 1px solid var(--border-subtle); flex: 1;">
-              <h4 class="font-bold mb-2" style="color: var(--text-primary);">📍 <a href="/animatori-petreceri-copii-ilfov/" style="text-decoration: none; color: inherit;">Ilfov</a></h4>
-              <p style="color: var(--text-secondary);">{businessFacts.transportIlfov}</p>
-            </div>
-        </div>
-      </div>
-    </section>
-    
-    <SeoFooter />
-  </main>
+<Layout title="Magician Petreceri Copii București & Ilfov | AnimaParty" description="Magician pentru petreceri de copii în București și Ilfov. Spectacolul se adaptează vârstei și formatului; durata, disponibilitatea și prețul se confirmă la cerere." canonical={url} schema={schema}>
+<main>
+ <BatchHero kicker="Spectacol dedicat · București & Ilfov" title="Magician pentru petreceri de copii" lead="Magicianul este un moment de spectacol, nu o copie a serviciului de animator. Înainte de rezervare confirmăm vârsta publicului, spațiul, durata, formatul și costul." image="/animaparty-petrecere-copii-03.png" imageAlt="Moment de spectacol la o petrecere de copii" note="Imagine din prezentarea existentă a site-ului; formatul exact al spectacolului se confirmă la rezervare." />
+ <section class="batch-section"><div class="container"><div class="batch-heading"><h2>Ce diferențiază un spectacol de magie</h2><p>Pagina aceasta răspunde intenției de „magician”, fără să canibalizeze pagina de animatori.</p></div><div class="batch-grid-3">
+  <article class="batch-card"><h3>Moment structurat</h3><p>Spectacolul are un interval și un format confirmate înainte, distincte de jocurile animatorului.</p></article>
+  <article class="batch-card"><h3>Participare adaptată</h3><p>Gradul de interacțiune se stabilește în funcție de vârsta participanților și tipul evenimentului.</p></article>
+  <article class="batch-card"><h3>Locație verificată</h3><p>Spune-ne dacă evenimentul este acasă, la restaurant, la loc de joacă sau într-o instituție.</p></article>
+ </div></div></section>
+ <section class="batch-section alt"><div class="container"><div class="batch-heading"><h2>Ce trebuie stabilit înainte de ofertă</h2></div><table class="decision-table"><thead><tr><th>Informație</th><th>De ce contează</th></tr></thead><tbody>
+  <tr><td>vârsta participanților</td><td>pentru adaptarea formatului</td></tr>
+  <tr><td>numărul aproximativ</td><td>pentru modul de interacțiune</td></tr>
+  <tr><td>tipul locației</td><td>pentru spațiul de spectacol</td></tr>
+  <tr><td>durata dorită</td><td>pentru configurația și costul final</td></tr>
+  <tr><td>momentul în program</td><td>pentru integrarea cu tortul sau alte servicii</td></tr>
+ </tbody></table></div></section>
+ <section class="batch-section"><div class="container batch-grid-2"><article class="batch-card"><h2>Preț la cerere</h2><p>Nu afișăm o durată sau un preț universal fără o configurație confirmată. Trimite data, locația, vârstele și intervalul dorit.</p><p style="margin-top:16px"><a class="btn btn-whatsapp" href="https://wa.me/40792864811">Cere disponibilitatea</a></p></article><article class="batch-card"><h2>Transport</h2><p>{businessFacts.transportBucuresti}</p><p style="margin-top:10px">{businessFacts.transportIlfov}</p></article></div></section>
+ <PhotoProof title="Atmosferă de spectacol și petrecere" lead="Imagini deja existente în prezentarea AnimaParty, folosite pentru context vizual." items={[
+  {src:'/animaparty-petrecere-copii-03.png',alt:'Moment de spectacol cu copii',caption:'Exemplu vizual de moment de spectacol.'},
+  {src:'/hero-real.png',alt:'Petrecere de copii în interior',caption:'Spațiul influențează formatul.'},
+  {src:'/gallery-cake.png',alt:'Momentul tortului la petrecere',caption:'Spectacolul poate fi integrat într-un program mai larg.'}
+ ]}/>
+ <section class="batch-section alt"><div class="container"><div class="batch-heading"><h2>Întrebări frecvente — magician</h2></div><div class="batch-grid-2">{faq.map(f=><details class="batch-card"><summary><strong>{f.q}</strong></summary><p style="margin-top:12px">{f.a}</p></details>)}</div></div></section>
+ <RelatedServices items={[
+  {title:'Animatori',href:'/animatori-petreceri-copii-bucuresti/',text:'Pentru jocuri și coordonarea grupului pe durata programului.'},
+  {title:'Mascote',href:'/mascote-petreceri-copii/',text:'Pentru un moment vizual și fotografii.'},
+  {title:'Vată de zahăr & popcorn',href:'/vata-de-zahar-popcorn-evenimente/',text:'Serviciu separat de gustări pentru eveniment.'}
+ ]}/>
+ <SeoFooter/>
+</main>
 </Layout>

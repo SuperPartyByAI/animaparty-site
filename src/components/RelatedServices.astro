@@ -1,0 +1,13 @@
+---
+interface Item { title:string; href:string; text:string }
+interface Props { title?:string; items:Item[] }
+const {title='Servicii care pot completa evenimentul',items}=Astro.props;
+---
+<section class="batch-section alt">
+  <div class="container">
+    <div class="batch-heading"><h2>{title}</h2><p>Alege doar serviciile care se potrivesc formatului evenimentului; disponibilitatea și detaliile se confirmă înainte de rezervare.</p></div>
+    <div class="batch-grid-3">
+      {items.map(item => <article class="batch-card"><h3><a href={item.href} style="color:inherit;text-decoration:none">{item.title}</a></h3><p>{item.text}</p><p style="margin-top:14px"><a href={item.href}>Vezi detalii →</a></p></article>)}
+    </div>
+  </div>
+</section>

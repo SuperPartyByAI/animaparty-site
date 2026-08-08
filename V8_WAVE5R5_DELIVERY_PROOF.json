@@ -1,0 +1,12 @@
+{
+  "project": "animaparty",
+  "release_id": "animaparty-seo-v8-wave-5r4-20260807T160228Z",
+  "deployed_at": "2026-08-07T16:02:48.938Z",
+  "public_domain": "https://animaparty.ro/",
+  "canonical_host": "animaparty.ro",
+  "sitemap_url": "https://animaparty.ro/sitemap-index.xml",
+  "indexable_route_count": 11,
+  "homepage_normalized_hash": "bae1ad755793d541f968c5c14d88371f7f6f9d2d4dae078ff54395216c6e9114",
+  "services_page_normalized_hash": "d92cf96352abd3f602e55afd1a0cff7077d549e4abb64b6e448b1199a096ec7a",
+  "release_status": "deployed"
+}

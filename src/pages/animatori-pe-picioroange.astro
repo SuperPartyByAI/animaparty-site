@@ -1,208 +1,52 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import BatchHero from '../components/BatchHero.astro';
+import PhotoProof from '../components/PhotoProof.astro';
+import RelatedServices from '../components/RelatedServices.astro';
 import SeoFooter from '../components/SeoFooter.astro';
 import { businessFacts } from '../data/business-facts';
-import { pricingGroups } from '../data/pricing';
-
-const picioroangeGroup = pricingGroups.find((g: any) => g.id === "picioroange");
-const tier1 = picioroangeGroup?.tiers.find((t: any) => t.id === "stilt-walker-1h");
-const tier2 = picioroangeGroup?.tiers.find((t: any) => t.id === "two-stilt-walkers-1h");
-
-const picioroangeFaq = [
-  {
-    question: "La ce tip de evenimente se pretează animatorii pe picioroange?",
-    answer: "Sunt excelenți pentru evenimente corporate, lansări de produse, inaugurări de spații comerciale, festivaluri, recepții și momente de tip 'welcome guests' la nunți sau botezuri cu număr mare de invitați."
-  },
-  {
-    question: "Cât de înalte sunt picioroangele?",
-    answer: "Costumele specifice și echipamentul înălțător oferă o prezență impunătoare, asigurând vizibilitate de la mare distanță."
-  },
-  {
-    question: "Animatorii pot performa și în interior?",
-    answer: "Este posibilă și performanța la interior, în condițiile în care înălțimea sălii permite, iar podeaua asigură siguranța (fără trepte, obstacole sau suprafețe alunecoase)."
-  }
-,
-  {
-    question: "Pot veni picioroangele la petreceri private?",
-    answer: "Da, dacă spațiul este suficient de înalt și suprafața plană."
-  },
-  {
-    question: "Se pot face fotografii cu animatorii pe picioroange?",
-    answer: "Desigur, prezența lor este foarte vizuală și ideală pentru fotografii de eveniment."
-  },
-  {
-    question: "Cât de înalți sunt animatorii pe picioroange?",
-    answer: "Înălțimea diferă în funcție de tipul de echipament folosit."
-  },
-  {
-    question: "Pot împărți flyere sau baloane?",
-    answer: "Da, animatorii pot interacționa cu publicul oferind baloane modelate sau materiale promoționale."
-  },
-  {
-    question: "Au nevoie de muzică specială?",
-    answer: "Nu necesită muzică specială, dar o atmosferă muzicală este recomandată."
-  },
-  {
-    question: "Sunt potriviți pentru evenimente corporate?",
-    answer: "Da, sunt ideali pentru întâmpinarea invitaților la evenimente corporate sau inaugurări."
-  },
-  {
-    question: "Pot urca scări?",
-    answer: "Din motive de siguranță, se evită scările abrupte. Suprafețele plane sunt obligatorii."
-  },
-  {
-    question: "Costumele pot fi personalizate?",
-    answer: "Avem diverse tematici. Pentru cerințe specifice, discutați cu echipa noastră."
-  },
-  {
-    question: "Cât durează un program pe picioroange?",
-    answer: "Recomandăm reprize de 45-60 minute, cu pauze, din cauza efortului fizic."
-  },
-  {
-    question: "Fac activități cu copiii?",
-    answer: "Interacțiunea este mai mult vizuală (saluturi, baloane, poze). Nu organizează jocuri statice."
-  },
-  {
-    question: "Performanța poate avea loc noaptea?",
-    answer: "Da, dacă zona este foarte bine iluminată."
-  },
-  {
-    question: "Care sunt cerințele de spațiu pentru pregătire?",
-    answer: "Este necesar un spațiu cu o înălțime adecvată și scaun rezistent pentru echipare."
-  }
+const url='https://animaparty.ro/animatori-pe-picioroange/';
+const faq=[
+ {q:'Pentru ce tipuri de evenimente sunt potriviți animatorii pe picioroange?',a:'Sunt o opțiune vizuală pentru spații deschise, recepții, lansări, evenimente corporate sau momente în care vizibilitatea performerului este importantă.'},
+ {q:'Pot participa și la interior?',a:'Posibilitatea se confirmă după înălțimea, accesul și suprafața spațiului. Trimite detalii despre locație înainte de rezervare.'},
+ {q:'Cât de înalți sunt performerii?',a:'Înălțimea depinde de echipamentul folosit. Configurația exactă se confirmă pentru evenimentul solicitat.'},
+ {q:'Cât costă?',a:'Prețul se stabilește la cerere, în funcție de numărul de performeri, durată, locație și format.'},
+ {q:'Veniți în Ilfov?',a:businessFacts.transportIlfov}
 ];
-
-const schema = JSON.stringify({
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "FAQPage",
-      "mainEntity": picioroangeFaq.map((f) => ({
-        "@type": "Question",
-        "name": f.question,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": f.answer
-        }
-      }))
-    }
-  ]
-});
+const schema=JSON.stringify({"@context":"https://schema.org","@graph":[
+ {"@type":"WebPage","url":url,"name":"Animatori pe Picioroange București și Ilfov","inLanguage":"ro-RO"},
+ {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"AnimaParty","item":"https://animaparty.ro/"},{"@type":"ListItem","position":2,"name":"Animatori pe Picioroange","item":url}]},
+ {"@type":"Service","name":"Animatori pe picioroange","provider":{"@id":"https://animaparty.ro/#organization"},"areaServed":["București","Ilfov"]},
+ {"@type":"FAQPage","mainEntity":faq.map(f=>({"@type":"Question","name":f.q,"acceptedAnswer":{"@type":"Answer","text":f.a}}))}
+]});
 ---
-
-<Layout 
-  title="Animatori pe Picioroange București & Ilfov | Evenimente și Lansări"
-  description="Animatori pe picioroange pentru evenimente corporate, stradale, lansări de produse și petreceri în București și Ilfov. Ofera vizibilitate crescută de la distanță."
- schema={schema}>
-  <main class="picioroange-page">
-    
-    <!-- Breadcrumb -->
-    <nav class="container mx-auto px-4 py-4 text-sm text-secondary" style="margin-top: 16px;">
-      <ol class="flex space-x-2" style="display: flex; gap: 8px; list-style: none; padding: 0;">
-        <li><a href="/" class="hover:text-accent text-secondary" style="text-decoration: none; color: #4a5568;">Acasă</a></li>
-        <li>/</li>
-        <li class="font-bold text-primary" style="color: var(--primary);">Picioroange</li>
-      </ol>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="relative bg-primary overflow-hidden" style="padding: 60px 0; background: var(--bg-primary);">
-      <div class="container mx-auto px-4 relative z-10 text-center">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6" style="font-family: 'Playfair Display', serif; font-size: 3rem; color: white;">
-          Animatori pe Picioroange
-        </h1>
-        <p class="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-8" style="font-size: 1.25rem; color: rgba(255, 255, 255, 0.9);">
-          O prezență impresionantă pentru evenimente corporate, lansări stradale și petreceri open-air.
-        </p>
-        <a href="https://wa.me/40792864811" class="btn btn-whatsapp" style="display: inline-block; padding: 16px 32px; background-color: #25D366; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 1.1rem;">
-          Cereți o Ofertă
-        </a>
-      </div>
-    </section>
-
-    <!-- Detalii Serviciu -->
-    <section class="py-16 bg-white" style="padding: 60px 0; background: white;">
-      <div class="container mx-auto px-4" style="max-width: 1000px;">
-        <h2 class="text-3xl font-bold text-primary mb-6 text-center" style="font-family: 'Playfair Display', serif; font-size: 2.25rem; margin-bottom: 32px;">
-          Impact Vizual la Evenimente
-        </h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
-          <div style="background: var(--bg-secondary); padding: 32px; border-radius: 12px;">
-            <h3 class="font-bold text-xl mb-4" style="color: var(--accent); font-size: 1.25rem;">Evenimente Recomandate:</h3>
-            <ul class="space-y-4" style="color: var(--text-secondary); line-height: 1.6;">
-              <li style="display: flex; gap: 12px;"><span style="color: var(--accent-gold);">✓</span> Lansări de produse și campanii de sampling</li>
-              <li style="display: flex; gap: 12px;"><span style="color: var(--accent-gold);">✓</span> Festivaluri și evenimente stradale open-air</li>
-              <li style="display: flex; gap: 12px;"><span style="color: var(--accent-gold);">✓</span> Întâmpinarea invitaților (Welcome Guests) la nunți și botezuri mari</li>
-              <li style="display: flex; gap: 12px;"><span style="color: var(--accent-gold);">✓</span> Inaugurări de centre comerciale sau magazine</li>
-            </ul>
-          </div>
-          
-          <div style="background: var(--bg-tertiary); padding: 32px; border-radius: 12px;">
-            <h3 class="font-bold text-xl mb-4" style="color: var(--accent); font-size: 1.25rem;">Beneficii Practice:</h3>
-            <ul class="space-y-4" style="color: var(--text-secondary); line-height: 1.6;">
-              <li style="display: flex; gap: 12px;"><span style="color: var(--accent-gold);">✓</span> <strong>Vizibilitate Crescută:</strong> Artiștii atrag atenția publicului de la distanță.</li>
-              <li style="display: flex; gap: 12px;"><span style="color: var(--accent-gold);">✓</span> <strong>Punct Foto Mobil:</strong> Publicul obișnuiește să se fotografieze alături de personajele înalte.</li>
-              <li style="display: flex; gap: 12px;"><span style="color: var(--accent-gold);">✓</span> <strong>Element Decorativ Dinamic:</strong> Costumele tematice completează identitatea vizuală a evenimentului.</li>
-            </ul>
-          </div>
-        </div>
-        
-        <div style="background: #e2f0fd; border-left: 4px solid #3182ce; padding: 16px; border-radius: 0 8px 8px 0; margin-top: 32px;">
-          <strong style="color: #2b6cb0;">Cerințe Logistice și Siguranță:</strong>
-          <p style="color: #2b6cb0; margin-top: 8px;">Deplasarea pe picioroange necesită suprafețe plane. Condițiile de participare se confirmă în funcție de suprafața și locația evenimentului (fără trepte abrupte, teren noroios, gheață sau cabluri neizolate). Vă rugăm să ne oferiți detalii despre locație pentru a asigura un parcurs adecvat pentru artiști.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Pret si logistica -->
-    <section class="py-16" style="padding: 60px 0; background: var(--bg-tertiary);">
-      <div class="container mx-auto px-4" style="max-width: 1000px;">
-        <h2 class="text-3xl font-bold text-primary mb-6 text-center" style="font-family: 'Playfair Display', serif; font-size: 2.25rem; margin-bottom: 32px;">
-          Tarife Închiriere Animatori pe Picioroange
-        </h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
-          <div style="background: white; padding: 32px; border-radius: 12px; border: 1px solid var(--border-subtle); text-align: center;">
-            <h3 class="font-bold text-2xl mb-2" style="color: var(--text-primary);">Preț la Cerere</h3>
-            <p style="color: var(--text-secondary); margin-bottom: 24px;">Costul se stabilește în funcție de formatul evenimentului și numărul de ore solicitate. Solicitați o ofertă.</p>
-          </div>
-          
-          <div style="background: white; padding: 32px; border-radius: 12px; border: 2px solid var(--accent); text-align: center; position: relative;">
-            <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; padding: 4px 16px; border-radius: 16px; font-size: 0.875rem; font-weight: bold;">Recomandat Spații Mari</div>
-            <h3 class="font-bold text-2xl mb-2 mt-4" style="color: var(--text-primary);">Pachet 2 Animatori</h3>
-            <p style="color: var(--text-secondary); margin-bottom: 24px;">Pentru evenimente cu un număr mare de participanți, recomandăm prezența a doi animatori pentru un impact vizual maxim.</p>
-          </div>
-        </div>
-
-        <div style="display: flex; flex-direction: column; md:flex-row; justify-content: center; gap: 24px; margin-top: 48px;">
-            <div class="trust-card" style="padding: 24px; background: white; border-radius: 12px; border: 1px solid var(--border-subtle); flex: 1;">
-              <h4 class="font-bold mb-2" style="color: var(--text-primary);">📍 <a href="/animatori-petreceri-copii-bucuresti/" style="text-decoration: none; color: inherit;">București</a></h4>
-              <p style="color: var(--text-secondary);">{businessFacts.transportBucuresti} Acoperim inaugurările și evenimentele stradale din sectoarele 1-6.</p>
-            </div>
-            <div class="trust-card" style="padding: 24px; background: white; border-radius: 12px; border: 1px solid var(--border-subtle); flex: 1;">
-              <h4 class="font-bold mb-2" style="color: var(--text-primary);">📍 <a href="/animatori-petreceri-copii-ilfov/" style="text-decoration: none; color: inherit;">Ilfov</a></h4>
-              <p style="color: var(--text-secondary);">{businessFacts.transportIlfov}</p>
-            </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="py-16 bg-white" style="padding: 60px 0;">
-      <div class="container mx-auto px-4" style="max-width: 800px;">
-        <h2 class="text-3xl font-bold text-primary mb-8 text-center" style="font-family: 'Playfair Display', serif; font-size: 2.25rem;">Întrebări Frecvente</h2>
-        <div class="space-y-4" style="display: flex; flex-direction: column; gap: 16px;">
-          {picioroangeFaq.map((item) => (
-            <div style="background: var(--bg-tertiary); padding: 24px; border-radius: 8px; border-left: 4px solid var(--accent);">
-              <h3 class="font-bold text-lg mb-2" style="color: var(--primary);">{item.question}</h3>
-              <p style="color: var(--text-secondary); line-height: 1.6;">{item.answer}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-    
-    <SeoFooter />
-  </main>
+<Layout title="Animatori pe Picioroange București & Ilfov | AnimaParty" description="Animatori pe picioroange pentru evenimente în București și Ilfov. Verificăm spațiul, accesul, numărul de performeri, durata și prețul înainte de rezervare." canonical={url} schema={schema}>
+<main>
+ <BatchHero kicker="Picioroange · evenimente cu impact vizual" title="Animatori pe picioroange în București și Ilfov" lead="Un serviciu pentru evenimente în care prezența vizuală contează. Înainte de ofertă verificăm spațiul, accesul și formatul, fără să presupunem că aceeași configurație funcționează în orice locație." image="/gallery-dance.png" imageAlt="Atmosferă de eveniment cu public" note="Înălțimea și configurația echipamentului se confirmă pentru eveniment; nu publicăm dimensiuni neverificate." />
+ <section class="batch-section"><div class="container"><div class="batch-heading"><h2>Unde are sens acest serviciu</h2><p>Picioroangele nu înlocuiesc animatorul pentru jocuri de copii. Rolul lor este în principal vizual și de prezență în spațiu.</p></div><div class="batch-grid-3">
+  <article class="batch-card"><h3>Recepție & intrare</h3><p>Moment vizual pentru sosirea invitaților sau deschiderea evenimentului.</p></article>
+  <article class="batch-card"><h3>Evenimente open-air</h3><p>Potrivite când spațiul este suficient și condițiile locației sunt confirmate.</p></article>
+  <article class="batch-card"><h3>Corporate & lansări</h3><p>Prezență vizuală pentru evenimente cu public și zone de circulație largi.</p></article>
+ </div></div></section>
+ <section class="batch-section alt"><div class="container"><div class="batch-heading"><h2>Checklist înainte de ofertă</h2><p>Aceste informații sunt mai utile decât o listă generică de promisiuni tehnice.</p></div><table class="decision-table"><thead><tr><th>Ce ne spui</th><th>Ce verificăm</th></tr></thead><tbody>
+  <tr><td>interior / exterior</td><td>dacă spațiul permite configurația solicitată</td></tr>
+  <tr><td>suprafața și accesul</td><td>condițiile de participare și traseul performerilor</td></tr>
+  <tr><td>numărul de invitați</td><td>numărul de performeri potrivit formatului</td></tr>
+  <tr><td>durata momentului</td><td>programul și costul</td></tr>
+  <tr><td>tipul evenimentului</td><td>costumul și stilul de interacțiune disponibile</td></tr>
+ </tbody></table></div></section>
+ <section class="batch-section"><div class="container batch-grid-2"><article class="batch-card"><h2>Preț la cerere</h2><p>Nu afișăm un tarif numeric fără o configurație verificată. Numărul de performeri, durata, locația și logistica influențează oferta.</p><p style="margin-top:16px"><a class="btn btn-whatsapp" href="https://wa.me/40792864811">Cere ofertă</a></p></article><article class="batch-card"><h2>Transport</h2><p>{businessFacts.transportBucuresti}</p><p style="margin-top:10px">{businessFacts.transportIlfov}</p></article></div></section>
+ <PhotoProof title="Atmosfera evenimentului" lead="Imagini existente în prezentarea AnimaParty; pagina nu pretinde că aceste cadre reprezintă echipamentul exact de picioroange." items={[
+  {src:'/gallery-dance.png',alt:'Public la eveniment',caption:'Exemplu de atmosferă cu public.'},
+  {src:'/hero-bg-v4.jpg',alt:'Eveniment de copii în exterior',caption:'Spațiu exterior folosit ca exemplu de context.'},
+  {src:'/hero-real.png',alt:'Petrecere de copii în interior',caption:'La interior, condițiile spațiului trebuie verificate înainte.'}
+ ]}/>
+ <section class="batch-section alt"><div class="container"><div class="batch-heading"><h2>Întrebări frecvente — picioroange</h2></div><div class="batch-grid-2">{faq.map(f=><details class="batch-card"><summary><strong>{f.q}</strong></summary><p style="margin-top:12px">{f.a}</p></details>)}</div></div></section>
+ <RelatedServices items={[
+  {title:'Animatori pentru copii',href:'/animatori-petreceri-copii-bucuresti/',text:'Pentru jocuri și coordonarea grupului.'},
+  {title:'Mascote',href:'/mascote-petreceri-copii/',text:'Pentru o apariție tematică și fotografii.'},
+  {title:'Decorațiuni cu baloane',href:'/decoratiuni-baloane-bucuresti/',text:'Pentru intrare, fundal și zone foto.'}
+ ]}/>
+ <SeoFooter/>
+</main>
 </Layout>

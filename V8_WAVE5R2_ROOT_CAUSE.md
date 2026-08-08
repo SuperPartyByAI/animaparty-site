@@ -1,0 +1,1 @@
+# Root Cause of Public Drift\nEXTERNAL_SEARCH_CACHE_STALE_ONLY. Additionally, residual 3-hour phantom products were cleared from JSON-LD schema (pricing.ts) and transport contradictions in services.ts were unified to "Fara taxa de transport in Sector 1-6" for all services.

@@ -1,0 +1,3 @@
+url,status_code,status
+/fake-url,404,PASS
+/servicii/fake,404,PASS

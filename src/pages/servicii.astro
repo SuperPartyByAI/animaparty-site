@@ -1,106 +1,39 @@
 ---
-import { businessServices } from '../data/services';
 import Layout from '../layouts/Layout.astro';
+import BatchHero from '../components/BatchHero.astro';
+import PhotoProof from '../components/PhotoProof.astro';
 import SeoFooter from '../components/SeoFooter.astro';
+import { businessServices } from '../data/services';
+const url='https://animaparty.ro/servicii/';
+const active=Object.values(businessServices).filter(s=>s.active);
+const schema=JSON.stringify({"@context":"https://schema.org","@graph":[
+ {"@type":"CollectionPage","url":url,"name":"Servicii pentru petreceri copii București și Ilfov","description":"Hub AnimaParty pentru animatori, mascote, magician, picioroange, decorațiuni cu baloane și food stations.","isPartOf":{"@id":"https://animaparty.ro/#website"}},
+ {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"AnimaParty","item":"https://animaparty.ro/"},{"@type":"ListItem","position":2,"name":"Servicii","item":url}]},
+ {"@type":"ItemList","itemListElement":active.map((s,i)=>({"@type":"ListItem","position":i+1,"name":s.name,"url":"https://animaparty.ro"+s.url}))}
+]});
+const groups=[
+ {title:'Animație & personaje',items:['animatori','mascote','picioroange']},
+ {title:'Spectacol & gustări',items:['magician','food_stations']},
+ {title:'Decor & ambient',items:['decor']}
+];
 ---
-
-<Layout 
-  title="Servicii Petreceri Copii București & Ilfov | AnimaParty"
-  description="Descoperă portofoliul complet AnimaParty: animatori, mascote, decor din baloane, spectacole de magie, vată de zahăr și animatori pe picioroange pentru evenimente."
->
-  <main class="services-hub-page">
-    
-    <!-- Breadcrumb -->
-    <nav class="container mx-auto px-4 py-4 text-sm text-secondary" style="margin-top: 16px;">
-      <ol class="flex space-x-2" style="display: flex; gap: 8px; list-style: none; padding: 0;">
-        <li><a href="/" class="hover:text-accent text-secondary" style="text-decoration: none; color: #4a5568;">Acasă</a></li>
-        <li>/</li>
-        <li class="font-bold text-primary" style="color: var(--primary);">Servicii</li>
-      </ol>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="relative bg-primary overflow-hidden" style="padding: 60px 0; background: var(--bg-primary);">
-      <div class="container mx-auto px-4 relative z-10 text-center">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6" style="font-family: 'Playfair Display', serif; font-size: 3rem; color: white;">
-          Servicii Evenimente
-        </h1>
-        <p class="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-8" style="font-size: 1.25rem; color: rgba(255, 255, 255, 0.9);">
-          Soluții complete pentru petreceri de copii, aniversări, botezuri și evenimente corporate în București și Ilfov.
-        </p>
-      </div>
-    </section>
-
-    <!-- Categorii de Servicii -->
-    <section class="py-16 bg-white" style="padding: 60px 0; background: white;">
-      <div class="container mx-auto px-4" style="max-width: 1200px;">
-        
-        <!-- Categoria 1: Animație -->
-        <div style="margin-bottom: 60px;">
-          <h2 class="text-3xl font-bold text-primary mb-8 border-b-2 border-accent pb-2" style="font-family: 'Playfair Display', serif; font-size: 2.25rem; border-bottom: 3px solid var(--accent); padding-bottom: 8px;">1. Animație și Personaje</h2>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
-            <a href="/animatori-petreceri-copii-bucuresti/" style="text-decoration: none; color: inherit; display: block;">
-              <div style="background: var(--bg-secondary); padding: 24px; border-radius: 12px; border: 1px solid var(--border-subtle); height: 100%; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-                <h3 class="font-bold text-xl mb-3" style="color: var(--accent); font-size: 1.25rem;">Animatori Petreceri Copii</h3>
-                <p style="color: var(--text-secondary); line-height: 1.5; margin-bottom: 16px;">{businessServices.animatori.hubDescription}</p>
-                <span style="color: var(--accent); font-weight: bold; font-size: 0.9rem;">Vezi pachete animatori →</span>
-              </div>
-            </a>
-            <a href="/mascote-petreceri-copii/" style="text-decoration: none; color: inherit; display: block;">
-              <div style="background: var(--bg-secondary); padding: 24px; border-radius: 12px; border: 1px solid var(--border-subtle); height: 100%; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-                <h3 class="font-bold text-xl mb-3" style="color: var(--accent); font-size: 1.25rem;">Închiriere Mascote</h3>
-                <p style="color: var(--text-secondary); line-height: 1.5; margin-bottom: 16px;">{businessServices.mascote.hubDescription}</p>
-                <span style="color: var(--accent); font-weight: bold; font-size: 0.9rem;">Vezi detalii mascote →</span>
-              </div>
-            </a>
-            <a href="/animatori-pe-picioroange/" style="text-decoration: none; color: inherit; display: block;">
-              <div style="background: var(--bg-secondary); padding: 24px; border-radius: 12px; border: 1px solid var(--border-subtle); height: 100%; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-                <h3 class="font-bold text-xl mb-3" style="color: var(--accent); font-size: 1.25rem;">Animatori pe Picioroange</h3>
-                <p style="color: var(--text-secondary); line-height: 1.5; margin-bottom: 16px;">{businessServices.picioroange.hubDescription}</p>
-                <span style="color: var(--accent); font-weight: bold; font-size: 0.9rem;">Vezi detalii picioroange →</span>
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <!-- Categoria 2: Spectacol & Magie -->
-        <div style="margin-bottom: 60px;">
-          <h2 class="text-3xl font-bold text-primary mb-8 border-b-2 border-accent pb-2" style="font-family: 'Playfair Display', serif; font-size: 2.25rem; border-bottom: 3px solid var(--accent); padding-bottom: 8px;">2. Spectacole și Experiențe</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
-            <a href="/magician-petreceri-copii/" style="text-decoration: none; color: inherit; display: block;">
-              <div style="background: var(--bg-secondary); padding: 24px; border-radius: 12px; border: 1px solid var(--border-subtle); height: 100%; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-                <h3 class="font-bold text-xl mb-3" style="color: var(--accent); font-size: 1.25rem;">Magician</h3>
-                <p style="color: var(--text-secondary); line-height: 1.5; margin-bottom: 16px;">{businessServices.magician.hubDescription}</p>
-                <span style="color: var(--accent); font-weight: bold; font-size: 0.9rem;">Vezi detalii magician →</span>
-              </div>
-            </a>
-            <a href="/vata-de-zahar-popcorn-evenimente/" style="text-decoration: none; color: inherit; display: block;">
-              <div style="background: var(--bg-secondary); padding: 24px; border-radius: 12px; border: 1px solid var(--border-subtle); height: 100%; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-                <h3 class="font-bold text-xl mb-3" style="color: var(--accent); font-size: 1.25rem;">Food Stations (Vată de Zahăr & Popcorn)</h3>
-                <p style="color: var(--text-secondary); line-height: 1.5; margin-bottom: 16px;">{businessServices.food_stations.hubDescription}</p>
-                <span style="color: var(--accent); font-weight: bold; font-size: 0.9rem;">Vezi detalii food stations →</span>
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <!-- Categoria 3: Decor -->
-        <div style="margin-bottom: 30px;">
-          <h2 class="text-3xl font-bold text-primary mb-8 border-b-2 border-accent pb-2" style="font-family: 'Playfair Display', serif; font-size: 2.25rem; border-bottom: 3px solid var(--accent); padding-bottom: 8px;">3. Decor și Amenajare</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
-            <a href="/decoratiuni-baloane-bucuresti/" style="text-decoration: none; color: inherit; display: block;">
-              <div style="background: var(--bg-secondary); padding: 24px; border-radius: 12px; border: 1px solid var(--border-subtle); height: 100%; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-                <h3 class="font-bold text-xl mb-3" style="color: var(--accent); font-size: 1.25rem;">Decorațiuni din Baloane</h3>
-                <p style="color: var(--text-secondary); line-height: 1.5; margin-bottom: 16px;">{businessServices.decor.hubDescription}</p>
-                <span style="color: var(--accent); font-weight: bold; font-size: 0.9rem;">Vezi detalii decor →</span>
-              </div>
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-    
-    <SeoFooter />
-  </main>
+<Layout title="Servicii pentru Petreceri Copii București & Ilfov | AnimaParty" description="Servicii AnimaParty pentru petreceri și evenimente: animatori, mascote, picioroange, magician, decorațiuni cu baloane, vată de zahăr și popcorn." canonical={url} schema={schema}>
+<main>
+ <BatchHero kicker="Hub de servicii · București & Ilfov" title="Servicii pentru petreceri de copii și evenimente" lead="Aici alegi categoria de serviciu. Fiecare serviciu are propria pagină, astfel încât Google și utilizatorul să găsească o destinație clară, fără ca paginile să concureze inutil între ele." image="/hero-real.png" imageAlt="Petrecere de copii cu activități și decor" note="Hubul nu înlocuiește paginile de serviciu: le conectează și explică diferența dintre ele." primaryLabel="Vezi animatori București" primaryHref="/animatori-petreceri-copii-bucuresti/" secondaryLabel="Contact" secondaryHref="/contact/"/>
+ {groups.map(group=><section class="batch-section"><div class="container"><div class="batch-heading"><h2>{group.title}</h2></div><div class="batch-grid-3">{group.items.map(id=>{const s=businessServices[id];return <article class="batch-card"><h3><a href={s.url} style="color:inherit;text-decoration:none">{s.name}</a></h3><p>{s.hubDescription}</p><p style="margin-top:16px"><a href={s.url}>Vezi pagina serviciului →</a></p></article>})}</div></div></section>)}
+ <section class="batch-section alt"><div class="container"><div class="batch-heading"><h2>Cum alegi serviciile fără să aglomerezi programul</h2><p>Începe cu obiectivul principal al evenimentului, apoi adaugă doar serviciile care au rol diferit și pot fi integrate în timpul disponibil.</p></div><table class="decision-table"><thead><tr><th>Obiectiv</th><th>Pagina potrivită</th></tr></thead><tbody>
+ <tr><td>Jocuri și coordonarea grupului de copii</td><td><a href="/animatori-petreceri-copii-bucuresti/">Animatori</a></td></tr>
+ <tr><td>Moment vizual, fotografii, tort</td><td><a href="/mascote-petreceri-copii/">Mascote</a></td></tr>
+ <tr><td>Impact vizual pentru spații mari / evenimente</td><td><a href="/animatori-pe-picioroange/">Picioroange</a></td></tr>
+ <tr><td>Spectacol dedicat</td><td><a href="/magician-petreceri-copii/">Magician</a></td></tr>
+ <tr><td>Fundal, intrare, heliu</td><td><a href="/decoratiuni-baloane-bucuresti/">Decorațiuni cu baloane</a></td></tr>
+ <tr><td>Vată de zahăr sau popcorn</td><td><a href="/vata-de-zahar-popcorn-evenimente/">Food stations</a></td></tr>
+ </tbody></table></div></section>
+ <PhotoProof title="Atmosferă, personaje și decor" items={[
+ {src:'/char-mascot.png',alt:'Mascotă la petrecere de copii',caption:'Mascote pentru momente vizuale și fotografii.'},
+ {src:'/service-princess.png',alt:'Personaj tematic la petrecere de copii',caption:'Animație și personaje tematice.'},
+ {src:'/hero-luxury.png',alt:'Decor cu baloane pentru eveniment',caption:'Decor pentru fundaluri și zone foto.'}
+ ]}/>
+ <SeoFooter/>
+</main>
 </Layout>

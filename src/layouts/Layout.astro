@@ -22,6 +22,30 @@ const {
 
 const canonicalUrl =
   canonical ?? new URL(Astro.url.pathname, "https://animaparty.ro").href;
+
+const entitySchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://animaparty.ro/#organization",
+      "name": "AnimaParty",
+      "url": "https://animaparty.ro/",
+      "logo": "https://animaparty.ro/animaparty-logo-mark.svg",
+      "telephone": "+40792864811",
+      "email": "contact@animaparty.ro",
+      "areaServed": ["București", "Ilfov"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://animaparty.ro/#website",
+      "url": "https://animaparty.ro/",
+      "name": "AnimaParty",
+      "publisher": { "@id": "https://animaparty.ro/#organization" },
+      "inLanguage": "ro-RO"
+    }
+  ]
+});
 ---
 
 <!doctype html>
@@ -49,6 +73,7 @@ const canonicalUrl =
 		<meta name="twitter:image" content="https://animaparty.ro/hero-bucuresti.webp" />
 		
 		<!-- Schema.org JSON-LD -->
+		<script type="application/ld+json" set:html={entitySchema} />
 		{schema && <script type="application/ld+json" set:html={schema} />}
 
 		<!-- Premium Fonts -->

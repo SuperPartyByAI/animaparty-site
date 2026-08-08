@@ -1,0 +1,16 @@
+{
+  "project": "animaparty",
+  "package": "ANIMAPARTY_CHATGPT_BATCH1_10PAGES_V1_READY_FOR_DEPLOY",
+  "planned_release_id": "animaparty-chatgpt-batch1-v1-20260808T214854Z",
+  "base_live_release_verified_before_authoring": "animaparty-seo-v8-wave6r4-20260808T125308Z",
+  "batch_size": 10,
+  "indexable_route_count": 11,
+  "predeploy_page_gate": "10/10 PASS",
+  "predeploy_cannibalization_high": 0,
+  "predeploy_asset_gate": "PASS",
+  "predeploy_competitive_content_gate": "10/10 PASS",
+  "actual_google_top3_gate": "OPEN",
+  "batch_seal": "OPEN",
+  "production_modified_by_chatgpt": false,
+  "handoff_note": "Antigravity deploys exact ZIP only after clean build. ChatGPT independently verifies live and continues iterating every page not Top 3."
+}

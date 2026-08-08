@@ -1,0 +1,6 @@
+Variant,requested_url,status,cache_control,x_anima_deploy,semantic_parity
+PUBLIC_NORMAL,https://animaparty.ro/,200,"no-cache, no-store, must-revalidate",animaparty-seo-v8-wave-5r4-20260807T160228Z,PASS
+PUBLIC_CACHEBUST,https://animaparty.ro/?cb=123,200,"no-cache, no-store, must-revalidate",animaparty-seo-v8-wave-5r4-20260807T160228Z,PASS
+PUBLIC_NO_CACHE,https://animaparty.ro/,200,"no-cache, no-store, must-revalidate",animaparty-seo-v8-wave-5r4-20260807T160228Z,PASS
+PUBLIC_GOOGLEBOT,https://animaparty.ro/,200,"no-cache, no-store, must-revalidate",animaparty-seo-v8-wave-5r4-20260807T160228Z,PASS
+FORCED_ORIGIN,https://animaparty.ro/,200,"no-cache, no-store, must-revalidate",animaparty-seo-v8-wave-5r4-20260807T160228Z,PASS

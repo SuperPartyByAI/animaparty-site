@@ -1,0 +1,7 @@
+query_cluster,queries,intent,service,geo,primary_target_url,secondary_support_url,indexable,current_google_position,GSC_position,top1_competitor,top10_strength,AnimaParty_gap,release_status,next_action
+animatori,animatori petreceri copii,commercial,animators,National,https://animaparty.ro/,,YES,NOT_IN_TOP10,0,yokidoki.ro,STRONG,CLOSED,READY_FOR_GOOGLE_GROWTH,MONITOR
+animatori_buc,animatori petreceri copii Bucuresti,local commercial,animators,Bucuresti,https://animaparty.ro/animatori-petreceri-copii-bucuresti/,,YES,NOT_IN_TOP10,0,yokidoki.ro,STRONG,CLOSED,READY_FOR_GOOGLE_GROWTH,MONITOR
+animatori_ilfov,animatori petreceri copii Ilfov,local commercial,animators,Ilfov,https://animaparty.ro/animatori-petreceri-copii-ilfov/,,YES,NOT_IN_TOP10,0,cool-events.ro,MEDIUM,CLOSED,READY_FOR_GOOGLE_GROWTH,MONITOR
+mascote,mascote petreceri copii Bucuresti,local commercial,mascote,Bucuresti,https://animaparty.ro/mascote-petreceri-copii/,,YES,NOT_IN_TOP10,0,paradisulpersonajelor.ro,STRONG,CLOSED,READY_FOR_GOOGLE_GROWTH,MONITOR
+picioroange,animatori pe picioroange,commercial,picioroange,National,https://animaparty.ro/animatori-pe-picioroange/,,YES,NOT_IN_TOP10,0,picioroange.ro,STRONG,CLOSED,READY_FOR_GOOGLE_GROWTH,MONITOR
+decor,decoratiuni baloane Bucuresti,local commercial,decor,Bucuresti,,NO,NO,0,0,N/A,N/A,UNVERIFIED_SERVICE,HOLD_WITH_EXPLICIT_EVIDENCE,VERIFY_BUSINESS_CAPABILITY

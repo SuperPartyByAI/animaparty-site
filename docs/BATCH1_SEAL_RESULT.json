@@ -1,0 +1,68 @@
+{
+  "batch_size": 10,
+  "predeploy_content_technical_gate": "PASS",
+  "actual_google_top3_gate": "FAIL",
+  "batch_seal": "OPEN",
+  "rank_blockers": [
+    {
+      "url": "/",
+      "query": "animatori pentru petreceri copii București și Ilfov",
+      "position": null,
+      "status": "NO_TOP3_QUERY_PROOF_YET"
+    },
+    {
+      "url": "/animatori-petreceri-copii-bucuresti/",
+      "query": "animatori petreceri copii București",
+      "position": 20.3,
+      "status": "BELOW_TOP3_PRE_BATCH"
+    },
+    {
+      "url": "/animatori-petreceri-copii-ilfov/",
+      "query": "animatori petreceri copii Ilfov",
+      "position": 13.3,
+      "status": "BELOW_TOP3_PRE_BATCH"
+    },
+    {
+      "url": "/animatori-petreceri-copii/",
+      "query": "cum alegi animator pentru petrecere copii",
+      "position": null,
+      "status": "NO_DEDICATED_PAGE_DATA_YET"
+    },
+    {
+      "url": "/servicii/",
+      "query": "servicii petreceri copii București Ilfov",
+      "position": null,
+      "status": "NO_DEDICATED_PAGE_DATA_YET"
+    },
+    {
+      "url": "/mascote-petreceri-copii/",
+      "query": "închiriere mascote petreceri copii București",
+      "position": null,
+      "status": "NO_DEDICATED_PAGE_DATA_YET"
+    },
+    {
+      "url": "/animatori-pe-picioroange/",
+      "query": "animatori pe picioroange București",
+      "position": null,
+      "status": "NO_DEDICATED_PAGE_DATA_YET"
+    },
+    {
+      "url": "/decoratiuni-baloane-bucuresti/",
+      "query": "decorațiuni baloane București",
+      "position": null,
+      "status": "NO_DEDICATED_PAGE_DATA_YET"
+    },
+    {
+      "url": "/magician-petreceri-copii/",
+      "query": "magician petreceri copii București",
+      "position": null,
+      "status": "NO_DEDICATED_PAGE_DATA_YET"
+    },
+    {
+      "url": "/vata-de-zahar-popcorn-evenimente/",
+      "query": "vată de zahăr popcorn evenimente București",
+      "position": null,
+      "status": "NO_DEDICATED_PAGE_DATA_YET"
+    }
+  ]
+}

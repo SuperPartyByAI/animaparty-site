@@ -1,0 +1,3 @@
+fact_id,service,authoritative_source,homepage,services_hub,money_page,faq,schema,status
+transport,all,src/data/services.ts,UNIFIED,UNIFIED,UNIFIED,UNIFIED,UNIFIED,PASS
+pricing,animatori,src/data/pricing.ts,UNIFIED,UNIFIED,UNIFIED,UNIFIED,UNIFIED,PASS

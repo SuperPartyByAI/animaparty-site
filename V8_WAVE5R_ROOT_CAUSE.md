@@ -1,0 +1,1 @@
+# Root Cause of Public Drift\nEXTERNAL_CRAWLER_CACHE_STALE. All origin fetch attempts (Normal, Googlebot, Cache-Busted, Forced IP) return the new Wave 5 code. The public crawler is serving a stale cached snapshot.

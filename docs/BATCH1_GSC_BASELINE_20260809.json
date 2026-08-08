@@ -1,0 +1,17 @@
+{
+  "property": "https://animaparty.ro/",
+  "processed_through": "2026-08-06",
+  "total_clicks": 22,
+  "total_impressions": 751,
+  "ctr_percent": 2.9,
+  "average_position": 9.7,
+  "page_distribution": [
+    {"url":"https://animaparty.ro/","clicks":22,"impressions":728},
+    {"url":"https://animaparty.ro/blog/","clicks":0,"impressions":29}
+  ],
+  "query_baseline": [
+    {"query":"animatori petreceri copii bucuresti","clicks":0,"impressions":10,"average_position":20.3},
+    {"query":"animatori petreceri copii ilfov","clicks":0,"impressions":23,"average_position":13.3}
+  ],
+  "interpretation": "Historical/processed baseline before this Batch 1 package. Dedicated new money pages do not yet have mature GSC performance data. This file is a baseline, not a post-deploy verdict."
+}

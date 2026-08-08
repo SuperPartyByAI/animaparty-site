@@ -1,80 +1,14 @@
 export const faqBucuresti = [
-  {
-    question: "Veniți în toate sectoarele din București?",
-    answer: "Da, echipa noastră se deplasează în orice locație din București, acoperind integral Sectoarele 1, 2, 3, 4, 5 și 6, pentru petreceri de copii."
-  },
-  {
-    question: "Există taxă de transport în București?",
-    answer: "Nu percepem taxă suplimentară de transport pentru deplasările aflate pe raza municipiului București, indiferent de sector."
-  },
-  {
-    question: "Cât costă un animator pentru petrecere copii în București?",
-    answer: "Prețurile încep de la 280 Lei pentru un personaj animator timp de 1 oră. Pachetele variază în funcție de numărul de animatori și durata rezervată."
-  },
-  {
-    question: "Când este suficient 1 personaj animator?",
-    answer: "Numărul recomandat de animatori se stabilește în funcție de numărul și vârsta copiilor, spațiul disponibil, durata programului și activitățile alese."
-  },
-  {
-    question: "Când sunt recomandați 2 animatori?",
-    answer: "Pentru grupuri mai mari sau spații extinse, doi animatori pot ajuta la coordonarea activităților pentru a menține ritmul și distracția întregului grup."
-  },
-  {
-    question: "Se poate organiza petrecerea acasă sau în apartament?",
-    answer: "Absolut. Ne adaptăm spațiului disponibil, fie că este o sufragerie de apartament sau o casă. Jocurile sunt flexibile și sigure pentru interior."
-  },
-  {
-    question: "Se poate organiza la restaurant sau terasă?",
-    answer: "Da, venim frecvent la restaurante și terase din București. Găsim mereu soluții pentru a organiza copiii fără a deranja ceilalți oaspeți."
-  },
-  {
-    question: "Veniți la grădinițe și școli din București?",
-    answer: "Da, participăm la aniversări și serbări organizate în cadrul unităților de învățământ preșcolar și școlar din capitală, cu aprobarea instituției."
-  },
-  {
-    question: "Veniți la locuri de joacă din București?",
-    answer: "Desigur. Colaborăm ușor cu spațiile de joacă închiriate. Animatorul aduce un plus de spectacol și coordonează eficient grupul de copii."
-  },
-  {
-    question: "Ce activități sunt incluse în pachete?",
-    answer: "Programele includ jocuri interactive adaptate vârstei, personaje tematice la alegere, asistență la momentul tortului și fond muzical adecvat."
-  },
-  {
-  },
-  {
-    question: "Este inclusă Piñata?",
-    answer: "Piñata este un serviciu opțional. Oferim asistență și coordonare pentru momentul spargerii, iar costul accesoriului se confirmă la cerere."
-  },
-  {
-    question: "Face painting-ul este inclus?",
-    answer: "Face painting-ul se confirmă în funcție de pachet, numărul de copii și timpul disponibil, respectând dorințele părinților."
-  },
-  {
-    question: "Baloanele modelabile sunt incluse?",
-    answer: "Baloanele modelabile (săbii, floricele, cățeluși) sunt oferite la finalul programului tuturor copiilor prezenți, fiind incluse în toate pachetele."
-  },
-  {
-    question: "Cum aleg personajul potrivit?",
-    answer: "Vă punem la dispoziție o varietate de costume, incluzând eroi, prințese și mascote. Vă sfătuim să alegeți personajul preferat de sărbătorit."
-  },
-  {
-    question: "Cu cât timp înainte trebuie să rezerv?",
-    answer: "Recomandăm rezervarea cu cel puțin 1-2 săptămâni în avans, Pentru evenimentele de weekend recomandăm verificarea disponibilității din timp."
-  },
-  {
-    question: "Ce trebuie să pregătească părinții înainte de eveniment?",
-    answer: "Avem nevoie doar de acces la o priză pentru sistemul audio și de un mic spațiu liber unde să se poată desfășura în siguranță jocurile."
-  },
-  {
-    question: "Cum se confirmă ora și adresa?",
-    answer: "Toate detaliile logistice, inclusiv sectorul, adresa exactă și ora începerii, sunt discutate și confirmate oficial prin mesaje pe WhatsApp."
-  },
-  {
-    question: "Pot rezerva pentru weekend?",
-    answer: "Da. Pentru evenimentele de weekend recomandăm verificarea disponibilității din timp."
-  },
-  {
-    question: "Pot combina animatorii cu servicii extra?",
-    answer: "Echipa noastră oferă un pachet complet. Pentru servicii suplimentare de divertisment infantil, detaliile se stabilesc personalizat la momentul rezervării."
-  }
+  { question: "Veniți în toate sectoarele din București?", answer: "Da. AnimaParty preia rezervări pentru evenimente în Sectoarele 1-6, iar adresa exactă se confirmă înainte de rezervare." },
+  { question: "Există taxă separată de transport în București?", answer: "Deplasarea este inclusă pentru evenimentele din Sectoarele 1-6 ale Bucureștiului." },
+  { question: "Cât costă un animator în București?", answer: "Pachetele afișate pornesc de la 280 RON pentru 1 animator / 1 oră. Pentru 2 ore, pachetul cu 1 animator este 490 RON, iar cel cu 2 animatori este 830 RON." },
+  { question: "Cum aleg între un animator și doi animatori?", answer: "Recomandarea se stabilește după numărul și vârsta copiilor, spațiul disponibil, durata și activitățile alese." },
+  { question: "Se poate organiza programul într-un apartament?", answer: "Da, dacă există o zonă potrivită pentru grup. Activitățile se adaptează spațiului disponibil și regulilor locației." },
+  { question: "Se poate organiza la restaurant sau terasă?", answer: "Da, cu acordul locației și o zonă în care copiii pot participa la program fără a bloca circulația." },
+  { question: "Veniți la grădinițe sau școli?", answer: "Da, dacă instituția aprobă activitatea și sunt confirmate în prealabil ora, spațiul și regulile de acces." },
+  { question: "Veniți la locuri de joacă?", answer: "Da. Înainte de rezervare este util să știm ce activități oferă deja locația și ce spațiu rămâne disponibil pentru animator." },
+  { question: "Face painting-ul este inclus?", answer: "Pictura pe față se confirmă în funcție de pachet, numărul de copii și timpul disponibil." },
+  { question: "Piñata este inclusă?", answer: "Piñata este opțională; disponibilitatea, conținutul și costul se confirmă înainte de rezervare." },
+  { question: "Ce informații trebuie trimise pentru rezervare?", answer: "Data, ora, adresa, tipul locației, numărul estimat și vârstele copiilor, plus personajul sau serviciul dorit." },
+  { question: "Cum se confirmă rezervarea?", answer: "Detaliile finale ale programului, adresa, ora și serviciile alese se confirmă înainte de eveniment prin canalul de contact stabilit." }
 ];

@@ -1,283 +1,79 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import BatchHero from '../components/BatchHero.astro';
 import Packages from '../components/Packages.astro';
+import PhotoProof from '../components/PhotoProof.astro';
+import RelatedServices from '../components/RelatedServices.astro';
 import SeoFooter from '../components/SeoFooter.astro';
 import StickyBottomCta from '../components/StickyBottomCta.astro';
-import Contact from '../components/Contact.astro';
-import LogisticsBucuresti from '../components/LogisticsBucuresti.astro';
 import { faqBucuresti } from '../data/faqBucuresti';
 import { pricedTiers } from '../data/pricing';
+import { businessFacts } from '../data/business-facts';
 
-const offersSchema = pricedTiers.map((pkg) => ({
-  "@type": "Offer",
-  "itemOffered": {
-    "@type": "Service",
-    "name": pkg.offerName
-  },
-  "price": pkg.price,
-  "priceCurrency": "RON",
-  "description": pkg.description,
-  "url": "https://animaparty.ro/animatori-petreceri-copii-bucuresti/"
-}));
-
-const faqSchema = faqBucuresti.map(item => ({
-  "@type": "Question",
-  "name": item.question,
-  "acceptedAnswer": {
-    "@type": "Answer",
-    "text": item.answer
-  }
-}));
-
-const schema = JSON.stringify({
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebPage",
-      "@id": "https://animaparty.ro/animatori-petreceri-copii-bucuresti/#webpage",
-      "url": "https://animaparty.ro/animatori-petreceri-copii-bucuresti/",
-      "name": "Animatori Petreceri Copii București | Sectoarele 1-6",
-      "description": "Animatori pentru petreceri de copii în București, cu deplasare în sectoarele 1-6. Pachete cu personaje tematice, jocuri, baloane, Verifică disponibilitatea pe WhatsApp.",
-      "inLanguage": "ro-RO",
-      "isPartOf": { "@id": "https://animaparty.ro/#website" }
-    },
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "AnimaParty",
-          "item": "https://animaparty.ro/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Animatori Petreceri Copii București",
-          "item": "https://animaparty.ro/animatori-petreceri-copii-bucuresti/"
-        }
-      ]
-    },
-    {
-      "@type": "Service",
-      "name": "Animatori petreceri copii București",
-      "provider": {
-        "@type": "EntertainmentBusiness",
-        "name": "AnimaParty",
-        "url": "https://animaparty.ro/"
-      },
-      "areaServed": ["București", "Sector 1", "Sector 2", "Sector 3", "Sector 4", "Sector 5", "Sector 6"],
-      "description": "Animatori pentru petreceri de copii în București, cu deplasare în sectoarele 1-6."
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": faqSchema
-    },
-    {
-      "@type": "OfferCatalog",
-      "name": "Pachete Animatori București",
-      "itemListElement": offersSchema
-    }
-  ]
-});
+const url='https://animaparty.ro/animatori-petreceri-copii-bucuresti/';
+const offers=pricedTiers.map(pkg=>({"@type":"Offer","price":pkg.price,"priceCurrency":"RON","name":pkg.offerName,"url" : url}));
+const schema=JSON.stringify({"@context":"https://schema.org","@graph":[
+ {"@type":"WebPage","@id":url+'#webpage',"url":url,"name":"Animatori Petreceri Copii București","description":"Animatori pentru petreceri de copii în București, Sectoarele 1-6. Pachete afișate, rezervare pe WhatsApp și program adaptat spațiului.","inLanguage":"ro-RO","isPartOf":{"@id":"https://animaparty.ro/#website"}},
+ {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"AnimaParty","item":"https://animaparty.ro/"},{"@type":"ListItem","position":2,"name":"Animatori București","item":url}]},
+ {"@type":"Service","name":"Animatori petreceri copii București","provider":{"@id":"https://animaparty.ro/#organization"},"areaServed":["București","Sector 1","Sector 2","Sector 3","Sector 4","Sector 5","Sector 6"],"offers":offers},
+ {"@type":"FAQPage","mainEntity":faqBucuresti.map(f=>({"@type":"Question","name":f.question,"acceptedAnswer":{"@type":"Answer","text":f.answer}}))}
+]});
+const proof=[
+ {src:'/hero-bucuresti.webp',alt:'Petrecere de copii în aer liber cu animator',caption:'Exemplu vizual din prezentarea AnimaParty.'},
+ {src:'/service-games.png',alt:'Jocuri coordonate la o petrecere de copii',caption:'Activitățile se aleg după spațiu și grupa de vârstă.'},
+ {src:'/service-face-painting.png',alt:'Pictură pe față la petrecere de copii',caption:'Face painting-ul se confirmă în funcție de pachet și timpul disponibil.'}
+];
 ---
+<Layout title="Animatori Petreceri Copii București | Pachete & Prețuri | AnimaParty" description="Animatori petreceri copii în București, Sectoarele 1-6. Pachete afișate, deplasare inclusă în București și rezervare rapidă pe WhatsApp." canonical={url} schema={schema}>
+<main>
+  <BatchHero kicker="București · Sectoarele 1-6" title="Animatori Petreceri Copii București" lead="Alegi personajul și programul, iar noi confirmăm disponibilitatea, spațiul și detaliile înainte de rezervare. Deplasarea este inclusă pentru evenimentele din Sectoarele 1-6." image="/hero-bucuresti.webp" imageAlt="Animator la petrecere de copii în București" note="Pagină dedicată rezervărilor din București — separată de ghidul informativ și de pagina Ilfov." />
 
-<Layout 
-  title="Animatori Petreceri Copii București"
-  description="Animatori pentru petreceri de copii în București, cu deplasare în sectoarele 1-6. Pachete cu personaje tematice, jocuri, baloane, Verifică disponibilitatea pe WhatsApp."
-  canonical="https://animaparty.ro/animatori-petreceri-copii-bucuresti/"
-  schema={schema}
->
-  <main class="page-container overflow-hidden">
-    <!-- 1. Hero local București -->
-    <header class="local-hero text-center py-20 px-4" style="background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%); padding-top: 120px; padding-bottom: 60px;">
-      <div class="container mx-auto" style="max-width: 900px;">
-        <div class="location-badge inline-block bg-accent text-white px-4 py-1 rounded mb-6 text-sm font-bold uppercase tracking-wider" style="background-color: var(--accent-gold); color: white; padding: 4px 12px; border-radius: 4px; display: inline-block; margin-bottom: 24px;">București - Sectoarele 1-6</div>
-        <h1 class="hero-h1 text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-primary" style="font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; color: var(--text-primary); margin-bottom: 24px; line-height: 1.2;">Animatori Petreceri Copii București</h1>
-        <p class="hero-desc text-lg md:text-xl text-secondary mb-10 max-w-2xl mx-auto" style="font-size: 1.2rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto 40px; line-height: 1.6;">Aducem personajele tematice, jocurile și energia direct la adresa ta din capitală. Echipa AnimaParty vine oriunde în București pentru a anima evenimentul copilului tău.</p>
-        <div class="hero-actions flex flex-col sm:flex-row justify-center gap-4" style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-          <a href="https://wa.me/40792864811" class="btn btn-primary btn-whatsapp" style="padding: 16px 32px; border-radius: 8px; font-weight: 600; text-decoration: none;" target="_blank" rel="noopener noreferrer">
-            <svg class="w-6 h-6 mr-2 icon-svg" style="width: 24px; height: 24px; display: inline-block; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-            Verifică disponibilitatea
-          </a>
-        </div>
-        <div class="hero-image-wrapper mt-10" style="margin-top: 40px;">
-          <img src="/hero-bucuresti.webp" alt="Animator petreceri copii București alături de copii" style="width: 100%; max-height: 500px; object-fit: cover; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);" />
-        </div>
+  <section class="batch-section">
+    <div class="container">
+      <div class="batch-heading"><h2>Ce trebuie să știi înainte să rezervi în București</h2><p>Pagina aceasta răspunde intenției locale: unde venim, cât costă pachetele afișate și ce informații sunt necesare ca programul să fie potrivit locației.</p></div>
+      <div class="batch-grid-3">
+        <article class="batch-card"><h3>Sectoarele 1-6</h3><p>{businessFacts.transportBucuresti}</p></article>
+        <article class="batch-card"><h3>Pachete clare</h3><p>Prețurile afișate sunt totaluri per pachet. Configurația exactă se confirmă înainte de rezervare.</p></article>
+        <article class="batch-card"><h3>Program adaptat locației</h3><p>Spune-ne dacă evenimentul este acasă, la restaurant, în grădiniță, la loc de joacă sau în aer liber.</p></article>
       </div>
-    </header>
+    </div>
+  </section>
 
-    <!-- 2. AnimaParty în București (E-E-A-T) -->
-    <section class="py-16 bg-white" style="padding: 60px 0; background: var(--bg-tertiary);">
-      <div class="container mx-auto" style="max-width: 1200px;">
-        <h2 class="text-3xl font-bold text-center mb-10 text-primary" style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 40px; text-align: center;">AnimaParty în București</h2>
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; text-align: center;">
-          <div class="stat-card" style="padding: 24px; border: 1px solid var(--border-subtle); border-radius: 8px;">
-            <div class="text-4xl font-bold text-accent mb-2" style="font-size: 2.5rem; color: var(--accent-gold); font-weight: 700;">Experiență</div>
-            <div class="text-secondary" style="color: var(--text-secondary);">în interacțiunea cu copiii</div>
-          </div>
-          <div class="stat-card" style="padding: 24px; border: 1px solid var(--border-subtle); border-radius: 8px;">
-            <div class="text-4xl font-bold text-accent mb-2" style="font-size: 2.5rem; color: var(--accent-gold); font-weight: 700;">Costume</div>
-            <div class="text-secondary" style="color: var(--text-secondary);">îngrijite</div>
-          </div>
-          <div class="stat-card" style="padding: 24px; border: 1px solid var(--border-subtle); border-radius: 8px;">
-            <div class="text-4xl font-bold text-accent mb-2" style="font-size: 2.5rem; color: var(--accent-gold); font-weight: 700;">Personaje</div>
-            <div class="text-secondary" style="color: var(--text-secondary);">atent selectate</div>
-          </div>
-          <div class="stat-card" style="padding: 24px; border: 1px solid var(--border-subtle); border-radius: 8px;">
-            <div class="text-4xl font-bold text-accent mb-2" style="font-size: 2.5rem; color: var(--accent-gold); font-weight: 700;">Punctualitate</div>
-            <div class="text-secondary" style="color: var(--text-secondary);">la evenimente</div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <Packages subtitle="Pachetele de animație pentru București folosesc aceleași prețuri afișate pe site. Deplasarea este inclusă în Sectoarele 1-6." />
 
-    <!-- 3. Sectoare acoperite -->
-    <section class="py-16" style="padding: 60px 0; background: var(--bg-secondary);">
-      <div class="container mx-auto" style="max-width: 1000px; text-align: center;">
-        <h2 class="text-3xl font-bold mb-8 text-primary" style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 30px;">Sectoare Acoperite</h2>
-        <p class="text-lg mb-8" style="font-size: 1.1rem; line-height: 1.6; max-width: 700px; margin: 0 auto 30px;">Ne deplasăm fără costuri suplimentare de transport la orice adresă aflată pe teritoriul administrativ al Bucureștiului (acoperind toate zonele și cartierele principale: Militari, Drumul Taberei, Titan, Dristor, Berceni, Aviației, Floreasca, Colentina și nu numai).</p>
-        <div class="flex flex-wrap justify-center gap-4" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px;">
-          {['Sector 1', 'Sector 2', 'Sector 3', 'Sector 4', 'Sector 5', 'Sector 6'].map(sector => (
-            <span class="sector-badge" style="padding: 12px 24px; background: var(--bg-tertiary); border: 1px solid var(--accent-gold); border-radius: 20px; font-weight: 600;">{sector}</span>
-          ))}
-        </div>
-      </div>
-    </section>
+  <section class="batch-section alt">
+    <div class="container">
+      <div class="batch-heading"><h2>Alege programul după tipul locației</h2><p>Nu folosim aceeași formulă în orice spațiu. Locația schimbă ritmul, mișcarea și activitățile care pot fi făcute confortabil.</p></div>
+      <table class="decision-table">
+        <thead><tr><th>Locație</th><th>Ce verificăm</th><th>Ce ajută programul</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Apartament</strong></td><td>Spațiul liber, vecinătatea și accesul</td><td>Jocuri compacte, activități fără alergare excesivă</td></tr>
+          <tr><td><strong>Restaurant / terasă</strong></td><td>Zona dedicată copiilor și circulația personalului</td><td>Program structurat într-un perimetru clar</td></tr>
+          <tr><td><strong>Grădiniță / școală</strong></td><td>Acordul instituției, ora și regulile de acces</td><td>Activități potrivite grupului și timpului disponibil</td></tr>
+          <tr><td><strong>Loc de joacă / curte</strong></td><td>Ce oferă deja locația și suprafața disponibilă</td><td>Jocuri mai dinamice când spațiul permite</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
 
-    <!-- 4. Tipuri de locații în București -->
-    <section class="py-16 bg-white" style="padding: 80px 0; background: var(--bg-tertiary);">
-      <div class="container mx-auto" style="max-width: 1200px;">
-        <h2 class="text-3xl font-bold text-center mb-10 text-primary" style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 40px; text-align: center;">Locații frecvente în București</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
-          <div class="location-card" style="padding: 30px; border: 1px solid var(--border-subtle); border-radius: 8px;">
-            <h3 class="text-xl font-bold mb-3" style="font-size: 1.25rem; margin-bottom: 12px; color: var(--accent-gold);">Petrecere acasă / apartament</h3>
-            <p style="color: var(--text-secondary); line-height: 1.5;">Adaptăm programul pentru spațiile de interior, folosind jocuri statice, ateliere și activități de echipă sigure pentru mediul rezidențial din oraș.</p>
-          </div>
-          <div class="location-card" style="padding: 30px; border: 1px solid var(--border-subtle); border-radius: 8px;">
-            <h3 class="text-xl font-bold mb-3" style="font-size: 1.25rem; margin-bottom: 12px; color: var(--accent-gold);">Curte / Spațiu privat</h3>
-            <p style="color: var(--text-secondary); line-height: 1.5;">Profităm de spațiul deschis pentru competiții dinamice, ștafete, concursuri muzicale și jocuri de mișcare care consumă energia grupului.</p>
-          </div>
-          <div class="location-card" style="padding: 30px; border: 1px solid var(--border-subtle); border-radius: 8px;">
-            <h3 class="text-xl font-bold mb-3" style="font-size: 1.25rem; margin-bottom: 12px; color: var(--accent-gold);">Restaurant / Terasă</h3>
-            <p style="color: var(--text-secondary); line-height: 1.5;">Animatorii coordonează copiii într-o zonă dedicată, oferindu-le părinților timp pentru a socializa la masă, fără a deranja locația.</p>
-          </div>
-          <div class="location-card" style="padding: 30px; border: 1px solid var(--border-subtle); border-radius: 8px;">
-            <h3 class="text-xl font-bold mb-3" style="font-size: 1.25rem; margin-bottom: 12px; color: var(--accent-gold);">Grădiniță / Școală</h3>
-            <p style="color: var(--text-secondary); line-height: 1.5;">Intervenim la evenimentele organizate în unitățile de învățământ, respectând regulile instituției și integrând toți copiii din clasă.</p>
-          </div>
-          <div class="location-card" style="padding: 30px; border: 1px solid var(--border-subtle); border-radius: 8px;">
-            <h3 class="text-xl font-bold mb-3" style="font-size: 1.25rem; margin-bottom: 12px; color: var(--accent-gold);">Loc de joacă indoor</h3>
-            <p style="color: var(--text-secondary); line-height: 1.5;">Chiar dacă spațiul are propriile atracții, animatorul este esențial pentru a ghida grupul, a organiza momentul tortului și a face activități structurate.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="batch-section">
+    <div class="container batch-grid-2">
+      <article class="batch-card"><h2>Ce ne trimiți pe WhatsApp</h2><ul><li>data și ora</li><li>adresa exactă</li><li>tipul locației</li><li>numărul estimat și vârstele copiilor</li><li>personajul sau serviciul dorit</li></ul></article>
+      <article class="batch-card"><h2>Ce confirmăm noi</h2><ul><li>disponibilitatea</li><li>configurația programului</li><li>activitățile potrivite timpului</li><li>eventualele servicii extra</li><li>ora și persoana de contact</li></ul></article>
+    </div>
+  </section>
 
+  <PhotoProof title="Cum arată atmosfera unei petreceri" lead="Folosim imaginile deja existente în prezentarea AnimaParty; ele ajută la înțelegerea tipului de atmosferă și activități." items={proof} />
 
-    <!-- 5. Ce include animatorul în București -->
-    <section class="py-16" style="padding: 80px 0; background: var(--bg-secondary);">
-      <div class="container mx-auto" style="max-width: 1000px;">
-        <h2 class="text-3xl font-bold text-center mb-10 text-primary" style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 40px; text-align: center;">Ce include fiecare rezervare</h2>
-        <ul class="space-y-4" style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 16px; font-size: 1.1rem; color: var(--text-primary);">
-          <li style="display: flex; align-items: flex-start; gap: 12px;"><span style="color: var(--accent-gold); font-weight: bold;">✓</span> <strong>Jocuri interactive:</strong> Concursuri adaptate spațiului și vârstei invitaților.</li>
-          <li style="display: flex; align-items: flex-start; gap: 12px;"><span style="color: var(--accent-gold); font-weight: bold;">✓</span> <strong>Personaje tematice:</strong> O varietate de costume pentru a îndeplini dorința sărbătoritului.</li>
-          <li style="display: flex; align-items: flex-start; gap: 12px;"><span style="color: var(--accent-gold); font-weight: bold;">✓</span> <strong>Ateliere de baloane modelabile:</strong> Copiii participanți se pot bucura de o mică amintire la finalul petrecerii.</li>
-          <li style="display: flex; align-items: flex-start; gap: 12px;"><span style="color: var(--accent-gold); font-weight: bold;">✓</span> <strong>Face painting:</strong> Se confirmă în funcție de pachet, numărul de copii și timpul disponibil, folosind produse sigure.</li>
-          <li style="display: flex; align-items: flex-start; gap: 12px;"><span style="color: var(--accent-gold); font-weight: bold;">✓</span> <strong>Boxă portabilă:</strong> Aducem o boxă portabilă dedicată fondului muzical al jocurilor.</li>
-          <li style="display: flex; align-items: flex-start; gap: 12px;"><span style="color: var(--accent-gold); font-weight: bold;">✓</span> <strong>Asistență la tort:</strong> Organizăm momentul de „La mulți ani!” cu toți copiii strânși în jurul sărbătoritului.</li>
-        </ul>
-      </div>
-    </section>
+  <section class="batch-section alt" id="faq">
+    <div class="container"><div class="batch-heading"><h2>Întrebări frecvente — București</h2></div><div class="batch-grid-2">{faqBucuresti.map(f=><details class="batch-card"><summary><strong>{f.question}</strong></summary><p style="margin-top:12px">{f.answer}</p></details>)}</div></div>
+  </section>
 
-    <!-- 6. Pachete și prețuri -->
-    <Packages 
-      title="Pachete Animatori București"
-      subtitle="Tarife transparente. Deplasarea în București (Sectoarele 1-6) este gratuită."
-    />
-
-    <!-- 7. Cum alegi pachetul potrivit -->
-    <section class="py-16" style="padding: 80px 0; background: var(--bg-tertiary);">
-      <div class="container mx-auto" style="max-width: 1000px;">
-        <h2 class="text-3xl font-bold text-center mb-10 text-primary" style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 40px; text-align: center;">Cum alegi pachetul potrivit?</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
-          <div class="glass-card" style="padding: 30px; border: 1px solid var(--border-subtle); border-radius: 8px;">
-            <h3 class="text-xl font-bold mb-3" style="font-size: 1.25rem; margin-bottom: 12px;">Numărul de copii</h3>
-            <p style="color: var(--text-secondary); line-height: 1.5;">Numărul recomandat de animatori se stabilește în funcție de numărul și vârsta copiilor, spațiul disponibil, durata programului și activitățile alese. Pentru grupuri mai mari, recomandăm 2 Personaje.</p>
-          </div>
-          <div class="glass-card" style="padding: 30px; border: 1px solid var(--border-subtle); border-radius: 8px;">
-            <h3 class="text-xl font-bold mb-3" style="font-size: 1.25rem; margin-bottom: 12px;">Durata programului</h3>
-            <p style="color: var(--text-secondary); line-height: 1.5;">Pachetul de 1 oră acoperă activitățile de bază. Pentru 2 ore, animatorul are timp să coordoneze o gamă mai variată de jocuri și să organizeze momentul tortului.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 8. Proces rezervare -->
-    <section class="py-16" style="padding: 80px 0; background: var(--bg-secondary);">
-      <div class="container mx-auto" style="max-width: 1000px; text-align: center;">
-        <h2 class="text-3xl font-bold mb-10 text-primary" style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 40px;">Procesul de Rezervare</h2>
-        <div class="flex flex-col md:flex-row justify-center items-center gap-6" style="display: flex; flex-direction: column; gap: 24px; align-items: center;">
-          <div class="step" style="padding: 20px; background: var(--bg-tertiary); border: 1px solid var(--accent-gold); border-radius: 8px; width: 100%; max-width: 400px;">
-            <div class="font-bold text-xl mb-2" style="color: var(--accent-gold); font-size: 1.25rem;">Pasul 1</div>
-            <p>Ne scrieți pe WhatsApp data, ora, sectorul și numărul estimat de copii.</p>
-          </div>
-          <div class="step" style="padding: 20px; background: var(--bg-tertiary); border: 1px solid var(--accent-gold); border-radius: 8px; width: 100%; max-width: 400px;">
-            <div class="font-bold text-xl mb-2" style="color: var(--accent-gold); font-size: 1.25rem;">Pasul 2</div>
-            <p>Alegeți personajul dorit dintre opțiunile disponibile din catalogul nostru.</p>
-          </div>
-          <div class="step" style="padding: 20px; background: var(--bg-tertiary); border: 1px solid var(--accent-gold); border-radius: 8px; width: 100%; max-width: 400px;">
-            <div class="font-bold text-xl mb-2" style="color: var(--accent-gold); font-size: 1.25rem;">Pasul 3</div>
-            <p>Confirmăm detaliile finale și animatorul ajunge la timp la locația din București.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 9. Galerie -->
-    <section class="py-16 bg-white" style="padding: 80px 0; background: var(--bg-tertiary);">
-      <div class="container mx-auto" style="max-width: 1200px; text-align: center;">
-        <h2 class="text-3xl font-bold mb-6 text-primary" style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 24px;">Exemple vizuale pentru atmosfera unei petreceri de copii</h2>
-        <p class="mb-10 text-secondary" style="margin-bottom: 40px; color: var(--text-secondary);">Descoperiți dinamica și zâmbetele de la evenimentele coordonate de Personaje.</p>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;">
-          <img src="/hero-real.png" alt="Atmosferă petrecere cu Personaje" style="width: 100%; height: auto; border-radius: 8px; object-fit: cover; aspect-ratio: 1/1;">
-          <img src="/animaparty-jocuri-interactive.webp" alt="Grup de copii jucându-se cu animatorul" style="width: 100%; height: auto; border-radius: 8px; object-fit: cover; aspect-ratio: 1/1;">
-          <img src="/service-games.png" alt="Animator interacționând la petrecere" style="width: 100%; height: auto; border-radius: 8px; object-fit: cover; aspect-ratio: 1/1;">
-          <img src="/hero-luxury.png" alt="Exemplu vizual decor petrecere de copii" style="width: 100%; height: auto; border-radius: 8px; object-fit: cover; aspect-ratio: 1/1;">
-        </div>
-      </div>
-    </section>
-
-    <!-- 10. FAQ -->
-    <section class="py-16" style="padding: 80px 0; background: var(--bg-secondary);">
-      <div class="container mx-auto" style="max-width: 800px;">
-        <h2 class="text-3xl font-bold text-center mb-10 text-primary" style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 40px;">Întrebări Frecvente (București)</h2>
-        <div class="space-y-4" style="display: flex; flex-direction: column; gap: 16px;">
-          {faqBucuresti.map(item => (
-            <div class="faq-item" style="background: var(--bg-tertiary); padding: 20px; border-radius: 8px; border: 1px solid var(--border-subtle);">
-              <h3 class="text-lg font-bold mb-2 text-primary" style="font-size: 1.1rem; margin-bottom: 8px;">{item.question}</h3>
-              <p class="text-secondary" style="color: var(--text-secondary); line-height: 1.5; margin: 0;">{item.answer}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-    
-    <LogisticsBucuresti />
-
-    <!-- Bottom CTA -->
-    <section class="py-16 bg-white text-center" style="padding: 80px 0; background: var(--bg-tertiary); border-top: 1px solid var(--border-subtle);">
-      <div class="container mx-auto">
-        <h2 class="text-3xl font-bold mb-6 text-primary" style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 24px;">Organizezi petrecerea în curând?</h2>
-        <div class="flex justify-center gap-4" style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-          <a href="https://wa.me/40792864811" class="btn btn-whatsapp" style="padding: 16px 32px; border-radius: 8px; font-weight: 600; text-decoration: none;" target="_blank" rel="noopener noreferrer">Verifică disponibilitatea pe WhatsApp</a>
-          <a href="/" class="btn btn-outline" style="padding: 16px 32px; border-radius: 8px; font-weight: 600; text-decoration: none; border: 1px solid var(--accent-gold); color: var(--text-primary);">Înapoi la pagina principală</a>
-        </div>
-      </div>
-    </section>
-
-    <Contact />
-    <SeoFooter />
-    <StickyBottomCta />
-  </main>
+  <RelatedServices items={[
+    {title:'Mascote',href:'/mascote-petreceri-copii/',text:'Pentru întâmpinarea invitaților, fotografii și momentul tortului.'},
+    {title:'Decorațiuni cu baloane',href:'/decoratiuni-baloane-bucuresti/',text:'Arcade, heliu și fundaluri foto configurate după concept.'},
+    {title:'Magician',href:'/magician-petreceri-copii/',text:'Spectacol separat, adaptat vârstei și formatului evenimentului.'}
+  ]} />
+  <SeoFooter/><StickyBottomCta/>
+</main>
 </Layout>

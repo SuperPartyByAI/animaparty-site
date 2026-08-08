@@ -1,0 +1,4 @@
+query,cluster,intent,service,geo,target_url,current_google_position,top1_url,top10_urls,SERP_overlap,new_page_needed,reason,status
+animatori petreceri copii bucuresti,animatori,commercial,animatori,Bucuresti,/animatori-petreceri-copii-bucuresti/,NOT_FOUND_IN_CURRENT_TOP10_SAMPLE,N/A,N/A,N/A,NO,Main cluster,ACTIVE
+decoratiuni baloane bucuresti,decor,commercial,decor,Bucuresti,/decoratiuni-baloane-bucuresti/,NOT_FOUND_IN_CURRENT_TOP10_SAMPLE,N/A,N/A,N/A,NO,Main cluster,ACTIVE
+magician petreceri copii,magician,commercial,magician,Bucuresti,/magician-petreceri-copii/,NOT_FOUND_IN_CURRENT_TOP10_SAMPLE,N/A,N/A,N/A,NO,Main cluster,ACTIVE

@@ -1,0 +1,38 @@
+---
+interface Props {
+  kicker: string;
+  title: string;
+  lead: string;
+  image: string;
+  imageAlt: string;
+  note?: string;
+  primaryLabel?: string;
+  primaryHref?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+}
+const {
+  kicker,title,lead,image,imageAlt,note,
+  primaryLabel='Verifică disponibilitatea',
+  primaryHref='https://wa.me/40792864811',
+  secondaryLabel='Sună 0792 864 811',
+  secondaryHref='tel:+40792864811'
+}=Astro.props;
+---
+<header class="batch-hero">
+  <div class="container batch-hero__grid">
+    <div>
+      <span class="batch-kicker">{kicker}</span>
+      <h1>{title}</h1>
+      <p class="batch-lead">{lead}</p>
+      <div class="batch-actions">
+        <a class="btn btn-whatsapp" href={primaryHref}>{primaryLabel}</a>
+        <a class="btn btn-outline" href={secondaryHref}>{secondaryLabel}</a>
+      </div>
+    </div>
+    <figure class="batch-media">
+      <img src={image} alt={imageAlt} width="960" height="720" loading="eager" fetchpriority="high" decoding="async" />
+      {note && <figcaption class="batch-media__note">{note}</figcaption>}
+    </figure>
+  </div>
+</header>

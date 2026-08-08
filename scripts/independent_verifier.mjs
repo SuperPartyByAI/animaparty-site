@@ -1,92 +1,45 @@
 import fs from 'fs';
 import crypto from 'crypto';
-import * as cheerio from 'cheerio';
 import { chromium } from 'playwright';
 
-function normalizeV1(html) {
-    return html.replace(/\s+/g, ' ').trim();
+const BASE = 'https://animaparty.ro';
+function normalizeV1(value) { return String(value).replace(/\s+/g, ' ').trim(); }
+function sha256(value) { return crypto.createHash('sha256').update(value, 'utf8').digest('hex'); }
+function busted(url, token) { const u = new URL(url); u.searchParams.set('verify_livecheck', token); return u.toString(); }
+async function fetchText(url, token) {
+  const res = await fetch(busted(url, token), { headers: { 'User-Agent':'Mozilla/5.0', 'Cache-Control':'no-cache, no-store, max-age=0', Pragma:'no-cache' }, redirect:'follow' });
+  if (!res.ok) throw new Error(`HTTP ${res.status} ${url}`);
+  return await res.text();
 }
-
-function hashContent(content) {
-    return crypto.createHash('sha256').update(content, 'utf8').digest('hex');
+async function render(url, token) {
+  const browser = await chromium.launch({ headless:true });
+  try {
+    const page = await browser.newPage({ userAgent:'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/151 Safari/537.36' });
+    await page.goto(busted(url, token), { waitUntil:'networkidle', timeout:45000 });
+    return await page.evaluate(() => document.body?.innerText || '');
+  } finally { await browser.close(); }
 }
-
-async function fetchRaw(url) {
-    const res = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0' } });
-    if (!res.ok) throw new Error(`HTTP error ${res.status} on ${url}`);
-    return await res.text();
-}
-
 async function main() {
-    console.log("Fetching live proof...");
-    const proofRes = await fetch('https://animaparty.ro/.well-known/animaparty-delivery-proof.json');
-    const proof = await proofRes.json();
-    
-    console.log("Fetching raw homepage...");
-    const rawHome = await fetchRaw('https://animaparty.ro/');
-    
-    console.log("Fetching raw services...");
-    const rawServices = await fetchRaw('https://animaparty.ro/servicii/');
-    
-    console.log("Fetching sitemap...");
-    const rawSitemap = await fetchRaw('https://animaparty.ro/sitemap-index.xml');
-    
-    console.log("Extracting text via Cheerio (which is how generate_proof generated it)...");
-    const $ = cheerio.load(rawHome);
-    const renderedText = $('body').text();
-    
-    const indRawHomeHash = hashContent(normalizeV1(rawHome));
-    const indRenderedHash = hashContent(normalizeV1(renderedText));
-    const indServicesHash = hashContent(normalizeV1(rawServices));
-    const indSitemapHash = hashContent(normalizeV1(rawSitemap));
-    
-    const result = {
-        release_id: proof.release_id,
-        public_proof_fetched: true,
-        homepage_raw_html_hash: {
-            proof: proof.homepage_raw_html_hash,
-            independent: indRawHomeHash,
-            match: proof.homepage_raw_html_hash === indRawHomeHash
-        },
-        homepage_rendered_text_hash: {
-            proof: proof.homepage_rendered_text_hash,
-            independent: indRenderedHash,
-            match: proof.homepage_rendered_text_hash === indRenderedHash
-        },
-        services_raw_html_hash: {
-            proof: proof.services_raw_html_hash,
-            independent: indServicesHash,
-            match: proof.services_raw_html_hash === indServicesHash
-        },
-        sitemap_hash: {
-            proof: proof.sitemap_hash,
-            independent: indSitemapHash,
-            match: proof.sitemap_hash === indSitemapHash
-        }
-    };
-    
-    fs.mkdirSync('docs', { recursive: true });
-    fs.writeFileSync('docs/V8_WAVE6R3_INDEPENDENT_PROOF_VERIFY.json', JSON.stringify(result, null, 2));
-    
-    const md = `# Hash Reproduction Report
-
-## Independent Proof Recomputation (Hard Gate)
-
-**Release ID**: \`${proof.release_id}\`
-**Algorithm**: SHA-256
-**Normalization**: v1 (collapsing whitespace to single space and trimming)
-
-### Verification Results
-- **Homepage Raw HTML**: ${result.homepage_raw_html_hash.match ? 'PASS' : 'FAIL'} (\`${indRawHomeHash}\`)
-- **Homepage Rendered Text**: ${result.homepage_rendered_text_hash.match ? 'PASS' : 'FAIL'} (\`${indRenderedHash}\`)
-- **Services Raw HTML**: ${result.services_raw_html_hash.match ? 'PASS' : 'FAIL'} (\`${indServicesHash}\`)
-- **Sitemap**: ${result.sitemap_hash.match ? 'PASS' : 'FAIL'} (\`${indSitemapHash}\`)
-
-${Object.values(result).every(v => typeof v !== 'object' || v.match === true) ? '✅ All hashes independently reproduced and verified against the public proof.' : '❌ Hash mismatch detected.'}
-`;
-    
-    fs.writeFileSync('docs/V8_WAVE6R3_HASH_REPRODUCTION.md', md);
-    console.log("Verification complete. Results saved in docs/");
+  const token = Date.now().toString();
+  const proof = JSON.parse(await fetchText(`${BASE}/.well-known/animaparty-delivery-proof.json`, token));
+  const sitemapUrl = proof.sitemap_hash_url || proof.sitemap_url || `${BASE}/sitemap-index.xml`;
+  const [home, services, sitemap, rendered] = await Promise.all([
+    fetchText(`${BASE}/`, token), fetchText(`${BASE}/servicii/`, token), fetchText(sitemapUrl, token), render(`${BASE}/`, token)
+  ]);
+  const calculated = {
+    homepage_raw_html_hash: sha256(normalizeV1(home)),
+    homepage_rendered_text_hash: sha256(normalizeV1(rendered)),
+    services_raw_html_hash: sha256(normalizeV1(services)),
+    sitemap_hash: sha256(normalizeV1(sitemap))
+  };
+  const fields = Object.keys(calculated);
+  const checks = Object.fromEntries(fields.map(k => [k, { proof:proof[k], independent:calculated[k], match:proof[k] === calculated[k] }]));
+  const pass = fields.every(k => checks[k].match) && proof.hash_algorithm === 'sha256' && fields.every(k => /^[a-f0-9]{64}$/.test(proof[k] || ''));
+  const result = { release_id:proof.release_id, proof_schema_version:proof.proof_schema_version, pass, checks, verified_at:new Date().toISOString() };
+  fs.mkdirSync('docs', {recursive:true});
+  fs.writeFileSync('docs/BATCH1_INDEPENDENT_PROOF_VERIFY.json', JSON.stringify(result,null,2)+'\n');
+  fs.writeFileSync('docs/BATCH1_HASH_REPRODUCTION.md', `# Batch 1 independent delivery-proof verification\n\nRelease: \`${proof.release_id}\`\n\nResult: **${pass?'PASS':'FAIL'}**\n\nRendered hash is computed from a real Playwright browser using \`document.body.innerText\`; it is not derived with Cheerio from server HTML.\n\n${fields.map(k=>`- ${k}: ${checks[k].match?'PASS':'FAIL'} — \`${calculated[k]}\``).join('\n')}\n`);
+  console.log(JSON.stringify(result,null,2));
+  if (!pass) process.exit(2);
 }
-
-main().catch(console.error);
+main().catch(err=>{console.error(err);process.exit(1)});

@@ -1,193 +1,53 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import BatchHero from '../components/BatchHero.astro';
+import PhotoProof from '../components/PhotoProof.astro';
+import RelatedServices from '../components/RelatedServices.astro';
 import SeoFooter from '../components/SeoFooter.astro';
 import { businessFacts } from '../data/business-facts';
-
-
-const decorFaq = [
-  {
-    "q": "Cât durează montajul?",
-    "a": "Timpul de montaj se stabilește în funcție de dimensiunea și complexitatea decorului. Detaliile privind accesul la spațiu se vor stabili înainte de eveniment."
-  },
-  {
-    "q": "Cât rezistă baloanele cu heliu?",
-    "a": "Durata de plutire poate varia în funcție de tipul balonului, tratament și condițiile de temperatură."
-  },
-  {
-    "q": "Cu cât timp înainte trebuie comandat decorul?",
-    "a": "Recomandăm plasarea comenzii cu timp pentru a ne asigura de disponibilitatea nuanțelor, pentru a asigura nuanțele dorite."
-  },
-  {
-    "q": "Veniti la locație să montați?",
-    "a": "Da, asigurăm montajul profesional direct la locația evenimentului."
-  },
-  {
-    "q": "Cât durează montajul unei arcade?",
-    "a": "Timpul de montaj se stabilește în funcție de dimensiunea și complexitatea decorului."
-  },
-  {
-    "q": "Baloanele cu heliu plutesc toată petrecerea?",
-    "a": "Da, baloanele pot fi tratate pentru prelungirea timpului de plutire."
-  },
-  {
-    "q": "Ce se întâmplă cu decorul la finalul petrecerii?",
-    "a": "Structurile închiriate (panouri, inele) se recuperează. Baloanele vă aparțin."
-  },
-  {
-    "q": "Folosiți baloane calitative?",
-    "a": "Folosim baloane calitative, adecvate pentru decoruri de evenimente."
-  },
-  {
-    "q": "Se pot personaliza culorile arcadei?",
-    "a": "Sigur, paleta cromatică se stabilește exact pe tematica petrecerii dumneavoastră."
-  },
-  {
-    "q": "Puteți adăuga nume sau mesaje pe decor?",
-    "a": "Da, panourile sau baloanele mari pot fi personalizate cu mesaje text."
-  },
-  {
-    "q": "Decorul poate sta afară în soare?",
-    "a": "Culorile pot oxida (deveni mate) în soare direct, iar heliul este sensibil la temperaturi extreme. Preferăm spații umbrite."
-  },
-  {
-    "q": "Dacă se sparge un balon în timpul montajului?",
-    "a": "Avem mereu baloane de rezervă, nu va afecta aspectul final al decorului."
-  },
-  {
-    "q": "Ce formă poate avea arcada?",
-    "a": "Realizăm arcade organice semirotunde, pe inel metalic sau ghirlande asimetrice."
-  },
-  {
-    "q": "Taxa de montaj este inclusă?",
-    "a": "Manopera și montajul se confirmă în oferta transmisă pentru configurația solicitată."
-  },
-  {
-    "q": "Oferiți și baloane personalizate?",
-    "a": "Da, putem personaliza baloane cu text sau imagini."
-  }
+const url='https://animaparty.ro/decoratiuni-baloane-bucuresti/';
+const faq=[
+ {q:'Ce tipuri de decor pot cere?',a:'Poți solicita arcade organice, aranjamente cu heliu și fundaluri sau panouri foto. Configurația finală depinde de concept și disponibilitate.'},
+ {q:'Pot alege culorile?',a:'Da. Paleta cromatică se stabilește înainte de ofertă, în funcție de temă și disponibilitatea materialelor.'},
+ {q:'Cât durează montajul?',a:'Timpul de montaj se stabilește după dimensiunea, complexitatea decorului și accesul la locație.'},
+ {q:'Cât rezistă baloanele cu heliu?',a:'Durata de plutire variază în funcție de tipul balonului, tratament și condițiile de temperatură; nu publicăm o durată garantată universală.'},
+ {q:'Montajul este inclus?',a:'Manopera, montajul și logistica se confirmă în oferta transmisă pentru configurația solicitată.'},
+ {q:'Lucrați și în Ilfov?',a:businessFacts.transportIlfov}
 ];
-
-const schema = JSON.stringify({
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "FAQPage",
-      "mainEntity": decorFaq.map((f) => ({
-        "@type": "Question",
-        "name": f.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": f.a
-        }
-      }))
-    }
-  ]
-});
+const schema=JSON.stringify({"@context":"https://schema.org","@graph":[
+ {"@type":"WebPage","url":url,"name":"Decorațiuni Baloane București și Ilfov","inLanguage":"ro-RO"},
+ {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"AnimaParty","item":"https://animaparty.ro/"},{"@type":"ListItem","position":2,"name":"Decorațiuni baloane","item":url}]},
+ {"@type":"Service","name":"Decorațiuni cu baloane","provider":{"@id":"https://animaparty.ro/#organization"},"areaServed":["București","Ilfov"]},
+ {"@type":"FAQPage","mainEntity":faq.map(f=>({"@type":"Question","name":f.q,"acceptedAnswer":{"@type":"Answer","text":f.a}}))}
+]});
 ---
-
-<Layout schema={schema} 
-  title="Decorațiuni Baloane București & Ilfov | Arcade și Heliu | AnimaParty"
-  description="Decorațiuni profesionale din baloane pentru petreceri de copii, botezuri și evenimente în București și Ilfov. Arcade organice, baloane cu heliu și panouri foto."
- >
-  <main class="decoratiuni-page">
-    
-    <!-- Breadcrumb -->
-    <nav class="container mx-auto px-4 py-4 text-sm text-secondary" style="margin-top: 16px;">
-      <ol class="flex space-x-2" style="display: flex; gap: 8px; list-style: none; padding: 0;">
-        <li><a href="/" class="hover:text-accent text-secondary" style="text-decoration: none; color: #4a5568;">Acasă</a></li>
-        <li>/</li>
-        <li class="font-bold text-primary" style="color: var(--primary);">Decorațiuni Baloane</li>
-      </ol>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="relative bg-primary overflow-hidden" style="padding: 60px 0; background: var(--bg-primary);">
-      <div class="container mx-auto px-4 relative z-10 text-center">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6" style="font-family: 'Playfair Display', serif; font-size: 3rem; color: white;">
-          Decorațiuni din Baloane
-        </h1>
-        <p class="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-8" style="font-size: 1.25rem; color: rgba(255, 255, 255, 0.9);">
-          Arcade organice, aranjamente cu heliu și panouri foto pentru botezuri, aniversări și evenimente corporate în București și Ilfov.
-        </p>
-        <a href="https://wa.me/40792864811" class="btn btn-whatsapp" style="display: inline-block; padding: 16px 32px; background-color: #25D366; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 1.1rem;">
-          Cereți o Ofertă Personalizată
-        </a>
-      </div>
-    </section>
-
-    <!-- Tipuri de Decor -->
-    <section class="py-16 bg-white" style="padding: 60px 0; background: white;">
-      <div class="container mx-auto px-4" style="max-width: 1000px;">
-        <h2 class="text-3xl font-bold text-primary mb-6 text-center" style="font-family: 'Playfair Display', serif; font-size: 2.25rem; margin-bottom: 32px;">
-          Opțiuni de Decor Baloane
-        </h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
-          <div style="background: var(--bg-secondary); padding: 24px; border-radius: 12px; border: 1px solid var(--border-subtle);">
-            <h3 class="font-bold text-xl mb-3" style="color: var(--accent); font-size: 1.25rem;">Arcade Organice</h3>
-            <p style="color: var(--text-secondary); line-height: 1.6; font-size: 0.95rem;">
-              Construite din baloane de dimensiuni variate pentru un aspect modern, asimetric. Ideale pentru intrări, prezidii sau delimitarea ringului de dans la botezuri și majorate.
-            </p>
-          </div>
-          
-          <div style="background: var(--bg-secondary); padding: 24px; border-radius: 12px; border: 1px solid var(--border-subtle);">
-            <h3 class="font-bold text-xl mb-3" style="color: var(--accent); font-size: 1.25rem;">Baloane cu Heliu</h3>
-            <p style="color: var(--text-secondary); line-height: 1.6; font-size: 0.95rem;">
-              Buchete de baloane cu heliu (latex sau folie) personalizate cromatic. Baloanele cu cifre sau litere mari potrivite pentru aniversări.
-            </p>
-          </div>
-
-          <div style="background: var(--bg-secondary); padding: 24px; border-radius: 12px; border: 1px solid var(--border-subtle);">
-            <h3 class="font-bold text-xl mb-3" style="color: var(--accent); font-size: 1.25rem;">Photo Corners (Panouri)</h3>
-            <p style="color: var(--text-secondary); line-height: 1.6; font-size: 0.95rem;">
-              Structuri circulare sau dreptunghiulare (display stands / mese cilindru) decorate pe jumătate sau integral cu baloane, ideale ca fundal pentru fotografii.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Pret si logistica -->
-    <section class="py-16" style="padding: 60px 0; background: var(--bg-tertiary);">
-      <div class="container mx-auto px-4" style="max-width: 1000px;">
-        <h2 class="text-3xl font-bold text-primary mb-6 text-center" style="font-family: 'Playfair Display', serif; font-size: 2.25rem; margin-bottom: 32px;">
-          Tarife și Logistică
-        </h2>
-        
-        <div style="background: white; padding: 32px; border-radius: 12px; border: 1px solid var(--border-subtle); text-align: center; max-width: 600px; margin: 0 auto 48px auto;">
-          <h3 class="font-bold text-2xl mb-2" style="color: var(--text-primary);">Prețuri la Cerere</h3>
-          <p style="color: var(--text-secondary); margin-bottom: 24px;">Costul decorațiunilor variază în funcție de dimensiune, tipul baloanelor (latex, cromate, folie) și complexitatea montajului. Oferta exactă se comunică transparent după stabilirea conceptului vizual.</p>
-          <a href="https://wa.me/40792864811" class="btn btn-primary" style="display: inline-block; padding: 12px 24px; background-color: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: bold;">Trimiteți o Fotografie de Referință</a>
-        </div>
-
-        <div style="display: flex; flex-direction: column; md:flex-row; justify-content: center; gap: 24px;">
-            <div class="trust-card" style="padding: 24px; background: white; border-radius: 12px; border: 1px solid var(--border-subtle); flex: 1;">
-              <h4 class="font-bold mb-2" style="color: var(--text-primary);">📍 <a href="/animatori-petreceri-copii-bucuresti/" style="text-decoration: none; color: inherit;">București</a></h4>
-              <p style="color: var(--text-secondary);">{businessFacts.transportBucuresti} Asigurăm livrarea și montajul la locația evenimentului.</p>
-            </div>
-            <div class="trust-card" style="padding: 24px; background: white; border-radius: 12px; border: 1px solid var(--border-subtle); flex: 1;">
-              <h4 class="font-bold mb-2" style="color: var(--text-primary);">📍 <a href="/animatori-petreceri-copii-ilfov/" style="text-decoration: none; color: inherit;">Ilfov</a></h4>
-              <p style="color: var(--text-secondary);">{businessFacts.transportIlfov} Costurile logistice pentru decor se confirmă odată cu oferta.</p>
-            </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="py-16 bg-white" style="padding: 60px 0;">
-      <div class="container mx-auto px-4" style="max-width: 800px;">
-        <h2 class="text-3xl font-bold text-primary mb-8 text-center" style="font-family: 'Playfair Display', serif; font-size: 2.25rem;">Bine de Știut</h2>
-        <div class="space-y-4" style="display: flex; flex-direction: column; gap: 16px;">
-          {decorFaq.map((item) => (
-            <div style="background: var(--bg-tertiary); padding: 24px; border-radius: 8px; border-left: 4px solid var(--accent);">
-              <h3 class="font-bold text-lg mb-2" style="color: var(--primary);">{item.q}</h3>
-              <p style="color: var(--text-secondary); line-height: 1.6;">{item.a}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-    
-    <SeoFooter />
-  </main>
+<Layout title="Decorațiuni Baloane București & Ilfov | Arcade, Heliu | AnimaParty" description="Decorațiuni cu baloane în București și Ilfov: arcade organice, aranjamente cu heliu și fundaluri foto. Conceptul, montajul, logistica și prețul se confirmă prin ofertă." canonical={url} schema={schema}>
+<main>
+ <BatchHero kicker="Decor · arcade · heliu · photo corner" title="Decorațiuni cu baloane în București și Ilfov" lead="Pornim de la locație, dimensiunea zonei, paleta cromatică și rolul decorului. Oferta se construiește pentru configurația cerută, nu din promisiuni generale despre montaj sau durată." image="/hero-luxury.png" imageAlt="Decor cu baloane pentru petrecere" note="Conceptul vizual și logistica se confirmă înainte de rezervare." />
+ <section class="batch-section"><div class="container"><div class="batch-heading"><h2>Ce putem configura</h2><p>Fiecare tip de decor are o funcție diferită în spațiu.</p></div><div class="batch-grid-3">
+  <article class="batch-card"><h3>Arcade organice</h3><p>Pentru intrări, zone de tort sau delimitarea vizuală a unui punct important din locație.</p></article>
+  <article class="batch-card"><h3>Heliu</h3><p>Buchete, cifre sau litere, în funcție de temă și materialele disponibile.</p></article>
+  <article class="batch-card"><h3>Fundal foto</h3><p>Panou sau structură decorată pentru fotografii și zona aniversară.</p></article>
+ </div></div></section>
+ <PhotoProof title="Direcții vizuale pentru decor" lead="Imagini deja folosite în prezentarea AnimaParty, utile pentru a discuta stilul, cromatica și densitatea decorului." items={[
+  {src:'/hero-luxury.png',alt:'Arcadă și decor cu baloane în culori pastel',caption:'Exemplu de decor pentru zona de tort.'},
+  {src:'/gallery-lux-2.png',alt:'Fundal elegant pentru eveniment',caption:'Exemplu de compoziție pentru fundal foto.'},
+  {src:'/gallery-lux-3.png',alt:'Masă de eveniment decorată',caption:'Paleta și elementele se stabilesc după concept.'}
+ ]}/>
+ <section class="batch-section alt"><div class="container"><div class="batch-heading"><h2>Ce influențează oferta</h2><p>În locul unui „preț de la” greu de comparat, oferta trebuie să descrie exact configurația.</p></div><table class="decision-table"><thead><tr><th>Factor</th><th>Ce schimbă</th></tr></thead><tbody>
+  <tr><td>dimensiunea decorului</td><td>cantitatea de materiale și timpul de lucru</td></tr>
+  <tr><td>tipul baloanelor</td><td>compoziția și aspectul</td></tr>
+  <tr><td>structura / panoul</td><td>montajul și accesul necesar</td></tr>
+  <tr><td>locația</td><td>transportul și logistica</td></tr>
+  <tr><td>interior / exterior</td><td>alegerea configurației și condițiile de montaj</td></tr>
+ </tbody></table></div></section>
+ <section class="batch-section"><div class="container batch-grid-2"><article class="batch-card"><h2>Ce ne trimiți pentru ofertă</h2><ul><li>data și locația</li><li>fotografie sau dimensiuni ale zonei</li><li>culorile / tema</li><li>tipul de decor dorit</li><li>ora la care spațiul este disponibil pentru montaj</li></ul></article><article class="batch-card"><h2>Transport & montaj</h2><p>{businessFacts.transportBucuresti}</p><p style="margin-top:10px">{businessFacts.transportIlfov}</p><p style="margin-top:10px">Manopera și montajul se confirmă în oferta configurației solicitate.</p></article></div></section>
+ <section class="batch-section alt"><div class="container"><div class="batch-heading"><h2>Întrebări frecvente — decorațiuni</h2></div><div class="batch-grid-2">{faq.map(f=><details class="batch-card"><summary><strong>{f.q}</strong></summary><p style="margin-top:12px">{f.a}</p></details>)}</div></div></section>
+ <RelatedServices items={[
+  {title:'Animatori',href:'/animatori-petreceri-copii-bucuresti/',text:'Program de animație separat de partea de decor.'},
+  {title:'Mascote',href:'/mascote-petreceri-copii/',text:'Apariție tematică pentru fotografii și tort.'},
+  {title:'Vată de zahăr & popcorn',href:'/vata-de-zahar-popcorn-evenimente/',text:'Food stations pentru evenimente, în configurația confirmată.'}
+ ]}/>
+ <SeoFooter/>
+</main>
 </Layout>

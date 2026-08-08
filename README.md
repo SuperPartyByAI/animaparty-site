@@ -1,60 +1,48 @@
-# Astro Starter Kit: Basics
+# AnimaParty — ChatGPT Batch 1 / 10 pages
 
-```sh
-npm create astro@latest -- --template basics
+This is the ChatGPT-authored Batch 1 source package for AnimaParty.ro.
+
+## Batch
+
+Ten SEO pages are handled together:
+
+1. `/`
+2. `/animatori-petreceri-copii-bucuresti/`
+3. `/animatori-petreceri-copii-ilfov/`
+4. `/animatori-petreceri-copii/`
+5. `/servicii/`
+6. `/mascote-petreceri-copii/`
+7. `/animatori-pe-picioroange/`
+8. `/decoratiuni-baloane-bucuresti/`
+9. `/magician-petreceri-copii/`
+10. `/vata-de-zahar-popcorn-evenimente/`
+
+`/contact/` remains a regression/control route, keeping total intended sitemap inventory at 11.
+
+## Non-negotiable gate
+
+A Batch 1 seal requires all **10/10 primary queries** to be independently verified at Google/GSC position <= 3. Predeploy content quality does not substitute for ranking proof.
+
+Run source gates:
+
+```bash
+npm run batch:gate
 ```
 
-<!-- ASTRO:REMOVE:START -->
+Build gate:
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-<!-- ASTRO:REMOVE:END -->
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-<!-- ASTRO:REMOVE:START -->
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-<!-- ASTRO:REMOVE:END -->
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+```bash
+npm ci
+npm run build
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+Post-deploy live gates:
 
-## 🧞 Commands
+```bash
+npm run qa:googlebot
+npm run qa:crawl
+ANIMAPARTY_DEPLOY_DIR="<active-static-root>" npm run proof:live
+npm run proof:verify
+```
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Read `ANTIGRAVITY_DEPLOY_INSTRUCTIONS.md` before any server action.
