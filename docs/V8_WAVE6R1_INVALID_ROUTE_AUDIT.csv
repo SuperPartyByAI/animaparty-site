@@ -1,4 +1,0 @@
-URL,HTTP_STATUS,BEHAVIOR
-/invalid-url-1,404,404 Not Found Page
-/123xyz,404,404 Not Found Page
-/servicii/invalid,404,404 Not Found Page

@@ -1,9 +1,0 @@
-{
-  "INDEXABLE_ROUTES": 11,
-  "SITEMAP_URLS": 11,
-  "BUILD_STRUCTURE": "MATCH",
-  "CORE_CONTENT": "MATCH",
-  "ROUTES": "MATCH",
-  "ROBOTS": "MATCH",
-  "EXPECTED_DIFFERENCES": "Only timestamps and automatically generated hash strings differ between clean clone and live production."
-}

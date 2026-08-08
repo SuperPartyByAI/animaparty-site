@@ -1,3 +1,0 @@
-fact_id,service,authoritative_source,source_value,homepage_value,services_hub_value,money_page_value,faq_value,schema_value,whatsapp_value,status
-magician_age,magician,src/data/services.ts,"Programul se adaptează în funcție de vârsta",N/A,"Spectacole interactive de magie adaptate vârstei","Programul se adaptează",N/A,N/A,N/A,PASS
-food_consumables,food_stations,src/data/services.ts,"Pachete flexibile cu sau fara",N/A,"Configurații cu sau fără operator și consumabile","Pachete flexibile",N/A,N/A,N/A,PASS

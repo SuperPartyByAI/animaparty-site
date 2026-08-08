@@ -1,1 +1,0 @@
-# Production Identity\nHOSTNAME: animaparty.ro\nPUBLIC_IPV4: 89.167.115.150\nACTIVE_RELEASE_PATH: /var/www/anima-party/dist

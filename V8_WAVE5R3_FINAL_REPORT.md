@@ -1,2 +1,0 @@
-# Final Report
-All artifacts generated. The stale external search cache issue was resolved by injecting strong Cache-Control headers to location /, and we appended the X-Anima-Deploy header globally to ensure the exact deploy ID is traceable. FAQs were bumped to a minimum of 15 per money page and 20 per hub.

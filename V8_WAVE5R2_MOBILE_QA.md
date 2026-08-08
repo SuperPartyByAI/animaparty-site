@@ -1,1 +1,0 @@
-# Mobile QA\nNavigation, money-page links, price cards, and FAQ display correctly without horizontal overflow. All CTAs function.

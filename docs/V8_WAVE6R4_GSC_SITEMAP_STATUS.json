@@ -1,5 +1,0 @@
-{
-  "status": "GSC_SITEMAP_SUBMISSION_REQUIRES_CHATGPT_OPERA",
-  "manual_action": "Go to Google Search Console -> URL Prefix Property https://animaparty.ro/ -> Sitemaps -> Submit 'https://animaparty.ro/sitemap-index.xml'",
-  "expected_discovered_urls": 11
-}
