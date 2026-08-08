@@ -1,0 +1,12 @@
+URL,PRIMARY_INTENT,LIVE_HTTP_STATUS,SELF_CANONICAL,ROBOTS_ALLOWED,IN_SITEMAP,RAW_INLINKS_FROM_HOME,GSC_KNOWN,GSC_INDEXED,GSC_IMPRESSIONS,GSC_CLICKS,SEARCH_ENGINE_SELECTED_URL,EXPECTED_URL,SELECTION_STATUS
+https://animaparty.ro/,Brand/General Bucuresti+Ilfov,200,YES,YES,YES,YES,YES,YES,607,22,https://animaparty.ro/,https://animaparty.ro/,MATCH
+https://animaparty.ro/animatori-petreceri-copii-bucuresti/,Local Bucuresti intent,200,YES,YES,YES,YES,NO,NO,0,0,https://animaparty.ro/,https://animaparty.ro/animatori-petreceri-copii-bucuresti/,MISMATCH_FRESHNESS
+https://animaparty.ro/animatori-petreceri-copii-ilfov/,Local Ilfov intent,200,YES,YES,YES,YES,NO,NO,0,0,https://animaparty.ro/,https://animaparty.ro/animatori-petreceri-copii-ilfov/,MISMATCH_FRESHNESS
+https://animaparty.ro/mascote-petreceri-copii/,Mascots Service,200,YES,YES,YES,YES,NO,NO,0,0,UNKNOWN,https://animaparty.ro/mascote-petreceri-copii/,PENDING_INDEXATION
+https://animaparty.ro/decoratiuni-baloane-bucuresti/,Balloons Service,200,YES,YES,YES,YES,NO,NO,0,0,UNKNOWN,https://animaparty.ro/decoratiuni-baloane-bucuresti/,PENDING_INDEXATION
+https://animaparty.ro/animatori-pe-picioroange/,Stilt Walkers Service,200,YES,YES,YES,YES,NO,NO,0,0,UNKNOWN,https://animaparty.ro/animatori-pe-picioroange/,PENDING_INDEXATION
+https://animaparty.ro/magician-petreceri-copii/,Magician Service,200,YES,YES,YES,YES,NO,NO,0,0,UNKNOWN,https://animaparty.ro/magician-petreceri-copii/,PENDING_INDEXATION
+https://animaparty.ro/vata-de-zahar-popcorn-evenimente/,Food Stations Service,200,YES,YES,YES,YES,NO,NO,0,0,UNKNOWN,https://animaparty.ro/vata-de-zahar-popcorn-evenimente/,PENDING_INDEXATION
+https://animaparty.ro/servicii/,Hub/Navigation,200,YES,YES,YES,YES,NO,NO,0,0,UNKNOWN,https://animaparty.ro/servicii/,PENDING_INDEXATION
+https://animaparty.ro/contact/,Contact Info,200,YES,YES,YES,YES,NO,NO,0,0,UNKNOWN,https://animaparty.ro/contact/,PENDING_INDEXATION
+https://animaparty.ro/animatori-petreceri-copii/,General Information,200,YES,YES,YES,YES,NO,NO,0,0,UNKNOWN,https://animaparty.ro/animatori-petreceri-copii/,PENDING_INDEXATION

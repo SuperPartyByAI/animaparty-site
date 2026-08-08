@@ -1,0 +1,5 @@
+CLAIM,URL,SOURCE_FILE,BUSINESS_SOURCE,CONFIRMED,VERDICT
+"Balloon Exploder este inclus",/,faqHome.ts,business-facts.ts,NO,GENERALIZE TO OPTIONAL
+"Piñata se confirma inainte",/,faqHome.ts,business-facts.ts,YES,GENERALIZED
+"Mascota dureaza 1 ora",/mascote-petreceri-copii/,mascote-petreceri-copii.astro,None,NO,GENERALIZE
+"Copiii sub 3 ani sunt intimidati",/mascote-petreceri-copii/,mascote-petreceri-copii.astro,None,NO,GENERALIZE TO VERY SMALL CHILDREN

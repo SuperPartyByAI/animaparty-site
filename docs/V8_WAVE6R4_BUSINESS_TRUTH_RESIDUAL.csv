@@ -1,0 +1,12 @@
+Page,Residual Claim,Action,New Wording
+Bucuresti,"O oră este excelentă pentru atenția copiilor foarte mici...",Generalize,"Pachetul de 1 oră acoperă activitățile de bază. Pentru 2 ore..."
+Bucuresti,"pentru orice tip de petrecere de copii",Generalize,"pentru petreceri de copii"
+Ilfov,"O oră este excelentă pentru atenția copiilor foarte mici...",Generalize,"Pachetul de 1 oră acoperă activitățile de bază. Pentru 2 ore..."
+Ilfov,"oriunde în Ilfov",Generalize,"în principalele localități din Ilfov"
+Ilfov,"în orice localitate din județul Ilfov",Generalize,"în majoritatea localităților din județul Ilfov (precum...)"
+Ilfov,"pentru orice tip de petrecere",Generalize,"pentru petreceri de copii"
+Ilfov,"Majoritatea petrecerilor din județul Ilfov au loc la casă",Generalize,"Pentru petrecerile organizate la curte sau acasă..."
+Ilfov,"venim frecvent la restaurante și terase din Ilfov",Generalize,"venim la restaurante și terase"
+Picioroange,"În funcție de model, pot ajunge la 2.5 - 3 metri înălțime.",Generalize,"Înălțimea diferă în funcție de tipul de echipament folosit."
+Picioroange,"Da, animatorii pot interacționa cu publicul oferind baloane modelate sau materiale promoționale.",Verified,"(Kept intact as verified operational capability)"
+Food,"Oferim aceste servicii în sectoarele 1-6 și în Județul Ilfov.",Centralized,"{businessFacts.transportBucuresti} {businessFacts.transportIlfov}"

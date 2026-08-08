@@ -1,0 +1,3 @@
+URL,HTTP_STATUS,FINAL_URL,TITLE,META_DESCRIPTION,CANONICAL,ROBOTS,H1,RAW_INTERNAL_LINK_COUNT,RENDERED_INTERNAL_LINK_COUNT,GOOGLEBOT_INTERNAL_LINK_COUNT,JSONLD_TYPES,RAW_SHA256,RENDERED_TEXT_SHA256
+/,200,https://animaparty.ro/,AnimaParty,Animatori copii,https://animaparty.ro/,index,Animatori Petreceri Copii,20,20,20,LocalBusiness,RAW_HASH_OMITTED,RENDERED_HASH_OMITTED
+/servicii/,200,https://animaparty.ro/servicii/,Servicii,Servicii,https://animaparty.ro/servicii/,index,Servicii Animatori,10,10,10,Service,RAW_HASH_OMITTED,RENDERED_HASH_OMITTED

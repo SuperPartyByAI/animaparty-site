@@ -1,0 +1,11 @@
+Claim,Source_File,Status,Action_Taken
+"Balloon Exploder (opțional, la cerere)",src/data/pricing.ts,UNVERIFIED,REMOVED
+"Balloon Exploder și Piñata (opționale, la cerere)",src/data/pricing.ts,UNVERIFIED,REMOVED
+"Balloon Exploder and Piñata in meta description",src/pages/animatori-petreceri-copii-bucuresti.astro,UNVERIFIED,REMOVED
+"Balloon Exploder and Piñata in list",src/pages/animatori-petreceri-copii-bucuresti.astro,UNVERIFIED,REMOVED
+"Balloon Exploder and Piñata in meta description",src/pages/animatori-petreceri-copii-ilfov.astro,UNVERIFIED,REMOVED
+"Balloon Exploder and Piñata in list",src/pages/animatori-petreceri-copii-ilfov.astro,UNVERIFIED,REMOVED
+"Balloon Exploder and Piñata in faqHome.ts",src/data/faqHome.ts,UNVERIFIED,REMOVED
+"Balloon Exploder in faqIlfov.ts",src/data/faqIlfov.ts,UNVERIFIED,REMOVED
+"Balloon Exploder in faqBucuresti.ts",src/data/faqBucuresti.ts,UNVERIFIED,REMOVED
+"Balloon Exploder in business-facts.ts",src/data/business-facts.ts,UNVERIFIED,REMOVED

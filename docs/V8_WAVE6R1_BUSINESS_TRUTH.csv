@@ -1,0 +1,6 @@
+CLAIM,VALUE,AUTHORITATIVE_SOURCE,SOURCE_TYPE,CONFIRMED,PUBLIC_URLS_USING_IT
+ANIMATOR_PRICES,"490 RON / pachet 2h, 830 RON / pachet 2h",src/data/pricing.ts,Internal TS,YES,/, /animatori-petreceri-copii/*
+BUCURESTI_TRANSPORT,"Inclus in Sectoarele 1-6",src/data/business-facts.ts,Internal TS,YES,all
+ILFOV_TRANSPORT,"Cost comunicat înainte de confirmare",src/data/business-facts.ts,Internal TS,YES,all
+MASCOT_PRICE,"Preț la cerere",src/pages/mascote-petreceri-copii.astro,Component,YES,/mascote-petreceri-copii/
+STILT_PRICES,"Preț la cerere",src/pages/animatori-pe-picioroange.astro,Component,YES,/animatori-pe-picioroange/
